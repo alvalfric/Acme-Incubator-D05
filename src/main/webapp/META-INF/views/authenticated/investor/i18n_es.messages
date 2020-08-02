@@ -1,0 +1,10 @@
+authenticated.provider.provider.form.title.create = Hazte inversor
+authenticated.provider.provider.form.title.update = Actualizar datos de inversor
+
+authenticated.investor.form.label.firmName = Nombre firma:
+authenticated.investor.form.label.activitySector = Sector de actividad:
+authenticated.investor.form.label.profile = Perfil:
+
+authenticated.investor.form.button.create = Registrar
+authenticated.investor.form.button.update = Actualizar
+authenticated.investor.form.button.return = Volver

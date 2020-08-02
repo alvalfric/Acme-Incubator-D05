@@ -1,10 +1,10 @@
 authenticated.entrepeneur.entrepeneur.form.title.create = Hazte empresario
 authenticated.entrepeneur.entrepeneur.form.title.update = Actualizar datos de empresario
 
-authenticated.entrepeneur.form.label.startUpName = Nombre Start Up
-authenticated.entrepeneur.form.label.activitySector = Sector de Actividad
-authenticated.entrepeneur.form.label.qualification = Cualificación
-authenticated.entrepeneur.form.label.skills = Habilidades
+authenticated.entrepeneur.form.label.startUpName = Nombre Start Up:
+authenticated.entrepeneur.form.label.activitySector = Sector de Actividad:
+authenticated.entrepeneur.form.label.qualification = Cualificación:
+authenticated.entrepeneur.form.label.skills = Habilidades:
 
 authenticated.entrepeneur.form.button.create = Registrar
 authenticated.entrepeneur.form.button.update = Actualizar
