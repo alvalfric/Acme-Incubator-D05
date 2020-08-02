@@ -1,0 +1,11 @@
+authenticated.entrepeneur.entrepeneur.form.title.create = Become an entrepeneur
+authenticated.entrepeneur.entrepeneur.form.title.update = Update entrepeneur data
+
+authenticated.entrepeneur.form.label.startUpName = Start Up Name
+authenticated.entrepeneur.form.label.activitySector = Activity Sector
+authenticated.entrepeneur.form.label.qualification = Qualification
+authenticated.entrepeneur.form.label.skills = Skills
+
+authenticated.entrepeneur.form.button.create = Register
+authenticated.entrepeneur.form.button.update = Update
+authenticated.entrepeneur.form.button.return = Return
