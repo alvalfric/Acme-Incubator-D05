@@ -1,0 +1,20 @@
+bookkeeper.investment-round.form.label.ticker = Identificador
+bookkeeper.investment-round.form.label.creation = Fecha de creación
+bookkeeper.investment-round.form.label.round = Ronda de inversión
+bookkeeper.investment-round.form.label.title = Título
+bookkeeper.investment-round.form.label.description = Descripción
+bookkeeper.investment-round.form.label.amount = Cantidad
+bookkeeper.investment-round.form.label.link = Más información
+bookkeeper.investment-round.form.label.workProgramme = Actividades del Programa de Trabajo
+bookkeeper.investment-round.form.label.workProgramme.title = Título
+bookkeeper.investment-round.form.label.workProgramme.creation = Fecha de creación
+bookkeeper.investment-round.form.label.workProgramme.deadline = Fecha de finalización
+bookkeeper.investment-round.form.label.workProgramme.money = Cantidad
+
+bookkeeper.investment-round.list.label.ticker = Identificador
+bookkeeper.investment-round.list.label.title = Título
+bookkeeper.investment-round.list.label.round = Ronda de inversión
+bookkeeper.investment-round.list.label.creation = Creación
+
+bookkeeper.investment-round.form.button.accounting-record = Registros de Contabilidad
+bookkeeper.investment-round.form.button.return = Volver

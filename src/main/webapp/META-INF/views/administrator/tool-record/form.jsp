@@ -1,0 +1,35 @@
+<%@page language="java"%>
+<%@taglib prefix="jstl" uri ="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="acme" tagdir ="/WEB-INF/tags"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
+
+<acme:form>
+	<acme:form-textbox code="administrator.tool-record.form.label.title" path="title" placeholder="Title"/>
+	<acme:form-textbox code="administrator.tool-record.form.label.activitySector" path="activitySector" placeholder="Activity Sector"/>
+	<acme:form-textbox code="administrator.tool-record.form.label.inventorName" path="inventorName" placeholder="Inventors' Name"/>
+	<acme:form-textarea code="administrator.tool-record.form.label.description" path="description" placeholder="Description"/>
+	<acme:form-url code="administrator.tool-record.form.label.website" path="website" placeholder="https://example.com/"/>
+	<acme:form-textbox code="administrator.tool-record.form.label.email" path="email" placeholder="user@mail.com"/>
+	<acme:form-select code="administrator.tool-record.form.label.sourceType" path="sourceType">
+		<acme:form-option code="administrator.tool-record.form.label.openSource" value="Open-Source"/>
+		<acme:form-option code="administrator.tool-record.form.label.closedSource" value="Closed-Source"/>
+	</acme:form-select>
+	<acme:form-textbox code="administrator.tool-record.form.label.stars" path="stars" placeholder="5"/>
+
+	<acme:form-submit test="${command == 'show'}"
+		code="administrator.tool-record.form.button.update" 
+		action="/administrator/tool-record/update"/>
+	<acme:form-submit test="${command == 'show'}"
+		code="administrator.tool-record.form.button.delete" 
+		action="/administrator/tool-record/delete"/>
+	<acme:form-submit test="${command == 'create'}"
+		code="administrator.tool-record.form.button.create" 
+		action="/administrator/tool-record/create"/>
+	<acme:form-submit test="${command == 'update'}"
+		code="administrator.tool-record.form.button.update" 
+		action="/administrator/tool-record/update"/>
+	<acme:form-submit test="${command == 'delete'}"
+		code="administrator.tool-record.form.button.delete" 
+		action="/administrator/tool-record/delete"/>
+	<acme:form-return code="administrator.tool-record.form.button.return"/>
+</acme:form>

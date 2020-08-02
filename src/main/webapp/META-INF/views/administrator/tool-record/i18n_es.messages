@@ -1,0 +1,23 @@
+administrator.tool-record.list.label.title = Título
+administrator.tool-record.list.label.activitySector = Sector de Actividad
+administrator.tool-record.list.label.inventorName = Nombre del Inventor
+administrator.tool-record.list.label.stars = Estrellas
+
+administrator.tool-record.form.label.title = Título
+administrator.tool-record.form.label.activitySector = Sector de Actividad 
+administrator.tool-record.form.label.inventorName = Nombre del Inventor
+administrator.tool-record.form.label.description = Descripción
+administrator.tool-record.form.label.website = Website
+administrator.tool-record.form.label.email = Email
+administrator.tool-record.form.label.sourceType = Tipo de Fuente
+administrator.tool-record.form.label.openSource = Open-Source
+administrator.tool-record.form.label.closedSource = Closed-Source
+administrator.tool-record.form.label.stars = Estrellas
+
+administrator.tool-record.form.button.create = Crear
+administrator.tool-record.form.button.update = Actualizar
+administrator.tool-record.form.button.delete = Borrar
+administrator.tool-record.form.button.return = Volver
+
+administrator.tool-record.error.null = No puede estar en blanco
+administrator.tool-record.error.source = Source erronea

@@ -1,0 +1,20 @@
+entrepeneur.investment-round.form.label.ticker = Identificador
+entrepeneur.investment-round.form.label.creation = Fecha de creación
+entrepeneur.investment-round.form.label.round = Ronda de inversión
+entrepeneur.investment-round.form.label.title = Título
+entrepeneur.investment-round.form.label.description = Descripción
+entrepeneur.investment-round.form.label.amount = Cantidad
+entrepeneur.investment-round.form.label.link = Más información
+entrepeneur.investment-round.form.label.workProgramme = Actividades del Programa de Trabajo
+entrepeneur.investment-round.form.label.workProgramme.title = Título
+entrepeneur.investment-round.form.label.workProgramme.creation = Fecha de creación
+entrepeneur.investment-round.form.label.workProgramme.deadline = Fecha de finalización
+entrepeneur.investment-round.form.label.workProgramme.money = Cantidad
+
+entrepeneur.investment-round.list.label.ticker = Identificador
+entrepeneur.investment-round.list.label.title = Título
+entrepeneur.investment-round.list.label.round = Ronda de inversión
+entrepeneur.investment-round.list.label.creation = Creación
+
+entrepeneur.investment-round.form.button.accounting-record = Registros de Contabilidad
+entrepeneur.investment-round.form.button.return = Volver

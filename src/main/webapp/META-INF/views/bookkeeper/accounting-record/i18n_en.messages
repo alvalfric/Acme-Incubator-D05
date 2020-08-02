@@ -1,0 +1,10 @@
+bookkeeper.accounting-record.form.label.title = Title
+bookkeeper.accounting-record.form.label.status = Status
+bookkeeper.accounting-record.form.label.creation = Creation
+bookkeeper.accounting-record.form.label.body = Body
+
+bookkeeper.accounting-record.list.label.title = Title
+bookkeeper.accounting-record.list.label.status = Status
+bookkeeper.accounting-record.list.label.creation = Creation
+
+bookkeeper.accounting-record.form.button.return = Return

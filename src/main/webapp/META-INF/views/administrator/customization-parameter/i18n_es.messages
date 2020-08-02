@@ -1,0 +1,6 @@
+administrator.customization-parameter.form.label.spamWordsEnglish = Palabras no deseadas Ingles
+administrator.customization-parameter.form.label.spamWordsSpanish = Palabras no deseadas Español
+administrator.customization-parameter.form.label.spamThreshold = Límite palabras no deseadas
+
+administrator.customisation-parameter.form.button.update = Actualizar
+administrator.customization-parameter.form.button.return = Volver

@@ -1,0 +1,10 @@
+authenticated.accounting-record.form.label.title = Title
+authenticated.accounting-record.form.label.status = Status
+authenticated.accounting-record.form.label.creation = Creation
+authenticated.accounting-record.form.label.body = Body
+
+authenticated.accounting-record.list.label.title = Title
+authenticated.accounting-record.list.label.status = Status
+authenticated.accounting-record.list.label.creation = Creation
+
+authenticated.accounting-record.form.button.return = Return

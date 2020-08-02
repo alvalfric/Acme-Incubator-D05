@@ -1,0 +1,10 @@
+authenticated.notice.list.label.title = Títular
+authenticated.notice.list.label.creation = Fecha Creación
+
+authenticated.notice.form.label.title = Títular
+authenticated.notice.form.label.creation = Fecha Creación
+authenticated.notice.form.label.body = Cuerpo
+authenticated.notice.form.label.relatedLink1 = Link relacionado 1
+authenticated.notice.form.label.relatedLink2 = Link relacionado 2
+
+authenticated.notice.form.button.return = Volver

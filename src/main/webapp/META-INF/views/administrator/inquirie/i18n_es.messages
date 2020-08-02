@@ -1,0 +1,22 @@
+administrator.inquirie.list.label.title = Título
+administrator.inquirie.list.label.creation = Fecha de Creación
+administrator.inquirie.list.label.deadline = Fecha Límite
+
+administrator.inquirie.form.label.title = Título
+administrator.inquirie.form.label.creation = Fecha de Creación
+administrator.inquirie.form.label.deadline = Fecha Límite
+administrator.inquirie.form.label.body = Cuerpo
+administrator.inquirie.form.label.minMoney = Mínimo Dinero
+administrator.inquirie.form.label.maxMoney = Máximo Dinero
+administrator.inquirie.form.label.contactEmail = Email de Contacto
+
+administrator.inquirie.form.button.create = Crear
+administrator.inquirie.form.button.update = Actualizar
+administrator.inquirie.form.button.delete = Borrar
+administrator.inquirie.form.button.return = Volver
+
+# errors ######################################################################
+
+administrator.inquirie.error.futuro-deadline = Debe ser una fecha en presente o en futuro
+administrator.inquirie.error.currency = Debe estar en € o EUR
+administrator.inquirie.error.money = Dinero máximo debe ser igual o mayor que dinero mínimo

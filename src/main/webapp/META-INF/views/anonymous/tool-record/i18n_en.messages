@@ -1,0 +1,15 @@
+anonymous.tool-record.list.label.title = Title
+anonymous.tool-record.list.label.activitySector = Activity Sector
+anonymous.tool-record.list.label.inventorName = Inventor Name
+anonymous.tool-record.list.label.stars = Stars
+
+anonymous.tool-record.form.label.title = Title
+anonymous.tool-record.form.label.activitySector = Activity Sector
+anonymous.tool-record.form.label.inventorName = Inventor Name
+anonymous.tool-record.form.label.description = Description
+anonymous.tool-record.form.label.website = Website
+anonymous.tool-record.form.label.email = Email
+anonymous.tool-record.form.label.sourceType = Source Type
+anonymous.tool-record.form.label.stars = Stars
+
+anonymous.tool-record.form.button.return = Return

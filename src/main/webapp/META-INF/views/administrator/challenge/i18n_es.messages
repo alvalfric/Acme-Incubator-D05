@@ -1,0 +1,19 @@
+administrator.challenge.list.label.title = Título
+administrator.challenge.list.label.deadline = Fecha de Finalización
+administrator.challenge.list.label.description = Descripción
+administrator.challenge.form.label.expertGoalReward = Objetivo/Recompensa Experto
+administrator.challenge.form.label.averageGoalReward = Objetivo/Recompensa Promedio
+administrator.challenge.form.label.rookieGoalReward = Objetivo/Recompensa Novato
+administrator.challenge.form.label.expertGoal = Objetivo Experto
+administrator.challenge.form.label.expertReward = Recompensa Experto
+administrator.challenge.form.label.averageGoal = Objetivo Promedio
+administrator.challenge.form.label.averageReward = Recompensa Promedio
+administrator.challenge.form.label.rookieGoal = Objetivo Novato
+administrator.challenge.form.label.rookieReward = Recompensa Novato
+
+administrator.challenge.form.button.create = Crear
+administrator.challenge.form.button.update = Actualizar
+administrator.challenge.form.button.delete = Borrar
+administrator.challenge.form.button.return = Volver
+
+administrator.challenge.error.deadline = Debe ser una fecha al menos 1 mes en el futuro

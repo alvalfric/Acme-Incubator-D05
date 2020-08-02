@@ -1,0 +1,147 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# master.banner.welcome #######################################################
+
+master.banner.background = #8ab908 
+
+﻿# master.welcome ##############################################################
+
+master.welcome.title = ¡Bienvenidos!
+master.welcome.text = \
+	Bienvenidos a Acme Stater!  Nunca antes ha sido tan sencillo desarrollar un \
+	proyecto y hacerlo funcionar.
+
+# master.menu #################################################################
+
+master.menu.home = Inicio
+master.menu.sign-up = Registrarse
+master.menu.sign-in = Entrar
+master.menu.sign-out = Salir
+
+# master.menu.anonymous #######################################################
+
+master.menu.anonymous = Anónimo
+master.menu.anonymous.favourite-link = Enlace favorito
+master.menu.anonymous.favourite-link.alvaro = Enlace favorito Alvaro
+master.menu.anonymous.shout.list = Lista de gritos
+master.menu.anonymous.shout.create = Gritar
+master.menu.anonymous.alferez-bulletin.list = Lista de AlferezBulletins
+master.menu.anonymous.alferez-bulletin.create = Crear AlferezBulletin
+
+master.menu.anonymous.notice.list = Listar Noticias
+master.menu.anonymous.technology-record.list = Listar Registros Tecnológicos
+master.menu.anonymous.tool-record.list = Listar Registros de Herramientas
+
+# master.menu.administrator ###################################################
+
+master.menu.administrator = Administrador
+master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.shutdown = Parar el sistema
+
+master.menu.administrator.customization-parameter.show = Ver Parámetros de Customización
+
+master.menu.administrator.notice.create = Crear Noticia
+master.menu.administrator.notice.list = Listar Noticias
+master.menu.administrator.inquirie.create = Crear Investigación
+master.menu.administrator.inquirie.list = Listar Investigaciones
+master.menu.administrator.overture.create = Crear Propuesta
+master.menu.administrator.overture.list = Listar Propuestas
+master.menu.administrator.technology-record.create = Crear Registro Tecnológico
+master.menu.administrator.technology-record.list = Listar Registros Tecnológicos
+master.menu.administrator.tool-record.create = Crear Registro de Herramienta
+master.menu.administrator.tool-record.list = Listar Registros de Herramientas
+master.menu.administrator.challenge.create = Crear Reto
+master.menu.administrator.challenge.list = Listar Retos
+
+# master.menu.authenticated ###################################################
+
+master.menu.provider = Autentificado
+master.menu.authenticated.notice.list = Listar Noticias
+master.menu.authenticated.technology-record.list = Listar Registros Tecnológicos
+master.menu.authenticated.tool-record.list = Listar Registros de Herramientas
+master.menu.authenticated.inquirie.list = Listar Investigaciones
+master.menu.authenticated.overture.list = Listar Propuestas
+master.menu.authenticated.challenge.list = Listar Retos
+master.menu.authenticated.investment-round.list = Listar Rondas de Inversión
+master.menu.authenticated.forum.list = Listar Foros
+
+# master.menu.provider ########################################################
+
+master.menu.provider = Proveedor
+master.menu.provider.favourite-link = Enlace favorito
+
+# master.menu.consumer ########################################################
+
+master.menu.consumer = Consumidor
+master.menu.consumer.favourite-link = Enlace favorito
+
+# master.menu.entrepeneur #####################################################
+
+master.menu.entrepeneur = Empresario
+master.menu.entrepeneur.investment-round.list = Listar Rondas de Inversión
+master.menu.entrepeneur.application.list = Listar solucitudes de Rondas de Inversión
+
+# master.menu.investor ########################################################
+
+master.menu.investor = Inversor
+master.menu.investor.application.list = Listar solicitudes
+
+# master.menu.bookkeeper ########################################################
+
+master.menu.bookkeeper = Contable
+master.menu.bookkeeper.investment-round.list.written = Listar Rondas de Inversión Con Registro Contable
+master.menu.bookkeeper.investment-round.list.not-written = Listar Rondas de Inversión Sin Registro Contable
+
+# master.menu.user-account ####################################################
+
+master.menu.user-account = Cuenta
+master.menu.user-account.general-data = Datos generales
+master.menu.user-account.provider = Datos de proveedor
+master.menu.user-account.become-provider = Hazte proveedor
+master.menu.user-account.consumer = Datos de consumidor
+master.menu.user-account.become-consumer = Hazte consumidor
+
+﻿# master.footer ###############################################################
+
+master.footer.title.about = Nosotros
+master.footer.label.company = La empresa
+master.footer.label.license = Licencia
+master.footer.title.social = Social
+master.footer.label.linked-in = Linked-In
+master.footer.label.twitter = Twitter
+master.footer.title.languages = Lenguages
+master.footer.label.english = Inglés
+master.footer.label.spanish = Español
+
+# master.company ##############################################################
+
+master.company.title = La compañía
+master.company.text = \
+	Starter Project, Inc. es una compañía fictícia que proporciona un proyecto \
+	plantilla para los estudiantes de la asignatura Diseño y Pruebas, en el Grado \
+	en Ingeniería del Software de la Universidad de Sevilla.
+master.company.name = Starter Project, Inc.
+master.company.address = Calle, número, Ciudad, Estado, País
+master.company.phone = +000 123 456
+master.company.email = contact@acme.com
+
+# master.license ##############################################################
+
+master.license.title = Licencia
+master.license.text = \
+	Puede usar este sistema de forma completamente gratuita respetando las leyes \
+	que sean aplicables.  No compartimos ninguna información sobre Ud. con ninguna \
+	otra empresa.  Tan sólo usamos tres cookies, a saber: "JSESSIONID" para identificar \
+	su sesión de trabajo, "remember" para mantener su información de autentificación \
+	durante un máximo de 31 días y "language" para almacenar sus preferencias de \
+	lenguage.  Además, almacenamos un ítem llamado "returnStack" en el almacenamiento \
+	local de su navegador para saber dónde tienen que ir algunos botones.
+	

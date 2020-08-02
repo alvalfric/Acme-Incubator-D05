@@ -1,0 +1,18 @@
+administrator.notice.list.label.title = Title
+administrator.notice.list.label.creation = Creation Date
+
+administrator.notice.form.label.title = Title
+administrator.notice.form.label.headerPicture = Header Picture
+administrator.notice.form.label.creation = Creation Date
+administrator.notice.form.label.deadline = Deadline
+administrator.notice.form.label.body = Body
+administrator.notice.form.label.relatedLink1 = Related link 1 
+administrator.notice.form.label.relatedLink2 = Related link 2
+administrator.notice.form.label.checkbox = Confirmation checkbox
+
+administrator.notice.form.button.create = Create
+administrator.notice.form.button.return = Return
+
+administrator.notice.error.null = Must not be blank
+administrator.notice.error.futuro-deadline = Must be a date in the present or in the future
+administrator.notice.error.must-confirm = Must confirm the creation checkbox

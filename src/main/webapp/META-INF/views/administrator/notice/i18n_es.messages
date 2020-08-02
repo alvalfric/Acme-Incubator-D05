@@ -1,0 +1,18 @@
+administrator.notice.list.label.title = Títular
+administrator.notice.list.label.creation = Fecha Creación
+
+administrator.notice.form.label.title = Títular
+administrator.notice.form.label.headerPicture = Imagen Encabezado
+administrator.notice.form.label.creation = Fecha Creación
+administrator.notice.form.label.deadline = Fecha Finalización
+administrator.notice.form.label.body = Cuerpo
+administrator.notice.form.label.relatedLink1 = Link relacionado 1
+administrator.notice.form.label.relatedLink2 = Link relacionado 2
+administrator.notice.form.label.checkbox = Casilla de confirmación
+
+administrator.notice.form.button.create = Crear
+administrator.notice.form.button.return = Volver
+
+administrator.notice.error.null = No puede ser nulo
+administrator.notice.error.futuro-deadline = Tiene que ser una fecha en el presente o en el futuro
+administrator.notice.error.must-confirm = Debe confirmar la casilla de creación

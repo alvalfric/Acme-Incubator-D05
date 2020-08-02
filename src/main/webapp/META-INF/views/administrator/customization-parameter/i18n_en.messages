@@ -1,0 +1,6 @@
+administrator.customization-parameter.form.label.spamWordsEnglish = English Spam Words
+administrator.customization-parameter.form.label.spamWordsSpanish = Spanish Spam Words
+administrator.customization-parameter.form.label.spamThreshold = Spam Words Threshold
+
+administrator.customisation-parameter.form.button.update = Update
+administrator.customization-parameter.form.button.return = Return

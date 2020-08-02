@@ -1,0 +1,13 @@
+authenticated.inquirie.list.label.title = Título
+authenticated.inquirie.list.label.creation = Fecha de Creación
+authenticated.inquirie.list.label.deadline = Fecha Límite
+
+authenticated.inquirie.form.label.title = Título
+authenticated.inquirie.form.label.creation = Fecha de Creación
+authenticated.inquirie.form.label.deadline = Fecha Límite
+authenticated.inquirie.form.label.body = Cuerpo
+authenticated.inquirie.form.label.minMoney = Mínimo Dinero
+authenticated.inquirie.form.label.maxMoney = Máximo Dinero
+authenticated.inquirie.form.label.contactEmail = Email de Contacto
+
+authenticated.inquirie.form.button.return = Volver

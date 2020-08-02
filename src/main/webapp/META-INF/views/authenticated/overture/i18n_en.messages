@@ -1,0 +1,13 @@
+anonymous.overture.list.label.title = Title
+anonymous.overture.list.label.creation = Creation Date
+anonymous.overture.list.label.deadline = Deadline
+
+anonymous.overture.form.label.title = Title
+anonymous.overture.form.label.creation = Creation Date
+anonymous.overture.form.label.deadline = Deadline
+anonymous.overture.form.label.body = Description
+anonymous.overture.form.label.minMoney = Minimun Money
+anonymous.overture.form.label.maxMoney = Maximum Money
+anonymous.overture.form.label.contactEmail = Contact Email
+
+anonymous.overture.form.button.return = Return

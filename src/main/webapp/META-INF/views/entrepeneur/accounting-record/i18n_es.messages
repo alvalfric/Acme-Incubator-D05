@@ -1,0 +1,10 @@
+entrepeneur.accounting-record.form.label.title = Título
+entrepeneur.accounting-record.form.label.status = Estado
+entrepeneur.accounting-record.form.label.creation = Fecha de creación
+entrepeneur.accounting-record.form.label.body = Cuerpo
+
+entrepeneur.accounting-record.list.label.title = Título
+entrepeneur.accounting-record.list.label.status = Estado
+entrepeneur.accounting-record.list.label.creation = Fecha de creación
+
+entrepeneur.accounting-record.form.button.return = Volver

@@ -1,0 +1,22 @@
+administrator.inquirie.list.label.title = Title
+administrator.inquirie.list.label.creation = Creation Date
+administrator.inquirie.list.label.deadline = Deadline
+
+administrator.inquirie.form.label.title = Title
+administrator.inquirie.form.label.creation = Creation Date
+administrator.inquirie.form.label.deadline = Deadline
+administrator.inquirie.form.label.body = Description
+administrator.inquirie.form.label.minMoney = Minimun Money
+administrator.inquirie.form.label.maxMoney = Maximum Money
+administrator.inquirie.form.label.contactEmail = Contact Email
+
+administrator.inquirie.form.button.create = Create
+administrator.inquirie.form.button.update = Update
+administrator.inquirie.form.button.delete = Delete
+administrator.inquirie.form.button.return = Return
+
+# errors ######################################################################
+
+administrator.inquirie.error.futuro-deadline = Must be a date in the present or in the future
+administrator.inquirie.error.currency = Must be in € or EUR
+administrator.inquirie.error.money = Max money must be equal or greater than min money

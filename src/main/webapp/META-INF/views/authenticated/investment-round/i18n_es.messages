@@ -1,0 +1,20 @@
+authenticated.investment-round.form.label.ticker = Identificador
+authenticated.investment-round.form.label.creation = Fecha de creación
+authenticated.investment-round.form.label.round = Ronda de inversión
+authenticated.investment-round.form.label.title = Título
+authenticated.investment-round.form.label.description = Descripción
+authenticated.investment-round.form.label.amount = Cantidad
+authenticated.investment-round.form.label.link = Más información
+authenticated.investment-round.form.label.workProgramme = Actividades del Programa de Trabajo
+authenticated.investment-round.form.label.workProgramme.title = Título
+authenticated.investment-round.form.label.workProgramme.creation = Fecha de creación
+authenticated.investment-round.form.label.workProgramme.deadline = Fecha de finalización
+authenticated.investment-round.form.label.workProgramme.money = Cantidad
+
+authenticated.investment-round.list.label.ticker = Identificador
+authenticated.investment-round.list.label.title = Título
+authenticated.investment-round.list.label.round = Ronda de inversión
+authenticated.investment-round.list.label.creation = Creación
+
+authenticated.investment-round.form.button.accounting-record = Registros de Contabilidad
+authenticated.investment-round.form.button.return = Volver

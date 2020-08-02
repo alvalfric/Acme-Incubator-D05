@@ -1,0 +1,10 @@
+entrepeneur.accounting-record.form.label.title = Title
+entrepeneur.accounting-record.form.label.status = Status
+entrepeneur.accounting-record.form.label.creation = Creation
+entrepeneur.accounting-record.form.label.body = Body
+
+entrepeneur.accounting-record.list.label.title = Title
+entrepeneur.accounting-record.list.label.status = Status
+entrepeneur.accounting-record.list.label.creation = Creation
+
+entrepeneur.accounting-record.form.button.return = Return

@@ -1,0 +1,23 @@
+administrator.technology-record.list.label.title = Title
+administrator.technology-record.list.label.activitySector = Activity Sector
+administrator.technology-record.list.label.inventorName = Inventor Name
+administrator.technology-record.list.label.stars = Stars
+
+administrator.technology-record.form.label.title = Title
+administrator.technology-record.form.label.activitySector = Activity Sector
+administrator.technology-record.form.label.inventorName = Inventor Name
+administrator.technology-record.form.label.description = Description
+administrator.technology-record.form.label.website = Website
+administrator.technology-record.form.label.email = Email
+administrator.technology-record.form.label.sourceType = Source Type
+administrator.technology-record.form.label.openSource = Open-Source
+administrator.technology-record.form.label.closedSource = Closed-Source
+administrator.technology-record.form.label.stars = Stars
+
+administrator.technology-record.form.button.create = Create
+administrator.technology-record.form.button.update = Update
+administrator.technology-record.form.button.delete = Delete
+administrator.technology-record.form.button.return = Return
+
+administrator.technology-record.error.null = Must not be blank
+administrator.technology-record.error.source = Wrong source

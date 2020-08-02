@@ -1,0 +1,15 @@
+anonymous.technology-record.list.label.title = Título
+anonymous.technology-record.list.label.activitySector = Sector de Actividad
+anonymous.technology-record.list.label.inventorName = Nombre del Inventor
+anonymous.technology-record.list.label.stars = Estrellas
+
+anonymous.technology-record.form.label.title = Título
+anonymous.technology-record.form.label.activitySector = Sector de Actividad 
+anonymous.technology-record.form.label.inventorName = Nombre del Inventor
+anonymous.technology-record.form.label.description = Descripción
+anonymous.technology-record.form.label.website = Website
+anonymous.technology-record.form.label.email = Email
+anonymous.technology-record.form.label.sourceType = Tipo de Fuente
+anonymous.technology-record.form.label.stars = Estrellas
+
+anonymous.technology-record.form.button.return = Volver
