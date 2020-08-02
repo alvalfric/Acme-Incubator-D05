@@ -1,0 +1,10 @@
+authenticated.investor.investor.form.title.create = Become an investor
+authenticated.investor.investor.form.title.update = Update investor data
+
+authenticated.investor.form.label.firmName = Firm name:
+authenticated.investor.form.label.activitySector = Activity Sector:
+authenticated.investor.form.label.profile = Profile:
+
+authenticated.investor.form.button.create = Register
+authenticated.investor.form.button.update = Update
+authenticated.investor.form.button.return = Return
