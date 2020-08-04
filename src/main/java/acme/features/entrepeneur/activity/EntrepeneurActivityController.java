@@ -1,5 +1,5 @@
 
-package acme.features.entrepeneur.investmentRound;
+package acme.features.entrepeneur.activity;
 
 import javax.annotation.PostConstruct;
 
@@ -7,34 +7,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.entities.investmentRounds.InvestmentRound;
+import acme.entities.investmentRounds.Activity;
 import acme.entities.roles.Entrepeneur;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-@RequestMapping("/entrepeneur/investment-round/")
-public class EntrepeneurInvestmentRoundController extends AbstractController<Entrepeneur, InvestmentRound> {
+@RequestMapping("/entrepeneur/activity/")
+public class EntrepeneurActivityController extends AbstractController<Entrepeneur, Activity> {
 
 	@Autowired
-	private EntrepeneurInvestmentRoundListService	listService;
+	private EntrepeneurActivityShowService		showService;
 
 	@Autowired
-	private EntrepeneurInvestmentRoundShowService	showService;
+	private EntrepeneurActivityCreateService	createService;
 
 	@Autowired
-	private EntrepeneurInvestmentRoundCreateService	createService;
+	private EntrepeneurActivityUpdateService	updateService;
 
 	@Autowired
-	private EntrepeneurInvestmentRoundUpdateService	updateService;
-
-	@Autowired
-	private EntrepeneurInvestmentRoundDeleteService	deleteService;
+	private EntrepeneurActivityDeleteService	deleteService;
 
 
 	@PostConstruct
 	private void initialise() {
-		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);

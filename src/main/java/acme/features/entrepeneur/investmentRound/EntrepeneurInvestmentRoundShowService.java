@@ -1,9 +1,12 @@
 
 package acme.features.entrepeneur.investmentRound;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.investmentRounds.Activity;
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Entrepeneur;
 import acme.framework.components.Model;
@@ -34,7 +37,12 @@ public class EntrepeneurInvestmentRoundShowService implements AbstractShowServic
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "creation", "round", "title", "description", "amount", "link", "workProgramme");
+		//model.setAttribute("canBeDeleted", this.repository.findManyAllAccountingRecordsByInvestmentRound(entity).isEmpty());
+		Collection<Activity> workProgramme = this.repository.findManyAllActivityByInvestmentRoundId(entity.getId());
+		model.setAttribute("workProgramme", workProgramme);
+		model.setAttribute("canBeDeleted", this.repository.findManyAllApplicationsByInvestmentRoundId(request.getModel().getInteger("id")).isEmpty());
+
+		request.unbind(entity, model, "ticker", "creation", "round", "title", "description", "amount", "link", "finalMode");
 	}
 
 	@Override

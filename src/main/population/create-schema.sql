@@ -143,7 +143,8 @@
 
     create table `forum_authenticated` (
        `forum_id` integer not null,
-        `users_id` integer not null
+        `users_id` integer not null,
+        primary key (`forum_id`, `users_id`)
     ) engine=InnoDB;
 
     create table `inquirie` (
@@ -168,6 +169,7 @@
         `amount_currency` varchar(255),
         `creation` datetime(6),
         `description` varchar(255),
+        `final_mode` bit not null,
         `link` varchar(255),
         `round` varchar(255),
         `ticker` varchar(255),
@@ -284,9 +286,6 @@ create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
 
     alter table `forum_message` 
        add constraint UK_byxkuonx9sv7tgfm9gpwqpfl3 unique (`user_id`);
-
-    alter table `forum_authenticated` 
-       add constraint UK_k6ndg4ome2baofqo7cwvnkyln unique (`users_id`);
 create index IDXdvftjmbbmrad2oe19yi4uuhyi on `inquirie` (`deadline`);
 create index IDXrcpel5hblr62lfjr9gmpk2wgi on `notice` (`deadline`);
 create index IDX3ianip0mmnj1316lpeas2yw71 on `overture` (`deadline`);

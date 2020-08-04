@@ -6,8 +6,8 @@
 
 <tiles-definitions>
 	
-	<definition name="authenticated/investor/form" extends="master">
-		<put-attribute name="body" type="template" value="../authenticated/investor/form.jsp" />
+	<definition name="entrepeneur/activity/form" extends="master">
+		<put-attribute name="body" type="template" value="../entrepeneur/activity/form.jsp" />
 	</definition>
-	
+
 </tiles-definitions>
