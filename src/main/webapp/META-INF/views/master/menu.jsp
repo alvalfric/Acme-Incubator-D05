@@ -74,6 +74,7 @@
 		
 		<acme:menu-option code="master.menu.entrepeneur" access="hasRole('Entrepeneur')">
 		    <acme:menu-suboption code="master.menu.entrepeneur.investment-round.list" action="/entrepeneur/investment-round/list"/>
+		    <acme:menu-suboption code="master.menu.entrepeneur.investment-round.create" action="/entrepeneur/investment-round/create"/>
 		    <acme:menu-suboption code="master.menu.entrepeneur.application.list" action="/entrepeneur/application/list"/>
 		</acme:menu-option>
 	

@@ -1,0 +1,10 @@
+entrepeneur.application.form.label.ticker = Ticker
+entrepeneur.application.form.label.creation = Creation date
+entrepeneur.application.form.label.statement = Statement
+entrepeneur.application.form.label.offer = Offer
+
+entrepeneur.application.list.label.ticker = Ticker
+entrepeneur.application.list.label.creation = Creation
+entrepeneur.application.list.label.offer = Offer
+
+entrepeneur.application.form.button.return = Return
