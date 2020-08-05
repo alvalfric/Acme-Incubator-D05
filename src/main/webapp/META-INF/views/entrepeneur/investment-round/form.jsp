@@ -57,7 +57,7 @@ tr:nth-child(even) {
 			<jstl:if test="${command != 'create' && finalMode == false}">
 			<td>
 			<acme:form-submit method="get" test="${command != 'create' && finalMode == false}" 
-					code="entrepeneur.investment-round.form.label.activity.show"
+					code="entrepeneur.investment-round.form.button.activity.show"
 					action="/entrepeneur/activity/show?id=${activity.id}"/>
 			</td>
 			</jstl:if>

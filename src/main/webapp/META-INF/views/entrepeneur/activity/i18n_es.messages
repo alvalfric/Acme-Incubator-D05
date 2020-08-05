@@ -1,10 +1,11 @@
-entrepeneur.application.form.label.ticker = Identificador
-entrepeneur.application.form.label.creation = Fecha de creación
-entrepeneur.application.form.label.statement = Declaración
-entrepeneur.application.form.label.offer = Oferta
+entrepeneur.activity.form.label.title = Título
+entrepeneur.activity.form.label.creation = Fecha de Creación
+entrepeneur.activity.form.label.deadline = Fecha de Finalización
+entrepeneur.activity.form.label.money = Cantidad de Dinero
 
-entrepeneur.application.list.label.ticker = Identificador
-entrepeneur.application.list.label.creation = Fecha de creación
-entrepeneur.application.list.label.offer = Oferta
+entrepeneur.activity.form.button.create = Crear
+entrepeneur.activity.form.button.update = Actualizar
+entrepeneur.activity.form.button.delete = Borrar
+entrepeneur.activity.form.button.return = Volver
 
-entrepeneur.application.form.button.return = Volver
+administrator.inquirie.error.currency = Debe estar en € o EUR

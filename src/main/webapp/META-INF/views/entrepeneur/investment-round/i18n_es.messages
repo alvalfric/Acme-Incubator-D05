@@ -16,5 +16,24 @@ entrepeneur.investment-round.list.label.title = Título
 entrepeneur.investment-round.list.label.round = Ronda de inversión
 entrepeneur.investment-round.list.label.creation = Creación
 
+entrepeneur.investment-round.form.label.seed = SEED
+entrepeneur.investment-round.form.label.angel = ANGEL 
+entrepeneur.investment-round.form.label.seriesA = SERIES-A
+entrepeneur.investment-round.form.label.seriesB = SERIES-B
+entrepeneur.investment-round.form.label.seriesC = SERIES-C
+entrepeneur.investment-round.form.label.bridge = BRIDGE
+
+entrepeneur.investment-round.form.label.finalMode = Publish
+
+entrepeneur.investment-round.form.button.activity = Añadir Actividad al Programa de Trabajo
+entrepeneur.investment-round.form.button.activity.show = Ver Actividad
 entrepeneur.investment-round.form.button.accounting-record = Registros de Contabilidad
+entrepeneur.investment-round.form.button.create = Crear
+entrepeneur.investment-round.form.button.update = Actualizar
+entrepeneur.investment-round.form.button.delete = Borrar
 entrepeneur.investment-round.form.button.return = Volver
+
+entrepeneur.investment-round.error.unique = Debe ser unico
+entrepeneur.investment-round.error.round = Tipo de ronda inválido
+entrepeneur.investment-round.error.amount = Debe estar en € o EUR
+entrepeneur.investment-round.error.finalMode = No se puede publicar. La cantidad de dinero debe sumar el total de dinero en el programa de trabajo y el programa de trabajo debe tener al menos una actividad
