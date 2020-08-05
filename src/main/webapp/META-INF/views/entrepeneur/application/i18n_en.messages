@@ -4,4 +4,11 @@ entrepeneur.application.form.label.creation = Creation date
 entrepeneur.application.form.label.statement = Statement
 entrepeneur.application.form.label.offer = Offer
 
+entrepeneur.application.list.label.ticker = Ticker
+entrepeneur.application.list.label.creation = Creation date
+entrepeneur.application.list.label.offer = Statement
+entrepeneur.application.list.label.status = Status
+
+entrepeneur.application.form.button.listTicker = List By Ticker
+entrepeneur.application.form.button.listCreation = List By Creation
 entrepeneur.application.form.button.return = Return

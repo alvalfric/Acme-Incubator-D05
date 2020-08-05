@@ -442,7 +442,7 @@
 	<!-- Applications -->
 	<bean id="application01" class="acme.entities.investmentRounds.Application">
 		<property name="ticker" value="ASX-20-000002"/>
-		<property name="creation" value="2020/07/27 00:00"/>
+		<property name="creation" value="2020/07/26 00:00"/>
 		<property name="statement" value="Example statement"/>
 		<property name="offer" value="3000 €"/>
 		<property name="status" value="pending"/>

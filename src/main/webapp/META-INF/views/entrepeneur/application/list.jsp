@@ -2,6 +2,11 @@
 <%@taglib prefix="jstl" uri ="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir ="/WEB-INF/tags"%>
 
+<acme:form-submit method="get" code="entrepeneur.application.form.button.listTicker" 
+	action="/entrepeneur/application/list-ticker"/>
+<acme:form-submit method="get" code="entrepeneur.application.form.button.listCreation" 
+	action="/entrepeneur/application/list-creation"/>
+<br><br>
 <acme:list>
 	<acme:list-column code="entrepeneur.application.list.label.ticker" path="ticker" width="30%" />
 	<acme:list-column code="entrepeneur.application.list.label.creation" path="creation" width="25%" />
