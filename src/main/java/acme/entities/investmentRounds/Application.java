@@ -41,6 +41,8 @@ public class Application extends DomainEntity {
 	@NotNull
 	private String				status;
 
+	private String				rejectJustification;
+
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)

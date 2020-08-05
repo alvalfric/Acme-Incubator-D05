@@ -1,10 +1,7 @@
+entrepeneur.application.form.label.investment = Solicitud de la Ronda de Inversión
 entrepeneur.application.form.label.ticker = Identificador
 entrepeneur.application.form.label.creation = Fecha de creación
 entrepeneur.application.form.label.statement = Declaración
 entrepeneur.application.form.label.offer = Oferta
-
-entrepeneur.application.list.label.ticker = Identificador
-entrepeneur.application.list.label.creation = Fecha de creación
-entrepeneur.application.list.label.offer = Oferta
 
 entrepeneur.application.form.button.return = Volver
