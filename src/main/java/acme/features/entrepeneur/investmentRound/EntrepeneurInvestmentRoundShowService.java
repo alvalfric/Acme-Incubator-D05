@@ -37,7 +37,6 @@ public class EntrepeneurInvestmentRoundShowService implements AbstractShowServic
 		assert entity != null;
 		assert model != null;
 
-		//model.setAttribute("canBeDeleted", this.repository.findManyAllAccountingRecordsByInvestmentRound(entity).isEmpty());
 		Collection<Activity> workProgramme = this.repository.findManyAllActivityByInvestmentRoundId(entity.getId());
 		model.setAttribute("workProgramme", workProgramme);
 		model.setAttribute("canBeDeleted", this.repository.findManyAllApplicationsByInvestmentRoundId(request.getModel().getInteger("id")).isEmpty());

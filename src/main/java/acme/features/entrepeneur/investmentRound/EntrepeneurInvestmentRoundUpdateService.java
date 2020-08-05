@@ -5,11 +5,13 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.customizationParameters.CustomizationParameter;
 import acme.entities.forums.Forum;
 import acme.entities.investmentRounds.Activity;
 import acme.entities.investmentRounds.Application;
@@ -44,6 +46,10 @@ public class EntrepeneurInvestmentRoundUpdateService implements AbstractUpdateSe
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		Collection<Activity> workProgramme = this.repository.findManyAllActivityByInvestmentRoundId(entity.getId());
+		request.getModel().setAttribute("workProgramme", workProgramme);
+		request.getModel().setAttribute("canBeDeleted", this.repository.findManyAllApplicationsByInvestmentRoundId(request.getModel().getInteger("id")).isEmpty());
 
 		request.bind(entity, errors);
 	}
@@ -80,6 +86,8 @@ public class EntrepeneurInvestmentRoundUpdateService implements AbstractUpdateSe
 		assert entity != null;
 		assert errors != null;
 
+		boolean titleIsSpam = this.spamChecker(entity.getTitle());
+		boolean descriptionIsSpam = this.spamChecker(entity.getDescription());
 		Collection<Activity> workProgramme = this.repository.findManyAllActivityByInvestmentRoundId(entity.getId());
 
 		if (!errors.hasErrors("ticker")) {
@@ -99,6 +107,14 @@ public class EntrepeneurInvestmentRoundUpdateService implements AbstractUpdateSe
 			errors.state(request, acceptedRound, "round", "entrepeneur.investment-round.error.round");
 		}
 
+		if (!errors.hasErrors("title") && entity.isFinalMode()) {
+			errors.state(request, !titleIsSpam, "title", "entrepeneur.investment-round.error.spam");
+		}
+
+		if (!errors.hasErrors("description") && entity.isFinalMode()) {
+			errors.state(request, !descriptionIsSpam, "description", "entrepeneur.investment-round.error.spam");
+		}
+
 		if (!errors.hasErrors("workProgramme") && !errors.hasErrors("finalMode") && entity.isFinalMode()) {
 			List<Money> workProgrammeAmounts = workProgramme.stream().map(Activity::getMoney).collect(Collectors.toList());
 			Double totalAmountWorkProgramme = workProgrammeAmounts.stream().map(Money::getAmount).reduce(0.0, Double::sum);
@@ -108,10 +124,18 @@ public class EntrepeneurInvestmentRoundUpdateService implements AbstractUpdateSe
 				workProgrammeOk = !workProgramme.isEmpty();
 			}
 
-			boolean canBePublished = workProgrammeOk && entity.isFinalMode() && entity.getAmount().getAmount().equals(totalAmountWorkProgramme);
+			boolean canBePublished = workProgrammeOk && entity.isFinalMode() && entity.getAmount().getAmount().equals(totalAmountWorkProgramme) && !titleIsSpam && !descriptionIsSpam;
 			request.getModel().setAttribute("finalMode", canBePublished);
 
 			errors.state(request, canBePublished, "finalMode", "entrepeneur.investment-round.error.finalMode");
+			errors.state(request, workProgrammeOk, "finalMode", "entrepeneur.investment-round.error.finalMode.workProgramme");
+			errors.state(request, entity.isFinalMode(), "finalMode", "entrepeneur.investment-round.error.finalMode.isFinalMode");
+			if (workProgrammeOk) {
+				errors.state(request, entity.getAmount().getAmount().equals(totalAmountWorkProgramme), "finalMode", "entrepeneur.investment-round.error.finalMode.amount");
+			}
+			errors.state(request, !titleIsSpam, "finalMode", "entrepeneur.investment-round.error.finalMode.titleSpam");
+			errors.state(request, !descriptionIsSpam, "finalMode", "entrepeneur.investment-round.error.finalMode.descriptionSpam");
+
 		}
 	}
 
@@ -122,6 +146,8 @@ public class EntrepeneurInvestmentRoundUpdateService implements AbstractUpdateSe
 
 		this.repository.save(entity);
 
+		boolean titleIsSpam = this.spamChecker(entity.getTitle());
+		boolean descriptionIsSpam = this.spamChecker(entity.getDescription());
 		Collection<Activity> workProgramme = this.repository.findManyAllActivityByInvestmentRoundId(entity.getId());
 		List<Money> workProgrammeAmounts = workProgramme.stream().map(Activity::getMoney).collect(Collectors.toList());
 		Double totalAmountWorkProgramme = workProgrammeAmounts.stream().map(Money::getAmount).reduce(0.0, Double::sum);
@@ -131,7 +157,7 @@ public class EntrepeneurInvestmentRoundUpdateService implements AbstractUpdateSe
 			workProgrammeOk = !workProgramme.isEmpty();
 		}
 
-		boolean canBePublished = workProgrammeOk && entity.isFinalMode() && entity.getAmount().getAmount().equals(totalAmountWorkProgramme);
+		boolean canBePublished = workProgrammeOk && entity.isFinalMode() && entity.getAmount().getAmount().equals(totalAmountWorkProgramme) && !titleIsSpam && !descriptionIsSpam;
 
 		if (canBePublished) {
 			Forum forum = new Forum();
@@ -142,4 +168,31 @@ public class EntrepeneurInvestmentRoundUpdateService implements AbstractUpdateSe
 		}
 	}
 
+	private boolean spamChecker(final String str) {
+		String strFormatted = str.toLowerCase().trim().replaceAll("\\s+", " ");
+
+		CustomizationParameter cp = this.repository.findCustomizationParamenters();
+		Double spamThreshold = cp.getSpamThreshold();
+		Set<String> spamWords = new HashSet<>();
+		spamWords.addAll(Arrays.asList(cp.getSpamWordsEnglish().toString().split(", ")));
+		spamWords.addAll(Arrays.asList(cp.getSpamWordsSpanish().toString().split(", ")));
+
+		int spamWordsCounter = 0;
+
+		boolean isSpam = false;
+
+		for (String word : spamWords) {
+			if (strFormatted.contains(word)) {
+				spamWordsCounter += 1;
+			}
+		}
+
+		if (spamWordsCounter > 0) {
+			double spamPercentage = Double.valueOf(spamWordsCounter) / strFormatted.split(" ").length * 100;
+			isSpam = spamPercentage >= spamThreshold;
+		}
+
+		return isSpam;
+
+	}
 }
