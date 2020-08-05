@@ -103,7 +103,12 @@ public class EntrepeneurInvestmentRoundUpdateService implements AbstractUpdateSe
 			List<Money> workProgrammeAmounts = workProgramme.stream().map(Activity::getMoney).collect(Collectors.toList());
 			Double totalAmountWorkProgramme = workProgrammeAmounts.stream().map(Money::getAmount).reduce(0.0, Double::sum);
 
-			boolean canBePublished = workProgramme != null && entity.isFinalMode() && entity.getAmount().getAmount().equals(totalAmountWorkProgramme);
+			boolean workProgrammeOk = false;
+			if (workProgramme != null) {
+				workProgrammeOk = !workProgramme.isEmpty();
+			}
+
+			boolean canBePublished = workProgrammeOk && entity.isFinalMode() && entity.getAmount().getAmount().equals(totalAmountWorkProgramme);
 			request.getModel().setAttribute("finalMode", canBePublished);
 
 			errors.state(request, canBePublished, "finalMode", "entrepeneur.investment-round.error.finalMode");
@@ -120,7 +125,13 @@ public class EntrepeneurInvestmentRoundUpdateService implements AbstractUpdateSe
 		Collection<Activity> workProgramme = this.repository.findManyAllActivityByInvestmentRoundId(entity.getId());
 		List<Money> workProgrammeAmounts = workProgramme.stream().map(Activity::getMoney).collect(Collectors.toList());
 		Double totalAmountWorkProgramme = workProgrammeAmounts.stream().map(Money::getAmount).reduce(0.0, Double::sum);
-		boolean canBePublished = workProgramme != null && entity.isFinalMode() && entity.getAmount().getAmount().equals(totalAmountWorkProgramme);
+
+		boolean workProgrammeOk = false;
+		if (workProgramme != null) {
+			workProgrammeOk = !workProgramme.isEmpty();
+		}
+
+		boolean canBePublished = workProgrammeOk && entity.isFinalMode() && entity.getAmount().getAmount().equals(totalAmountWorkProgramme);
 
 		if (canBePublished) {
 			Forum forum = new Forum();
