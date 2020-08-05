@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 
 import acme.entities.accountingRecords.AccountingRecord;
+import acme.entities.customizationParameters.CustomizationParameter;
 import acme.entities.forums.Forum;
 import acme.entities.investmentRounds.Activity;
 import acme.entities.investmentRounds.Application;
@@ -45,4 +46,8 @@ public interface EntrepeneurInvestmentRoundRepository extends AbstractRepository
 
 	@Query("select a from Authenticated a where a.userAccount.id=?1")
 	Authenticated findOneAuthenticatedByAccountId(int id);
+
+	@Query("select cp from CustomizationParameter cp")
+	CustomizationParameter findCustomizationParamenters();
+
 }

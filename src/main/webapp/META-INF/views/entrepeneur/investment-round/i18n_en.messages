@@ -33,7 +33,13 @@ entrepeneur.investment-round.form.button.update = Update
 entrepeneur.investment-round.form.button.delete = Delete
 entrepeneur.investment-round.form.button.return = Return
 
+entrepeneur.investment-round.error.spam = Must not contain spam words
 entrepeneur.investment-round.error.unique = Must be unique
 entrepeneur.investment-round.error.round = Invalid round type
 entrepeneur.investment-round.error.amount = Must be in € or EUR
-entrepeneur.investment-round.error.finalMode = Can not be published. Money amount must sum up to the total of money in the work programme and the work programme must have at least one activity
+entrepeneur.investment-round.error.finalMode = Can not be published
+entrepeneur.investment-round.error.finalMode.workProgramme = Work programme must have at least one activity
+entrepeneur.investment-round.error.finalMode.isFinalMode = Must be in publish mode
+entrepeneur.investment-round.error.finalMode.amount = Money amount of the Investment Round must sum up to the total money in the work programme
+entrepeneur.investment-round.error.finalMode.titleSpam = Title must not contain spam words
+entrepeneur.investment-round.error.finalMode.descriptionSpam = Description must not contain spam words
