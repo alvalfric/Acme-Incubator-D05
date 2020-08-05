@@ -15,4 +15,10 @@ public interface EntrepeneurApplicationRoundRepository extends AbstractRepositor
 
 	@Query("select a from Application a where a.investmentRound.entrepeneur.userAccount.id=?1")
 	Collection<Application> findManyAllByEntrepeneur(int id);
+
+	@Query("select a from Application a where a.investmentRound.entrepeneur.userAccount.id=?1 order by a.ticker")
+	Collection<Application> findManyAllByEntrepeneurGroupByTicker(int id);
+
+	@Query("select a from Application a where a.investmentRound.entrepeneur.userAccount.id=?1 order by a.creation desc")
+	Collection<Application> findManyAllByEntrepeneurGroupByCreation(int id);
 }

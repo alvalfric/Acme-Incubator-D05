@@ -18,16 +18,22 @@ import acme.framework.controllers.AbstractController;
 public class EntrepeneurApplicationController extends AbstractController<Entrepeneur, Application> {
 
 	@Autowired
-	private EntrepeneurApplicationListService	listService;
+	private EntrepeneurApplicationListService			listService;
 
 	@Autowired
-	private EntrepeneurApplicationShowService	showService;
+	private EntrepeneurApplicationListTickerService		listTickerService;
 
 	@Autowired
-	private EntrepeneurApplicationAcceptService	acceptService;
+	private EntrepeneurApplicationListCreationService	listCreationService;
 
 	@Autowired
-	private EntrepeneurApplicationRejectService	rejectService;
+	private EntrepeneurApplicationShowService			showService;
+
+	@Autowired
+	private EntrepeneurApplicationAcceptService			acceptService;
+
+	@Autowired
+	private EntrepeneurApplicationRejectService			rejectService;
 
 
 	@PostConstruct
@@ -36,5 +42,7 @@ public class EntrepeneurApplicationController extends AbstractController<Entrepe
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addCustomCommand(CustomCommand.ACCEPT, BasicCommand.UPDATE, this.acceptService);
 		super.addCustomCommand(CustomCommand.REJECT, BasicCommand.UPDATE, this.rejectService);
+		super.addCustomCommand(CustomCommand.LIST_TICKER, BasicCommand.LIST, this.listTickerService);
+		super.addCustomCommand(CustomCommand.LIST_CREATION, BasicCommand.LIST, this.listCreationService);
 	}
 }
