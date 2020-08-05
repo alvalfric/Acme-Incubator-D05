@@ -32,7 +32,7 @@ public class EntrepeneurApplicationListService implements AbstractListService<En
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "creation", "offer");
+		request.unbind(entity, model, "ticker", "creation", "offer", "status");
 	}
 
 	@Override

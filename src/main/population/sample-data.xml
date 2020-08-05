@@ -409,17 +409,56 @@
  		<property name="userAccount" ref="investor1UserAccount"/>
  	</bean>
  	
+ 	<bean name="investor2UserAccount" class="acme.framework.entities.UserAccount">
+ 		<property name="username" value="investor2"/>
+ 		<property name="password" value="investor2"/>
+ 		<property name="enabled" value="true"/>
+ 		<property name="identity">
+ 			<bean class="acme.datatypes.UserIdentity">
+ 				<property name="name" value="Investor"/>
+ 				<property name="surname" value="2"/>
+ 				<property name="email" value="investor2@acme.com"/>
+ 			</bean>
+ 		</property>
+ 		<property name="roles">
+ 			<list>
+ 				<ref bean="investor2Investor"/>
+ 				<ref bean="investor2Authenticated"/>
+ 			</list>
+ 		</property>
+ 	</bean>
+ 	
+ 	<bean name="investor2Investor" class="acme.entities.roles.Investor">
+ 		<property name="firmName" value="Firm Name"/>
+ 		<property name="activitySector" value="Activity Sector"/>
+ 		<property name="profile" value="Example profile 2"/>
+ 		<property name="userAccount" ref="investor2UserAccount"/>
+ 	</bean>
+ 	
+ 	<bean name="investor2Authenticated" class="acme.framework.entities.Authenticated">
+ 		<property name="userAccount" ref="investor2UserAccount"/>
+ 	</bean>
+ 	
 	<!-- Applications -->
 	<bean id="application01" class="acme.entities.investmentRounds.Application">
 		<property name="ticker" value="ASX-20-000002"/>
 		<property name="creation" value="2020/07/27 00:00"/>
 		<property name="statement" value="Example statement"/>
 		<property name="offer" value="3000 €"/>
-		<property name="status" value="accepted"/>
+		<property name="status" value="pending"/>
 		<property name="investmentRound" ref="investment01"/>
 		<property name="investor" ref="investor1Investor"/>
 	</bean>
 	
+	<bean id="application02" class="acme.entities.investmentRounds.Application">
+		<property name="ticker" value="ASX-20-000003"/>
+		<property name="creation" value="2020/07/27 00:00"/>
+		<property name="statement" value="Example statement"/>
+		<property name="offer" value="1000 €"/>
+		<property name="status" value="pending"/>
+		<property name="investmentRound" ref="investment01"/>
+		<property name="investor" ref="investor2Investor"/>
+	</bean>
 	<!-- Bookkeepers -->
 	<bean name="bookkeepers1UserAccount" class="acme.framework.entities.UserAccount">
  		<property name="username" value="bookkeeper1"/>
