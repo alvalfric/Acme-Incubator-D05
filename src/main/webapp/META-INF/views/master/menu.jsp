@@ -41,7 +41,8 @@
 			<acme:menu-suboption code="master.menu.administrator.overture.list" action="/administrator/overture/list"/>		
 			<acme:menu-suboption code="master.menu.administrator.technology-record.list" action="/administrator/technology-record/list"/>		
 			<acme:menu-suboption code="master.menu.administrator.tool-record.list" action="/administrator/tool-record/list"/>		
-			<acme:menu-suboption code="master.menu.administrator.challenge.list" action="/administrator/challenge/list"/>		
+			<acme:menu-suboption code="master.menu.administrator.challenge.list" action="/administrator/challenge/list"/>
+			<acme:menu-suboption code="master.menu.administrator.bookkeeper-request.list" action="/administrator/bookkeeper-request/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.notice.create" action="/administrator/notice/create"/>
 			<acme:menu-suboption code="master.menu.administrator.inquirie.create" action="/administrator/inquirie/create"/>
@@ -103,6 +104,9 @@
 			<acme:menu-suboption code="master.menu.user-account.entrepeneur" action="/authenticated/entrepeneur/update" access="hasRole('Entrepeneur')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-investor" action="/authenticated/investor/create" access="!hasRole('Investor')"/>
 			<acme:menu-suboption code="master.menu.user-account.investor" action="/authenticated/investor/update" access="hasRole('Investor')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-bookkeeper-request" action="/authenticated/bookkeeper-request/create" access="!hasRole('BookkeeperRequest') && !hasRole('Bookkeeper')"/>
+			<acme:menu-suboption code="master.menu.user-account.bookkeeper-request" action="/authenticated/bookkeeper-request/update" access="hasRole('BookkeeperRequest') && !hasRole('Bookkeeper')"/>
+			<acme:menu-suboption code="master.menu.user-account.bookkeeper" action="/authenticated/bookkeeper/update" access="hasRole('Bookkeeper')"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
