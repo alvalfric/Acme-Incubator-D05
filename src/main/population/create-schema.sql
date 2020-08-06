@@ -78,6 +78,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `bookkeeper_request` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        `firm_name` varchar(255),
+        `responsability_statement` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `challenge` (
        `id` integer not null,
         `version` integer not null,
@@ -336,6 +345,11 @@ create index IDX3ianip0mmnj1316lpeas2yw71 on `overture` (`deadline`);
 
     alter table `bookkeeper` 
        add constraint FK_krvjp9eaqyapewl2igugbo9o8 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
+    alter table `bookkeeper_request` 
+       add constraint FK_4m34h1uxtm7i0d83g5g2ihq5u 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
