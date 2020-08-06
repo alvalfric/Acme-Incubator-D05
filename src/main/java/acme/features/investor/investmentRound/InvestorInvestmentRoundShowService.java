@@ -1,35 +1,33 @@
 
-package acme.features.authenticated.investmentRound;
+package acme.features.investor.investmentRound;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.investmentRounds.Activity;
+import acme.entities.investmentRounds.Application;
 import acme.entities.investmentRounds.InvestmentRound;
+import acme.entities.roles.Investor;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AuthenticatedInvestmentRoundShowService implements AbstractShowService<Authenticated, InvestmentRound> {
+public class InvestorInvestmentRoundShowService implements AbstractShowService<Investor, InvestmentRound> {
 
 	@Autowired
-	private AuthenticatedInvestmentRoundRepository repository;
+	private InvestorInvestmentRoundRepository repository;
 
 
 	@Override
 	public boolean authorise(final Request<InvestmentRound> request) {
 		assert request != null;
 
-		Date deadline = this.repository.findMaxDeadlineByInvestmentId(request.getModel().getInteger("id"));
+		InvestmentRound investment = this.repository.findOneByIdActive(request.getModel().getInteger("id"));
 
-		boolean active = deadline.after(new Date());
-
-		return active;
+		return investment.isFinalMode();
 	}
 
 	@Override
@@ -39,7 +37,15 @@ public class AuthenticatedInvestmentRoundShowService implements AbstractShowServ
 		assert model != null;
 
 		Collection<Activity> workProgramme = this.repository.findManyAllActivityByInvestmentRoundId(entity.getId());
+		Investor investor = this.repository.findInvestorByUserAccountId(request.getPrincipal().getAccountId());
+		Application app = this.repository.findOneApplicationByIdInvestmentRoundIdAndInvestorId(entity.getId(), investor.getId());
+		boolean canApply = app == null;
+
 		model.setAttribute("workProgramme", workProgramme);
+		model.setAttribute("canApply", canApply);
+		if (app != null) {
+			model.setAttribute("applicationId", app.getId());
+		}
 
 		request.unbind(entity, model, "ticker", "creation", "round", "title", "description", "amount", "link");
 	}
