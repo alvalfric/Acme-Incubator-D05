@@ -19,13 +19,25 @@
 					<acme:message code="authenticated.forum.form.label.forumMessage.username"/> <b><acme:print value="${message.user.userAccount.username}"/></b></i></small>
 				</h5>
 				<acme:print value="${message.body}"/>
-				<br>
-				<acme:message code="authenticated.forum.form.label.forumMessage.tags"/> <acme:print value="${message.tags}"/>
+				<jstl:if test="${!message.tags.isEmpty()}">
+					<br>
+					<acme:message code="authenticated.forum.form.label.forumMessage.tags"/> <acme:print value="${message.tags}"/>
+				</jstl:if>
 			</div>
 		</div>
 		
 		<br>
 	</jstl:forEach>
 	
+	<acme:form-submit method="get" test="${command == 'show'}"
+		code="authenticated.forum.form.button.post" 
+		action="/authenticated/forum-message/create?forumId=${id}"/>
+	<br><br>
+	<acme:form-submit test="${command == 'show' && canManageForum}"
+		code="authenticated.forum.form.button.delete" 
+		action="/authenticated/forum/delete"/>
+	<acme:form-submit test="${command == 'delete' && canManageForum}"
+		code="authenticated.forum.form.button.delete" 
+		action="/authenticated/forum/delete"/>
 	<acme:form-return code="authenticated.forum.form.button.return"/>
 </acme:form>

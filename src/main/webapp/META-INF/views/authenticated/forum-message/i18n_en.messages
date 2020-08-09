@@ -1,0 +1,7 @@
+authenticated.forum.form.label.forumMessage.creation = Created in
+authenticated.forum.form.label.forumMessage.username = by user
+authenticated.forum.form.label.forumMessage.tags = Tags:
+
+authenticated.forum.list.label.forumTitle = Forum title
+
+authenticated.forum.form.button.return = Return

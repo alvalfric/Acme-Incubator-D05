@@ -50,6 +50,9 @@ tr:nth-child(even) {
 	</table>
 	<br>
 
+	<acme:form-submit method="get" test="${canCreateForum}"
+		code="authenticated.investment-round.form.button.forum.create"
+		action="/authenticated/forum/create?investmentRoundId=${id}"/>
 	<acme:form-submit method="get"
 		code="authenticated.investment-round.form.button.accounting-record"
 		action="/authenticated/accounting-record/list?investmentRoundId=${id}"/>

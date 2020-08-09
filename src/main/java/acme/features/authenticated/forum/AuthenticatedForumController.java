@@ -22,11 +22,15 @@ public class AuthenticatedForumController extends AbstractController<Authenticat
 	@Autowired
 	private AuthenticatedForumShowService	showService;
 
+	@Autowired
+	private AuthenticatedForumDeleteService	deleteService;
+
 
 	@PostConstruct
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 	}
 
 }
