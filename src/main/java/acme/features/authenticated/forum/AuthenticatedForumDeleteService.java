@@ -5,14 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.forums.Forum;
+import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
 import acme.framework.entities.Principal;
-import acme.framework.services.AbstractShowService;
+import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class AuthenticatedForumShowService implements AbstractShowService<Authenticated, Forum> {
+public class AuthenticatedForumDeleteService implements AbstractDeleteService<Authenticated, Forum> {
 
 	@Autowired
 	private AuthenticatedForumRepository repository;
@@ -23,9 +24,18 @@ public class AuthenticatedForumShowService implements AbstractShowService<Authen
 		assert request != null;
 
 		Forum forum = this.repository.findForumById(request.getModel().getInteger("id"));
-		Authenticated auth = this.repository.findAuthenticatedByUserAccountId(request.getPrincipal().getAccountId());
+		Principal principal = request.getPrincipal();
 
-		return forum.getUsers().contains(auth);
+		return forum.getInvestmentRound().getEntrepeneur().getUserAccount().getId() == principal.getAccountId();
+	}
+
+	@Override
+	public void bind(final Request<Forum> request, final Forum entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		request.bind(entity, errors);
 	}
 
 	@Override
@@ -51,6 +61,22 @@ public class AuthenticatedForumShowService implements AbstractShowService<Authen
 		result = this.repository.findForumById(request.getModel().getInteger("id"));
 
 		return result;
+	}
+
+	@Override
+	public void validate(final Request<Forum> request, final Forum entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+	}
+
+	@Override
+	public void delete(final Request<Forum> request, final Forum entity) {
+		assert request != null;
+		assert entity != null;
+
+		this.repository.deleteAll(entity.getForumMessages());
+		this.repository.delete(entity);
 	}
 
 }
