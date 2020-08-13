@@ -2,9 +2,13 @@
 package acme.features.entrepeneur.investmentRound;
 
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,6 +61,7 @@ public class EntrepeneurInvestmentRoundCreateService implements AbstractCreateSe
 		money.setCurrency("€");
 		result = new InvestmentRound();
 
+		result.setTicker(this.generateTicker(request));
 		result.setAmount(money);
 		result.setCreation(new Date(System.currentTimeMillis() - 1));
 		result.setEntrepeneur(this.repository.findOneEntrepeneurByAccountId(request.getPrincipal().getAccountId()));
@@ -71,7 +76,12 @@ public class EntrepeneurInvestmentRoundCreateService implements AbstractCreateSe
 		assert entity != null;
 		assert errors != null;
 
-		String[] activitySectors = this.repository.findCustomizationParameters().getActivitySectors().split(", ");
+		entity.setTicker(this.generateTicker(request));
+
+		if (!errors.hasErrors("ticker")) {
+			boolean uniqueTicker = this.repository.findOneInvestmentRoundByTicker(entity.getTicker()) == null && this.repository.findOneApplicationByTicker(entity.getTicker()) == null;
+			errors.state(request, uniqueTicker, "ticker", "entrepeneur.investment-round.error.unique");
+		}
 
 		if (!errors.hasErrors("ticker")) {
 			boolean uniqueTicker = this.repository.findOneInvestmentRoundByTicker(entity.getTicker()) == null && this.repository.findOneApplicationByTicker(entity.getTicker()) == null;
@@ -99,6 +109,7 @@ public class EntrepeneurInvestmentRoundCreateService implements AbstractCreateSe
 		money.setAmount(0.0);
 		money.setCurrency("€");
 
+		entity.setTicker(this.generateTicker(request));
 		entity.setCreation(new Date(System.currentTimeMillis() - 1));
 		entity.setAmount(money);
 		entity.setFinalMode(false);
@@ -107,4 +118,47 @@ public class EntrepeneurInvestmentRoundCreateService implements AbstractCreateSe
 		this.repository.save(entity);
 	}
 
+	private String generateTicker(final Request<InvestmentRound> request) {
+		assert request != null;
+
+		String ticker;
+
+		Entrepeneur entrepeneur = this.repository.findOneEntrepeneurByAccountId(request.getPrincipal().getAccountId());
+		String[] activitySectorSplit = entrepeneur.getActivitySector().split(" ");
+		String activitySectorInitials = "";
+
+		for (int i = 0; i < activitySectorSplit.length; i++) {
+			if (i < 2) {
+				activitySectorInitials = activitySectorInitials + activitySectorSplit[i].charAt(0);
+			} else {
+				break;
+			}
+		}
+
+		if (activitySectorInitials.length() < 2) {
+			activitySectorInitials = activitySectorInitials + StringUtils.repeat("X", 3 - activitySectorInitials.length());
+		}
+
+		String lastTwoDigitsYear = String.valueOf(Calendar.getInstance().get(Calendar.YEAR)).substring(2, 4);
+
+		Set<Integer> tickerIds = this.repository.findTickerIdsByTagAndYearFromInvestmentRound(activitySectorInitials + "-" + lastTwoDigitsYear + "-").stream().map(x -> Integer.valueOf(x)).collect(Collectors.toSet());
+		tickerIds.addAll(this.repository.findTickerIdsByTagAndYearFromApplication(activitySectorInitials + "-" + lastTwoDigitsYear + "-").stream().map(x -> Integer.valueOf(x)).collect(Collectors.toSet()));
+		int id = -1;
+
+		System.out.println(tickerIds);
+
+		for (int i = 0; i < tickerIds.size() + 1; i++) {
+			if (!tickerIds.contains(i)) {
+				id = i;
+				break;
+			}
+		}
+
+		int numberOfZeros = 6 - String.valueOf(id).length();
+		String stringId = StringUtils.repeat("0", numberOfZeros) + String.valueOf(id);
+
+		ticker = (activitySectorInitials + "-" + lastTwoDigitsYear + "-" + stringId).toUpperCase();
+
+		return ticker;
+	}
 }

@@ -7,7 +7,7 @@
 
 <acme:form readonly="true">
 	<h4>
-		<acme:print value="${forumTitle}"/>
+		<acme:message code="authenticated.forum.form.label.forum.title"/> <acme:print value="${forumTitle}"/>
 	</h4>
 
 	<jstl:forEach var="message" items="${forumMessages}">

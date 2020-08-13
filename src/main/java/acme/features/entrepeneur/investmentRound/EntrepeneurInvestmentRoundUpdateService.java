@@ -162,7 +162,7 @@ public class EntrepeneurInvestmentRoundUpdateService implements AbstractUpdateSe
 
 		if (canBePublished) {
 			Forum forum = new Forum();
-			forum.setForumTitle("Forum of Investment Round " + entity.getTicker());
+			forum.setForumTitle(entity.getTicker());
 			forum.setInvestmentRound(entity);
 			this.repository.save(forum);
 
@@ -176,7 +176,7 @@ public class EntrepeneurInvestmentRoundUpdateService implements AbstractUpdateSe
 	private boolean spamChecker(final String str) {
 		String strFormatted = str.toLowerCase().trim().replaceAll("\\s+", " ");
 
-		CustomizationParameter cp = this.repository.findCustomizationParamenters();
+		CustomizationParameter cp = this.repository.findCustomizationParameters();
 		Double spamThreshold = cp.getSpamThreshold();
 		Set<String> spamWords = new HashSet<>();
 		spamWords.addAll(Arrays.asList(cp.getSpamWordsEnglish().toString().split(", ")));

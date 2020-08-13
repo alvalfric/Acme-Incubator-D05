@@ -6,4 +6,4 @@ anonymous.notice.form.label.creation = Fecha Creación
 anonymous.notice.form.label.body = Cuerpo
 anonymous.notice.form.label.relatedLink1 = Link relacionado 1
 anonymous.notice.form.label.relatedLink2 = Link relacionado 2
-anonymous.notice.form.label.return = Volver
+anonymous.notice.form.button.return = Volver

@@ -1,8 +1,12 @@
 
 package acme.features.investor.application;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Set;
+import java.util.stream.Collectors;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -61,6 +65,7 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		assert request != null;
 
 		Application result = new Application();
+		result.setTicker(this.generateTicker(request));
 		result.setCreation(new Date(System.currentTimeMillis() - 1));
 		result.setStatus("pending");
 		result.setInvestor(this.repository.findInvestorByUserAccountId(request.getPrincipal().getAccountId()));
@@ -74,6 +79,8 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		entity.setTicker(this.generateTicker(request));
 
 		if (!errors.hasErrors("ticker")) {
 			boolean uniqueTicker = this.repository.findOneInvestmentRoundByTicker(entity.getTicker()) == null && this.repository.findOneApplicationByTicker(entity.getTicker()) == null;
@@ -91,6 +98,7 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		assert request != null;
 		assert entity != null;
 
+		entity.setTicker(this.generateTicker(request));
 		entity.setCreation(new Date(System.currentTimeMillis() - 1));
 		entity.setInvestor(this.repository.findInvestorByUserAccountId(request.getPrincipal().getAccountId()));
 		entity.setStatus("pending");
@@ -101,4 +109,47 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		this.repository.save(entity);
 	}
 
+	private String generateTicker(final Request<Application> request) {
+		assert request != null;
+
+		String ticker;
+
+		Investor investor = this.repository.findInvestorByUserAccountId(request.getPrincipal().getAccountId());
+		String[] activitySectorSplit = investor.getActivitySector().split(" ");
+		String activitySectorInitials = "";
+
+		for (int i = 0; i < activitySectorSplit.length; i++) {
+			if (i < 2) {
+				activitySectorInitials = activitySectorInitials + activitySectorSplit[i].charAt(0);
+			} else {
+				break;
+			}
+		}
+
+		if (activitySectorInitials.length() < 2) {
+			activitySectorInitials = activitySectorInitials + StringUtils.repeat("X", 3 - activitySectorInitials.length());
+		}
+
+		String lastTwoDigitsYear = String.valueOf(Calendar.getInstance().get(Calendar.YEAR)).substring(2, 4);
+
+		Set<Integer> tickerIds = this.repository.findTickerIdsByTagAndYearFromInvestmentRound(activitySectorInitials + "-" + lastTwoDigitsYear + "-").stream().map(x -> Integer.valueOf(x)).collect(Collectors.toSet());
+		tickerIds.addAll(this.repository.findTickerIdsByTagAndYearFromApplication(activitySectorInitials + "-" + lastTwoDigitsYear + "-").stream().map(x -> Integer.valueOf(x)).collect(Collectors.toSet()));
+		int id = -1;
+
+		System.out.println(tickerIds);
+
+		for (int i = 0; i < tickerIds.size() + 1; i++) {
+			if (!tickerIds.contains(i)) {
+				id = i;
+				break;
+			}
+		}
+
+		int numberOfZeros = 6 - String.valueOf(id).length();
+		String stringId = StringUtils.repeat("0", numberOfZeros) + String.valueOf(id);
+
+		ticker = (activitySectorInitials + "-" + lastTwoDigitsYear + "-" + stringId).toUpperCase();
+
+		return ticker;
+	}
 }
