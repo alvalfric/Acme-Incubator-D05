@@ -5,7 +5,18 @@
 
 <acme:form>
 	<acme:form-textbox code="administrator.tool-record.form.label.title" path="title" placeholder="Title"/>
-	<acme:form-textbox code="administrator.tool-record.form.label.activitySector" path="activitySector" placeholder="Activity Sector"/>
+	<acme:form-select code="administrator.tool-record.form.label.activitySector" path="activitySector" placeholder="Activity Sector">
+			<jstl:forEach var="sector" items="${activitySectors}">
+			<jstl:choose>
+			<jstl:when test="${activitySector == sector}">
+				<acme:form-option code="${sector}" value="${sector}" selected="true"/>
+			</jstl:when>
+			<jstl:otherwise>
+				<acme:form-option code="${sector}" value="${sector}"/>
+			</jstl:otherwise>
+			</jstl:choose>
+		</jstl:forEach>
+	</acme:form-select>
 	<acme:form-textbox code="administrator.tool-record.form.label.inventorName" path="inventorName" placeholder="Inventors' Name"/>
 	<acme:form-textarea code="administrator.tool-record.form.label.description" path="description" placeholder="Description"/>
 	<acme:form-url code="administrator.tool-record.form.label.website" path="website" placeholder="https://example.com/"/>

@@ -3,6 +3,7 @@ package acme.features.investor.application;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.Set;
 
 import org.springframework.data.jpa.repository.Query;
 
@@ -36,4 +37,10 @@ public interface InvestorApplicationRoundRepository extends AbstractRepository {
 
 	@Query("select max(a.deadline) from Activity a where a.investmentRound.id = ?1")
 	Date findMaxDeadlineByInvestmentId(int id);
+
+	@Query("select substring(i.ticker,8,6) from InvestmentRound i where i.ticker like %?1%")
+	Set<String> findTickerIdsByTagAndYearFromInvestmentRound(String tagAndYear);
+
+	@Query("select substring(i.ticker,8,6) from InvestmentRound i where i.ticker like %?1%")
+	Set<String> findTickerIdsByTagAndYearFromApplication(String tagAndYear);
 }

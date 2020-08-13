@@ -2,6 +2,7 @@
 package acme.features.entrepeneur.investmentRound;
 
 import java.util.Collection;
+import java.util.Set;
 
 import org.springframework.data.jpa.repository.Query;
 
@@ -48,6 +49,11 @@ public interface EntrepeneurInvestmentRoundRepository extends AbstractRepository
 	Authenticated findOneAuthenticatedByAccountId(int id);
 
 	@Query("select cp from CustomizationParameter cp")
-	CustomizationParameter findCustomizationParamenters();
+	CustomizationParameter findCustomizationParameters();
 
+	@Query("select substring(i.ticker,8,6) from InvestmentRound i where i.ticker like %?1%")
+	Set<String> findTickerIdsByTagAndYearFromInvestmentRound(String tagAndYear);
+
+	@Query("select substring(i.ticker,8,6) from InvestmentRound i where i.ticker like %?1%")
+	Set<String> findTickerIdsByTagAndYearFromApplication(String tagAndYear);
 }

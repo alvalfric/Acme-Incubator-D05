@@ -6,4 +6,4 @@ anonymous.notice.form.label.creation = Creation Date
 anonymous.notice.form.label.body = Body
 anonymous.notice.form.label.relatedLink1 = Related link 1 
 anonymous.notice.form.label.relatedLink2 = Related link 2
-anonymous.notice.form.label.return = Return
+anonymous.notice.form.button.return = Return

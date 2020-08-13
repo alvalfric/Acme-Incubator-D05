@@ -1,3 +1,5 @@
+authenticated.forum.form.label.forum.title = Forum of ticker
+
 authenticated.forum.form.label.forumMessage.creation = Created in
 authenticated.forum.form.label.forumMessage.username = by user
 authenticated.forum.form.label.forumMessage.tags = Tags:

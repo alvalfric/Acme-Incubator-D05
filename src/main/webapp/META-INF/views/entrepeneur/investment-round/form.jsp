@@ -20,7 +20,7 @@ tr:nth-child(even) {
 </style>
 
 <acme:form>
-	<acme:form-textbox code="entrepeneur.investment-round.form.label.ticker" path="ticker" />
+	<acme:form-textbox code="entrepeneur.investment-round.form.label.ticker" path="ticker" readonly="true"/>
 	<acme:form-textbox code="entrepeneur.investment-round.form.label.creation" path="creation" readonly="true"/>	
 	<acme:form-select code="entrepeneur.investment-round.form.label.round" path="round">
 		<acme:form-option code="entrepeneur.investment-round.form.label.seed" value="SEED"/>
