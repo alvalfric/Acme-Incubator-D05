@@ -60,6 +60,9 @@ public class AuthenticatedInvestorCreateService implements AbstractCreateService
 		assert entity != null;
 		assert model != null;
 
+		String[] activitySectors = this.repository.findCustomizationParameters().getActivitySectors().split(", ");
+		model.setAttribute("activitySectors", activitySectors);
+
 		request.unbind(entity, model, "firmName", "activitySector", "profile");
 	}
 

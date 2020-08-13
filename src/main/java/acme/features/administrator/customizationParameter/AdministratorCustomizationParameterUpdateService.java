@@ -41,7 +41,7 @@ public class AdministratorCustomizationParameterUpdateService implements Abstrac
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "spamWordsEnglish", "spamWordsSpanish", "spamThreshold");
+		request.unbind(entity, model, "spamWordsEnglish", "spamWordsSpanish", "spamThreshold", "activitySectors");
 	}
 
 	@Override

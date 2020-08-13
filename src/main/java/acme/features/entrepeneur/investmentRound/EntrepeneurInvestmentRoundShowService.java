@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.forums.Forum;
 import acme.entities.investmentRounds.Activity;
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Entrepeneur;
@@ -40,6 +41,9 @@ public class EntrepeneurInvestmentRoundShowService implements AbstractShowServic
 		Collection<Activity> workProgramme = this.repository.findManyAllActivityByInvestmentRoundId(entity.getId());
 		model.setAttribute("workProgramme", workProgramme);
 		model.setAttribute("canBeDeleted", this.repository.findManyAllApplicationsByInvestmentRoundId(request.getModel().getInteger("id")).isEmpty());
+
+		Forum forum = this.repository.findOneForumByInvestmentRoundId(request.getModel().getInteger("id"));
+		model.setAttribute("canCreateForum", forum == null && entity.getEntrepeneur().getUserAccount().getId() == request.getPrincipal().getAccountId());
 
 		request.unbind(entity, model, "ticker", "creation", "round", "title", "description", "amount", "link", "finalMode");
 	}

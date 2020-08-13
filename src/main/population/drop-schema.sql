@@ -59,13 +59,13 @@
        drop 
        foreign key `FK4e18daruc8avd3tt0w2hk3ybl`;
 
-    alter table `forum_authenticated` 
+    alter table `forum_user` 
        drop 
-       foreign key `FKbfu7rkr4imldqrkswlqieb4dv`;
+       foreign key `FKt69dvqxub70390m4ghkyan8a5`;
 
-    alter table `forum_authenticated` 
+    alter table `forum_user` 
        drop 
-       foreign key `FKd1ebx6x0cql1bxphvu15qxh2x`;
+       foreign key `FKgbr84oic03nj64yiefspb3g0s`;
 
     alter table `investment_round` 
        drop 
@@ -109,7 +109,7 @@
 
     drop table if exists `forum_message`;
 
-    drop table if exists `forum_authenticated`;
+    drop table if exists `forum_user`;
 
     drop table if exists `inquirie`;
 

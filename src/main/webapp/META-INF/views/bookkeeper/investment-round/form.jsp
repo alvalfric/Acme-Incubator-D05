@@ -50,6 +50,9 @@ tr:nth-child(even) {
 	</table>
 	<br>
 	
+	<acme:form-submit method="get" test="${canCreateAccountingRecord}"
+		code="bookkeeper.investment-round.form.button.create" 
+		action="/bookkeeper/accounting-record/create?investmentRoundId=${id}"/>
 	<input type="button" class="btn btn-default" onclick="location.href='/acme-incubator/bookkeeper/accounting-record/list?investmentRoundId=${id}'" 
 		value="<acme:message code="bookkeeper.investment-round.form.button.accounting-record"/>">
 	<acme:form-return code="bookkeeper.investment-round.form.button.return"/>

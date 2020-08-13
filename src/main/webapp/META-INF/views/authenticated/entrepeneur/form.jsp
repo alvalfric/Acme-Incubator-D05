@@ -5,7 +5,18 @@
 
 <acme:form>
 	<acme:form-textbox code="authenticated.entrepeneur.form.label.startUpName" path="startUpName"/>
-	<acme:form-textbox code="authenticated.entrepeneur.form.label.activitySector" path="activitySector"/>
+	<acme:form-select code="authenticated.entrepeneur.form.label.activitySector" path="activitySector">
+		<jstl:forEach var="sector" items="${activitySectors}">
+			<jstl:choose>
+			<jstl:when test="${activitySector == sector}">
+				<acme:form-option code="${sector}" value="${sector}" selected="true"/>
+			</jstl:when>
+			<jstl:otherwise>
+				<acme:form-option code="${sector}" value="${sector}"/>
+			</jstl:otherwise>
+			</jstl:choose>
+		</jstl:forEach>
+	</acme:form-select>
 	<acme:form-textarea code="authenticated.entrepeneur.form.label.qualification" path="qualification"/>
 	<acme:form-textarea code="authenticated.entrepeneur.form.label.skills" path="skills"/>
 		

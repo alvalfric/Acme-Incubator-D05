@@ -91,6 +91,9 @@ tr:nth-child(even) {
 	<acme:form-submit test="${command == 'delete' && canBeDeleted}"
 		code="entrepeneur.investment-round.button.delete" 
 		action="/entrepeneur/investment-round/delete"/>
+	<acme:form-submit test="${canCreateForum}"
+		code="entrepeneur.investment-round.form.button.forum.create"
+		action="/authenticated/forum/create?investmentRoundId=${id}"/>
 	<acme:form-submit method="get" test="${command == 'show'}" 
 		code="entrepeneur.investment-round.form.button.accounting-record"
 		action="/entrepeneur/accounting-record/list-mine?investmentRoundId=${id}"/>

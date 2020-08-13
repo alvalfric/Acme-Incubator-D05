@@ -549,15 +549,20 @@
  	<!-- Forums -->
  	<bean id="forum01" class="acme.entities.forums.Forum">
  		<property name="forumTitle" value="Forum of Investment 1"/>
- 		<property name="users">
- 			<list>
- 				<ref bean="entrepeneur1Authenticated"/>
- 				<ref bean="investor1Authenticated"/>
- 			</list>
- 		</property>
  		<property name="investmentRound" ref="investment01"/>
  	</bean>
  	
+ 	<!-- ForumUsers -->
+  	<bean id="forumUser01" class="acme.entities.forums.ForumUser">
+ 		<property name="user" ref="entrepeneur1Authenticated"/>
+ 		<property name="forum" ref="forum01"/>
+ 	</bean>	
+ 
+   	<bean id="forumUser02" class="acme.entities.forums.ForumUser">
+ 		<property name="user" ref="investor1Authenticated"/>
+ 		<property name="forum" ref="forum01"/>
+ 	</bean>	
+ 		
  	<!-- ForumMessages -->
 	<bean id="message01" class="acme.entities.forums.ForumMessage">
 	 	<property name="title" value="Message title 1"/>

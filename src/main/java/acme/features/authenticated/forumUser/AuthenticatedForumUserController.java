@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.forum;
+package acme.features.authenticated.forumUser;
 
 import javax.annotation.PostConstruct;
 
@@ -7,33 +7,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.entities.forums.Forum;
+import acme.components.CustomCommand;
+import acme.entities.forums.ForumUser;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Authenticated;
 
 @Controller
-@RequestMapping("/authenticated/forum/")
-public class AuthenticatedForumController extends AbstractController<Authenticated, Forum> {
+@RequestMapping("/authenticated/forum-user/")
+public class AuthenticatedForumUserController extends AbstractController<Authenticated, ForumUser> {
 
 	@Autowired
-	private AuthenticatedForumListService	listService;
+	private AuthenticatedForumUserShowService	showService;
 
 	@Autowired
-	private AuthenticatedForumShowService	showService;
+	private AuthenticatedForumUserAddService	addService;
 
 	@Autowired
-	private AuthenticatedForumCreateService	createService;
-
-	@Autowired
-	private AuthenticatedForumDeleteService	deleteService;
+	private AuthenticatedForumUserDeleteService	deleteService;
 
 
 	@PostConstruct
 	private void initialise() {
-		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
-		super.addBasicCommand(BasicCommand.CREATE, this.createService);
+		super.addCustomCommand(CustomCommand.ADD, BasicCommand.CREATE, this.addService);
 		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 	}
 

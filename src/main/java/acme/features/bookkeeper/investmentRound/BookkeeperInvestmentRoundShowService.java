@@ -1,9 +1,13 @@
 
 package acme.features.bookkeeper.investmentRound;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.accountingRecords.AccountingRecord;
+import acme.entities.investmentRounds.Activity;
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Bookkeeper;
 import acme.framework.components.Model;
@@ -30,7 +34,12 @@ public class BookkeeperInvestmentRoundShowService implements AbstractShowService
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "creation", "round", "title", "description", "amount", "link", "workProgramme");
+		Collection<Activity> workProgramme = this.repository.findManyAllActivityByInvestmentRoundId(entity.getId());
+		AccountingRecord accountingRecord = this.repository.findAccountingRecordByInvestmentRoundIdAndUserAccountId(entity.getId(), request.getPrincipal().getAccountId());
+		model.setAttribute("workProgramme", workProgramme);
+		model.setAttribute("canCreateAccountingRecord", accountingRecord == null);
+
+		request.unbind(entity, model, "ticker", "creation", "round", "title", "description", "amount", "link");
 	}
 
 	@Override
