@@ -5,7 +5,18 @@
 
 <acme:form>
 	<acme:form-textbox code="authenticated.investor.form.label.firmName" path="firmName"/>
-	<acme:form-textbox code="authenticated.investor.form.label.activitySector" path="activitySector"/>
+	<acme:form-select code="authenticated.investor.form.label.activitySector" path="activitySector">
+		<jstl:forEach var="sector" items="${activitySectors}">
+			<jstl:choose>
+			<jstl:when test="${activitySector == sector}">
+				<acme:form-option code="${sector}" value="${sector}" selected="true"/>
+			</jstl:when>
+			<jstl:otherwise>
+				<acme:form-option code="${sector}" value="${sector}"/>
+			</jstl:otherwise>
+			</jstl:choose>
+		</jstl:forEach>
+	</acme:form-select>
 	<acme:form-textarea code="authenticated.investor.form.label.profile" path="profile"/>
 
 	<acme:form-submit test="${command == 'create'}" code="authenticated.investor.form.button.create" action="/authenticated/investor/create"/>

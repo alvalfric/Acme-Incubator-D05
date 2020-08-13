@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.forums.Forum;
+import acme.entities.forums.ForumUser;
 import acme.entities.investmentRounds.Application;
 import acme.entities.roles.Entrepeneur;
 import acme.framework.components.Errors;
@@ -82,9 +83,11 @@ public class EntrepeneurApplicationAcceptService implements AbstractUpdateServic
 		this.repository.save(entity);
 
 		Forum forum = this.repository.findOneForumByInvestmentRoundId(entity.getInvestmentRound().getId());
-		forum.getUsers().add(this.repository.findOneAuthenticatedByUserAccountId(entity.getInvestor().getUserAccount().getId()));
+		ForumUser forumUser = new ForumUser();
+		forumUser.setUser(this.repository.findOneAuthenticatedByUserAccountId(entity.getInvestor().getUserAccount().getId()));
+		forumUser.setForum(forum);
 
-		this.repository.save(forum);
+		this.repository.save(forumUser);
 	}
 
 }

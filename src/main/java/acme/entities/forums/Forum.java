@@ -1,18 +1,16 @@
 
 package acme.entities.forums;
 
-import java.util.Set;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import acme.entities.investmentRounds.InvestmentRound;
-import acme.framework.entities.Authenticated;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,21 +20,21 @@ import lombok.Setter;
 @Setter
 public class Forum extends DomainEntity {
 
-	private static final long			serialVersionUID	= 1L;
+	private static final long				serialVersionUID	= 1L;
 
 	@NotNull
-	private String						forumTitle;
+	private String							forumTitle;
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "forum")
-	private Set<@Valid ForumMessage>	forumMessages;
+	private Collection<@Valid ForumMessage>	forumMessages;
 
 	@NotNull
 	@OneToOne(optional = false)
 	@Valid
-	private InvestmentRound				investmentRound;
+	private InvestmentRound					investmentRound;
 
-	@NotNull
-	@ManyToMany(fetch = FetchType.EAGER)
-	private Set<@Valid Authenticated>	users;
+	//	@NotNull
+	//	@ManyToMany(fetch = FetchType.EAGER)
+	//	private Set<@Valid Authenticated>	users;
 
 }

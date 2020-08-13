@@ -29,4 +29,7 @@ public class CustomizationParameter extends DomainEntity {
 	@PositiveOrZero
 	@Range(min = 0, max = 100)
 	private Double				spamThreshold;
+
+	@NotBlank
+	private String				activitySectors;
 }

@@ -17,7 +17,7 @@ import acme.framework.entities.Authenticated;
 public class AuthenticatedForumMessageController extends AbstractController<Authenticated, ForumMessage> {
 
 	@Autowired
-	private AuthenticatedForumCreateService createService;
+	private AuthenticatedForumMessageCreateService createService;
 
 
 	@PostConstruct

@@ -81,5 +81,6 @@
 		<property name="spamWordsEnglish" value="sex, hard core, viagra, cialis, nigeria, you've won, million dollar"/>
 		<property name="spamWordsSpanish" value="sexo, duro, viagra, cialis, nigeria, has ganado, millón de dólares"/>
 		<property name="spamThreshold" value="2.50"/>
+		<property name="activitySectors" value="Technology, Science, Arts, Business, Health"/>
 	</bean>
 </beans>

@@ -59,6 +59,9 @@ public class AuthenticatedEntrepeneurUpdateService implements AbstractUpdateServ
 		assert entity != null;
 		assert model != null;
 
+		String[] activitySectors = this.repository.findCustomizationParameters().getActivitySectors().split(", ");
+		model.setAttribute("activitySectors", activitySectors);
+
 		request.unbind(entity, model, "startUpName", "activitySector", "qualification", "skills");
 	}
 

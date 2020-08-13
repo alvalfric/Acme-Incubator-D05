@@ -71,6 +71,8 @@ public class EntrepeneurInvestmentRoundCreateService implements AbstractCreateSe
 		assert entity != null;
 		assert errors != null;
 
+		String[] activitySectors = this.repository.findCustomizationParameters().getActivitySectors().split(", ");
+
 		if (!errors.hasErrors("ticker")) {
 			boolean uniqueTicker = this.repository.findOneInvestmentRoundByTicker(entity.getTicker()) == null && this.repository.findOneApplicationByTicker(entity.getTicker()) == null;
 			errors.state(request, uniqueTicker, "ticker", "entrepeneur.investment-round.error.unique");

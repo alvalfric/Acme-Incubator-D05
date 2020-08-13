@@ -2,6 +2,7 @@
 package acme.features.authenticated.forumMessage;
 
 import java.util.Date;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public class AuthenticatedForumCreateService implements AbstractCreateService<Authenticated, ForumMessage> {
+public class AuthenticatedForumMessageCreateService implements AbstractCreateService<Authenticated, ForumMessage> {
 
 	@Autowired
 	private AuthenticatedForumMessageRepository repository;
@@ -26,10 +27,10 @@ public class AuthenticatedForumCreateService implements AbstractCreateService<Au
 	public boolean authorise(final Request<ForumMessage> request) {
 		assert request != null;
 
-		Forum forum = this.repository.findForumById(request.getModel().getInteger("forumId"));
 		Authenticated auth = this.repository.findAuthenticatedByUserAccountId(request.getPrincipal().getAccountId());
+		Set<Authenticated> users = this.repository.findManyAllUsersByForumId(request.getModel().getInteger("forumId"));
 
-		return forum.getUsers().contains(auth);
+		return users.contains(auth);
 	}
 
 	@Override

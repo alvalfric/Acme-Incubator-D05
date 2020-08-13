@@ -33,6 +33,9 @@
 		code="authenticated.forum.form.button.post" 
 		action="/authenticated/forum-message/create?forumId=${id}"/>
 	<br><br>
+	<acme:form-submit method="get" test="${command == 'show' && canManageForum}"
+		code="authenticated.forum.form.button.users" 
+		action="/authenticated/forum-user/show?forumId=${id}"/>
 	<acme:form-submit test="${command == 'show' && canManageForum}"
 		code="authenticated.forum.form.button.delete" 
 		action="/authenticated/forum/delete"/>

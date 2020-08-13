@@ -16,10 +16,23 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="authenticated.consumer.consumer.form.label.company" path="company"/>
-	<acme:form-textbox code="authenticated.consumer.consumer.form.label.sector" path="sector"/>
-	
-	<acme:form-submit test="${command == 'create'}" code="authenticated.consumer.consumer.form.button.create" action="/authenticated/consumer/create"/>
-	<acme:form-submit test="${command == 'update'}" code="authenticated.consumer.consumer.form.button.update" action="/authenticated/consumer/update"/>
-	<acme:form-return code="authenticated.consumer.consumer.form.button.return"/>
+	<acme:form-textbox code="authenticated.consumer.consumer.form.label.company" path="company" />
+	<acme:form-select code="authenticated.consumer.consumer.form.label.sector" path="sector">
+		<jstl:forEach var="sector" items="${activitySectors}">
+			<jstl:choose>
+			<jstl:when test="${activitySector == sector}">
+				<acme:form-option code="${sector}" value="${sector}" selected="true"/>
+			</jstl:when>
+			<jstl:otherwise>
+				<acme:form-option code="${sector}" value="${sector}"/>
+			</jstl:otherwise>
+			</jstl:choose>
+		</jstl:forEach>
+	</acme:form-select>
+
+	<acme:form-submit test="${command == 'create'}" code="authenticated.consumer.consumer.form.button.create"
+		action="/authenticated/consumer/create" />
+	<acme:form-submit test="${command == 'update'}" code="authenticated.consumer.consumer.form.button.update"
+		action="/authenticated/consumer/update" />
+	<acme:form-return code="authenticated.consumer.consumer.form.button.return" />
 </acme:form>

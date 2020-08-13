@@ -43,16 +43,7 @@ public class AuthenticatedForumListService implements AbstractListService<Authen
 		Collection<Forum> forums = this.repository.findManyAll();
 		Authenticated auth = this.repository.findAuthenticatedByUserAccountId(request.getPrincipal().getAccountId());
 
-		Collection<Forum> result = forums.stream().filter(x -> x.getUsers().contains(auth)).collect(Collectors.toList());
-
-		//		Collection<Forum> result = new ArrayList<>();
-		//
-		//
-		//		for (Forum f : forums) {
-		//			if (f.getUsers().contains(auth)) {
-		//				result.add(f);
-		//			}
-		//		}
+		Collection<Forum> result = forums.stream().filter(x -> this.repository.findManyAllUsersByForumId(x.getId()).contains(auth)).collect(Collectors.toList());
 
 		return result;
 	}

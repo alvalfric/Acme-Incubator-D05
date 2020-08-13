@@ -15,6 +15,7 @@ package acme.features.authenticated.consumer;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.customizationParameters.CustomizationParameter;
 import acme.entities.roles.Consumer;
 import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
@@ -28,4 +29,6 @@ public interface AuthenticatedConsumerRepository extends AbstractRepository {
 	@Query("select c from Consumer c where c.userAccount.id = ?1")
 	Consumer findOneConsumerByUserAccountId(int id);
 
+	@Query("select c from CustomizationParameter c")
+	CustomizationParameter findCustomizationParameters();
 }

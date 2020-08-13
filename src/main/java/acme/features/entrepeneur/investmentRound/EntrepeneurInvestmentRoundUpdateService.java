@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.customizationParameters.CustomizationParameter;
 import acme.entities.forums.Forum;
+import acme.entities.forums.ForumUser;
 import acme.entities.investmentRounds.Activity;
 import acme.entities.investmentRounds.Application;
 import acme.entities.investmentRounds.InvestmentRound;
@@ -162,9 +163,13 @@ public class EntrepeneurInvestmentRoundUpdateService implements AbstractUpdateSe
 		if (canBePublished) {
 			Forum forum = new Forum();
 			forum.setForumTitle("Forum of Investment Round " + entity.getTicker());
-			forum.setUsers(new HashSet<>(Arrays.asList(this.repository.findOneAuthenticatedByAccountId(request.getPrincipal().getAccountId()))));
 			forum.setInvestmentRound(entity);
 			this.repository.save(forum);
+
+			ForumUser forumUser = new ForumUser();
+			forumUser.setUser(this.repository.findOneAuthenticatedByAccountId(request.getPrincipal().getAccountId()));
+			forumUser.setForum(forum);
+			this.repository.save(forumUser);
 		}
 	}
 

@@ -114,6 +114,7 @@
     create table `customization_parameter` (
        `id` integer not null,
         `version` integer not null,
+        `activity_sectors` varchar(255),
         `spam_threshold` double precision,
         `spam_words_english` varchar(255),
         `spam_words_spanish` varchar(255),
@@ -151,10 +152,12 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `forum_authenticated` (
-       `forum_id` integer not null,
-        `users_id` integer not null,
-        primary key (`forum_id`, `users_id`)
+    create table `forum_user` (
+       `id` integer not null,
+        `version` integer not null,
+        `forum_id` integer not null,
+        `user_id` integer not null,
+        primary key (`id`)
     ) engine=InnoDB;
 
     create table `inquirie` (
@@ -375,15 +378,15 @@ create index IDX3ianip0mmnj1316lpeas2yw71 on `overture` (`deadline`);
        foreign key (`user_id`) 
        references `authenticated` (`id`);
 
-    alter table `forum_authenticated` 
-       add constraint `FKbfu7rkr4imldqrkswlqieb4dv` 
-       foreign key (`users_id`) 
-       references `authenticated` (`id`);
-
-    alter table `forum_authenticated` 
-       add constraint `FKd1ebx6x0cql1bxphvu15qxh2x` 
+    alter table `forum_user` 
+       add constraint `FKt69dvqxub70390m4ghkyan8a5` 
        foreign key (`forum_id`) 
        references `forum` (`id`);
+
+    alter table `forum_user` 
+       add constraint `FKgbr84oic03nj64yiefspb3g0s` 
+       foreign key (`user_id`) 
+       references `authenticated` (`id`);
 
     alter table `investment_round` 
        add constraint `FKnvwsfdvabjoap6i9cy2mwgcqg` 

@@ -1,6 +1,8 @@
 
 package acme.features.authenticated.forum;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,8 +26,9 @@ public class AuthenticatedForumShowService implements AbstractShowService<Authen
 
 		Forum forum = this.repository.findForumById(request.getModel().getInteger("id"));
 		Authenticated auth = this.repository.findAuthenticatedByUserAccountId(request.getPrincipal().getAccountId());
+		Set<Authenticated> users = this.repository.findManyAllUsersByForumId(request.getModel().getInteger("id"));
 
-		return forum.getUsers().contains(auth);
+		return users.contains(auth) || forum.getInvestmentRound().getEntrepeneur().getUserAccount().getId() == auth.getUserAccount().getId();
 	}
 
 	@Override
@@ -39,7 +42,7 @@ public class AuthenticatedForumShowService implements AbstractShowService<Authen
 
 		model.setAttribute("canManageForum", forum.getInvestmentRound().getEntrepeneur().getUserAccount().getId() == principal.getAccountId());
 
-		request.unbind(entity, model, "forumTitle", "forumMessages", "users");
+		request.unbind(entity, model, "forumTitle", "forumMessages");
 	}
 
 	@Override
