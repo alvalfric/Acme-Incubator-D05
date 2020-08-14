@@ -7,4 +7,5 @@ bookkeeper.accounting-record.list.label.title = Título
 bookkeeper.accounting-record.list.label.status = Estado
 bookkeeper.accounting-record.list.label.creation = Fecha de creación
 
+bookkeeper.accounting-record.form.button.create = Crear
 bookkeeper.accounting-record.form.button.return = Volver

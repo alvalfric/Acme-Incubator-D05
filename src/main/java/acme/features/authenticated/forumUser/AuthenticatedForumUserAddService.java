@@ -39,6 +39,9 @@ public class AuthenticatedForumUserAddService implements AbstractCreateService<A
 		assert entity != null;
 		assert errors != null;
 
+		request.getModel().setAttribute("users", this.repository.findManyAllUsersByForumId(request.getModel().getInteger("forumId")));
+		request.getModel().setAttribute("cantDeleteUserId", request.getPrincipal().getAccountId());
+
 		request.bind(entity, errors, "addUserByUsername");
 	}
 

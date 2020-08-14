@@ -61,6 +61,8 @@ master.menu.administrator.tool-record.list = List Tool Records
 master.menu.administrator.challenge.create = Create Challenge
 master.menu.administrator.challenge.list = List Challenges
 
+master.menu.administrator.bookkeeper-request.list = List Bookkeeper Requests
+
 # master.menu.authenticated ###################################################
 
 master.menu.authenticated = Authenticated
@@ -86,12 +88,14 @@ master.menu.consumer.favourite-link = Favourite link
 # master.menu.entrepeneur #####################################################
 
 master.menu.entrepeneur = Entrepeneur
-master.menu.entrepeneur.investment-round.list = List Investment Rounds
+master.menu.entrepeneur.investment-round.list = List My Investment Rounds
+master.menu.entrepeneur.investment-round.create = Create Investment Rounds
 master.menu.entrepeneur.application.list = List Investment Rounds' Applications
 
 # master.menu.investor ########################################################
 
 master.menu.investor = Investor
+master.menu.investor.investment-round.list = List Investment Rounds
 master.menu.investor.application.list = List Applications
 
 # master.menu.bookkeeper ########################################################
@@ -108,6 +112,13 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.become-entrepeneur = Become an entrepeneur
+master.menu.user-account.entrepeneur = Entrepeneur data
+master.menu.user-account.become-investor = Become an investor
+master.menu.user-account.investor = Investor data
+master.menu.user-account.become-bookkeeper-request = Bookkeeper request
+master.menu.user-account.bookkeeper-request = Bookkeeper request data
+master.menu.user-account.bookkeeper = Bookkeeper data
 
 # master.footer ###############################################################
 

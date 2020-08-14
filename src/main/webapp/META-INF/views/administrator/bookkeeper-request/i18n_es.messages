@@ -1,19 +1,9 @@
-# i18n_es.messages
-#
-# Copyright (c) 2019 Rafael Corchuelo.
-#
-# In keeping with the traditional purpose of furthering education and research, it is
-# the policy of the copyright owner to permit non-commercial use and redistribution of
-# this software. It has been tested carefully, but it is not guaranteed for any particular
-# purposes.  The copyright owner does not offer any warranties or representations, nor do
-# they accept any liabilities with respect to them.
+administrator.bookkeeper-request.list.label.firmName = Nombre Firma
+administrator.bookkeeper-request.list.label.responsabilityStatement = Declaración de Responsabilidad
 
-authenticated.consumer.consumer.form.title.create = Hazte trabajador
-authenticated.consumer.consumer.form.title.update = Actualiza tus datos de trabajador
+administrator.bookkeeper-request.form.label.username = Apodo
+administrator.bookkeeper-request.form.label.firmName = Nombre Firma
+administrator.bookkeeper-request.form.label.responsabilityStatement = Declaración de Responsabilidad
 
-authenticated.consumer.consumer.form.label.company = Compañía:
-authenticated.consumer.consumer.form.label.sector = Sector:
-
-authenticated.consumer.consumer.form.button.create = Registrar
-authenticated.consumer.consumer.form.button.update = Actualizar
-authenticated.consumer.consumer.form.button.return = Volver
+administrator.bookkeeper-request.form.button.accept = Aceptar
+administrator.bookkeeper-request.form.button.return = Volver

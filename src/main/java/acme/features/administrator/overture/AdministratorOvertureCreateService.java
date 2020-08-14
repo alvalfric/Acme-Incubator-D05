@@ -42,9 +42,6 @@ public class AdministratorOvertureCreateService implements AbstractCreateService
 		assert entity != null;
 		assert model != null;
 
-		String[] activitySectors = this.repository.findCustomizationParameters().getActivitySectors().split(", ");
-		model.setAttribute("activitySectors", activitySectors);
-
 		request.unbind(entity, model, "title", "creation", "deadline", "body", "minMoney", "maxMoney", "contactEmail");
 	}
 

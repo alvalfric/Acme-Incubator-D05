@@ -5,7 +5,7 @@
 
 <acme:form>
 	<acme:form-textbox code="administrator.technology-record.form.label.title" path="title" placeholder="Title"/>
-	<acme:form-select code="administrator.technology-record.form.label.activitySector" path="activitySector" placeholder="Activity Sector">
+	<acme:form-select code="administrator.technology-record.form.label.activitySector" path="activitySector">
 			<jstl:forEach var="sector" items="${activitySectors}">
 			<jstl:choose>
 			<jstl:when test="${activitySector == sector}">
@@ -16,7 +16,7 @@
 			</jstl:otherwise>
 			</jstl:choose>
 		</jstl:forEach>
-	</acme:form-select/>
+	</acme:form-select>
 	<acme:form-textbox code="administrator.technology-record.form.label.inventorName" path="inventorName" placeholder="Inventors' Name"/>
 	<acme:form-textarea code="administrator.technology-record.form.label.description" path="description" placeholder="Description"/>
 	<acme:form-url code="administrator.technology-record.form.label.website" path="website" placeholder="https://example.com/"/>

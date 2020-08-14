@@ -1,3 +1,4 @@
+investor.application.form.label.investment = Investment Round id:
 investor.application.form.label.ticker = Ticker
 investor.application.form.label.creation = Creation date
 investor.application.form.label.statement = Statement
@@ -7,4 +8,5 @@ investor.application.list.label.ticker = Ticker
 investor.application.list.label.creation = Creation
 investor.application.list.label.offer = Offer
 
+investor.application.form.button.create = Create
 investor.application.form.button.return = Return

@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.accountingRecords.AccountingRecord;
-import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Bookkeeper;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -44,8 +43,6 @@ public class BookkeeperAccountingRecordUpdateService implements AbstractUpdateSe
 		assert entity != null;
 		assert model != null;
 
-		model.setAttribute("investmentRoundId", request.getModel().getInteger("investmentRoundId"));
-
 		request.unbind(entity, model, "title", "status", "body");
 	}
 
@@ -74,10 +71,6 @@ public class BookkeeperAccountingRecordUpdateService implements AbstractUpdateSe
 	public void update(final Request<AccountingRecord> request, final AccountingRecord entity) {
 		assert request != null;
 		assert entity != null;
-
-		InvestmentRound investmentRound = this.repository.findOneInvestmentRoundById(request.getModel().getInteger("investmentRoundId"));
-
-		entity.setInvestmentRound(investmentRound);
 
 		this.repository.save(entity);
 	}

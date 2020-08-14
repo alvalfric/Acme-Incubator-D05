@@ -1,7 +1,10 @@
-authenticated.forum.form.label.forumMessage.creation = Creado el
-authenticated.forum.form.label.forumMessage.username = por el usuario
-authenticated.forum.form.label.forumMessage.tags = Etiquetas:
+authenticated.forum-message.form.label.title = Título
+authenticated.forum-message.form.label.creation = Fecha de creación
+authenticated.forum-message.form.label.tags = Etiquetas
+authenticated.forum-message.form.label.body = Cuerpo del mensaje
+authenticated.forum-message.form.label.confirmation = Casilla de confirmación
 
-authenticated.forum.list.label.forumTitle = Título del foro
+authenticated.forum-message.form.button.create = Publicar mensaje
+authenticated.forum-message.form.button.return = Volver
 
-authenticated.forum.form.button.return = Volver
+authenticated.forum-message.error.confirmation = Debe confirmar antes de publicar

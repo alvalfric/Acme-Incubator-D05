@@ -1,6 +1,10 @@
 administrator.challenge.list.label.title = Título
 administrator.challenge.list.label.deadline = Fecha de Finalización
 administrator.challenge.list.label.description = Descripción
+
+administrator.challenge.list.label.title = Título
+administrator.challenge.list.label.deadline = Fecha de Finalización
+administrator.challenge.list.label.description = Descripción
 administrator.challenge.form.label.expertGoalReward = Objetivo/Recompensa Experto
 administrator.challenge.form.label.averageGoalReward = Objetivo/Recompensa Promedio
 administrator.challenge.form.label.rookieGoalReward = Objetivo/Recompensa Novato

@@ -3,7 +3,7 @@
 <%@taglib prefix="acme" tagdir ="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.overture.list.label.title" path="title" width="50%" />
-	<acme:list-column code="authenticated.overture.list.label.creation" path="creation" width="25%" />
-	<acme:list-column code="authenticated.overture.list.label.deadline" path="deadline" width="25%" />
+	<acme:list-column code="administrator.overture.list.label.title" path="title" width="50%" />
+	<acme:list-column code="administrator.overture.list.label.creation" path="creation" width="25%" />
+	<acme:list-column code="administrator.overture.list.label.deadline" path="deadline" width="25%" />
 </acme:list>

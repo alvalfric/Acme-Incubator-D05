@@ -31,6 +31,9 @@ public class AdministratorToolRecordUpdateService implements AbstractUpdateServi
 		assert entity != null;
 		assert errors != null;
 
+		String[] activitySectors = this.repository.findCustomizationParameters().getActivitySectors().split(", ");
+		request.getModel().setAttribute("activitySectors", activitySectors);
+
 		request.bind(entity, errors);
 	}
 

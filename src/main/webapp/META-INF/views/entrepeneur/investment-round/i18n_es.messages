@@ -33,6 +33,8 @@ entrepeneur.investment-round.form.button.update = Actualizar
 entrepeneur.investment-round.form.button.delete = Borrar
 entrepeneur.investment-round.form.button.return = Volver
 
+entrepeneur.investment-round.form.button.forum.create = Crear foro
+
 entrepeneur.investment-round.error.spam = No debe contener palabras spam
 entrepeneur.investment-round.error.unique = Debe ser unico
 entrepeneur.investment-round.error.round = Tipo de ronda inválido

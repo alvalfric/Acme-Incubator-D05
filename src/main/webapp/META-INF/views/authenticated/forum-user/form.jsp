@@ -21,7 +21,7 @@ tr:nth-child(even) {
 	<acme:form-textbox code="authenticated.forum-user.form.label.addUserByUsername" path="addUserByUsername"/>
 	
 	<acme:form-submit method="post"
-		code="authenticated.forum-user.form.label.add" 
+		code="authenticated.forum-user.form.button.add" 
 		action="/authenticated/forum-user/add?forumId=${forumId}"/>
 	<acme:form-hidden path="forumId"/>
 	<br><br>
@@ -39,7 +39,7 @@ tr:nth-child(even) {
 			<td style="border: 0px; background-color: #ffffff;">
 			<jstl:if test="${user.userAccount.id != cantDeleteUserId}">
 			<acme:form-submit
-				code="authenticated.forum-user.form.label.users.delete"
+				code="authenticated.forum-user.form.button.users.delete"
 				action="/authenticated/forum-user/delete?username=${user.userAccount.username}"/>
 			</jstl:if>	
 			</td>

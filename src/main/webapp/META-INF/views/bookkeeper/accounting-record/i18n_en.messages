@@ -7,4 +7,5 @@ bookkeeper.accounting-record.list.label.title = Title
 bookkeeper.accounting-record.list.label.status = Status
 bookkeeper.accounting-record.list.label.creation = Creation
 
+bookkeeper.accounting-record.form.button.create = Create
 bookkeeper.accounting-record.form.button.return = Return
