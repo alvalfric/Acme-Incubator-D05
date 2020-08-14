@@ -46,6 +46,10 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		assert entity != null;
 		assert errors != null;
 
+		Integer investmentRoundId = request.getModel().getInteger("investmentRoundId");
+		InvestmentRound investment = this.repository.findOneInvestmentRoundById(investmentRoundId);
+		request.getModel().setAttribute("investmentRound", investment);
+
 		request.bind(entity, errors, "creation");
 	}
 
@@ -55,7 +59,10 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		assert entity != null;
 		assert model != null;
 
-		model.setAttribute("investmentRoundId", request.getModel().getInteger("investmentRoundId"));
+		Integer investmentRoundId = request.getModel().getInteger("investmentRoundId");
+		InvestmentRound investment = this.repository.findOneInvestmentRoundById(investmentRoundId);
+		model.setAttribute("investmentRound", investment);
+		model.setAttribute("investmentRoundId", investmentRoundId);
 
 		request.unbind(entity, model, "ticker", "creation", "statement", "offer", "status", "rejectJustification");
 	}
@@ -135,8 +142,6 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		Set<Integer> tickerIds = this.repository.findTickerIdsByTagAndYearFromInvestmentRound(activitySectorInitials + "-" + lastTwoDigitsYear + "-").stream().map(x -> Integer.valueOf(x)).collect(Collectors.toSet());
 		tickerIds.addAll(this.repository.findTickerIdsByTagAndYearFromApplication(activitySectorInitials + "-" + lastTwoDigitsYear + "-").stream().map(x -> Integer.valueOf(x)).collect(Collectors.toSet()));
 		int id = -1;
-
-		System.out.println(tickerIds);
 
 		for (int i = 0; i < tickerIds.size() + 1; i++) {
 			if (!tickerIds.contains(i)) {

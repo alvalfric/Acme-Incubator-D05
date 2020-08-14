@@ -30,6 +30,9 @@ public class AdministratorTechnologyRecordShowService implements AbstractShowSer
 		assert entity != null;
 		assert model != null;
 
+		String[] activitySectors = this.repository.findCustomizationParameters().getActivitySectors().split(", ");
+		model.setAttribute("activitySectors", activitySectors);
+
 		request.unbind(entity, model, "title", "activitySector", "inventorName", "description", "website", "email", "sourceType", "stars");
 	}
 

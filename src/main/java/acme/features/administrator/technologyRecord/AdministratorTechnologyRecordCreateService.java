@@ -31,6 +31,9 @@ public class AdministratorTechnologyRecordCreateService implements AbstractCreat
 		assert entity != null;
 		assert errors != null;
 
+		String[] activitySectors = this.repository.findCustomizationParameters().getActivitySectors().split(", ");
+		request.getModel().setAttribute("activitySectors", activitySectors);
+
 		request.bind(entity, errors);
 	}
 
@@ -39,6 +42,9 @@ public class AdministratorTechnologyRecordCreateService implements AbstractCreat
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+
+		String[] activitySectors = this.repository.findCustomizationParameters().getActivitySectors().split(", ");
+		model.setAttribute("activitySectors", activitySectors);
 
 		request.unbind(entity, model, "title", "activitySector", "inventorName", "description", "website", "email", "sourceType", "stars");
 	}

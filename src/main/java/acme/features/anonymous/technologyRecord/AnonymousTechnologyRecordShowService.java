@@ -30,6 +30,10 @@ public class AnonymousTechnologyRecordShowService implements AbstractShowService
 		assert entity != null;
 		assert model != null;
 
+		if (entity.getStars() != null) {
+			model.setAttribute("rating", entity.getRating());
+		}
+
 		request.unbind(entity, model, "title", "activitySector", "inventorName", "description", "website", "email", "sourceType", "stars");
 	}
 

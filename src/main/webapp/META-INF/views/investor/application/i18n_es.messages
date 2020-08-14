@@ -1,3 +1,4 @@
+investor.application.form.label.investment = Identificador Ronda de Inversión:
 investor.application.form.label.ticker = Identificador
 investor.application.form.label.creation = Fecha de creación
 investor.application.form.label.statement = Declaración
@@ -7,4 +8,5 @@ investor.application.list.label.ticker = Identificador
 investor.application.list.label.creation = Fecha de creación
 investor.application.list.label.offer = Oferta
 
+investor.application.form.button.create = Crear
 investor.application.form.button.return = Volver

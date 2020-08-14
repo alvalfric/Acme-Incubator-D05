@@ -145,8 +145,6 @@ public class EntrepeneurInvestmentRoundCreateService implements AbstractCreateSe
 		tickerIds.addAll(this.repository.findTickerIdsByTagAndYearFromApplication(activitySectorInitials + "-" + lastTwoDigitsYear + "-").stream().map(x -> Integer.valueOf(x)).collect(Collectors.toSet()));
 		int id = -1;
 
-		System.out.println(tickerIds);
-
 		for (int i = 0; i < tickerIds.size() + 1; i++) {
 			if (!tickerIds.contains(i)) {
 				id = i;

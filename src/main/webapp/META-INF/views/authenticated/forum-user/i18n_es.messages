@@ -1,7 +1,10 @@
-authenticated.forum.form.label.forumMessage.creation = Creado el
-authenticated.forum.form.label.forumMessage.username = por el usuario
-authenticated.forum.form.label.forumMessage.tags = Etiquetas:
+authenticated.forum-user.form.label.addUserByUsername = Añadir usuario por apodo
+authenticated.forum-user.form.label.users = Usuarios
+authenticated.forum-user.form.label.users.username = Apodo
 
-authenticated.forum.list.label.forumTitle = Título del foro
+authenticated.forum-user.form.button.add = Añadir usuario
+authenticated.forum-user.form.button.return = Volver
+authenticated.forum-user.form.button.users.delete = Eliminar usuario
 
-authenticated.forum.form.button.return = Volver
+authenticated.forum-user.error.not-found = Apodo no encontrado
+authenticated.forum-user.error.alredy-in-forum = Usuario ya esta en el foro

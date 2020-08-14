@@ -1,7 +1,10 @@
-authenticated.forum.form.label.forumMessage.creation = Created in
-authenticated.forum.form.label.forumMessage.username = by user
-authenticated.forum.form.label.forumMessage.tags = Tags:
+authenticated.forum-user.form.label.addUserByUsername = Add user by Username
+authenticated.forum-user.form.label.users = Users
+authenticated.forum-user.form.label.users.username = Username
 
-authenticated.forum.list.label.forumTitle = Forum title
+authenticated.forum-user.form.button.add = Add user
+authenticated.forum-user.form.button.return = Return
+authenticated.forum-user.form.button.users.delete = Remove user
 
-authenticated.forum.form.button.return = Return
+authenticated.forum-user.error.not-found = Username not found
+authenticated.forum-user.error.alredy-in-forum = User already in forum

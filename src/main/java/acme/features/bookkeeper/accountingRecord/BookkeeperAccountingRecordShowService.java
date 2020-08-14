@@ -30,6 +30,11 @@ public class BookkeeperAccountingRecordShowService implements AbstractShowServic
 		assert entity != null;
 		assert model != null;
 
+		AccountingRecord accountingRecord = this.repository.findOneById(request.getModel().getInteger("id"));
+		Bookkeeper bookkeeper = this.repository.findBookkeeperByUserAccountId(request.getPrincipal().getAccountId());
+
+		model.setAttribute("canUpdate", accountingRecord.getBookkeeper().equals(bookkeeper));
+
 		request.unbind(entity, model, "title", "status", "creation", "body");
 	}
 

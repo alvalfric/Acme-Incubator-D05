@@ -29,7 +29,7 @@ public class AuthenticatedForumCreateService implements AbstractCreateService<Au
 		Forum forum = this.repository.findForumByInvestmentRoundId(request.getModel().getInteger("investmentRoundId"));
 		Principal principal = request.getPrincipal();
 
-		return principal.getAccountId() == investment.getEntrepeneur().getUserAccount().getId() && forum == null;
+		return principal.getAccountId() == investment.getEntrepeneur().getUserAccount().getId() && forum == null && investment.isFinalMode();
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class AuthenticatedForumCreateService implements AbstractCreateService<Au
 		Forum result = new Forum();
 		InvestmentRound investment = this.repository.findInvestmentRoundById(request.getModel().getInteger("investmentRoundId"));
 
-		result.setForumTitle("Forum of Investment Round " + investment.getTicker());
+		result.setForumTitle(investment.getTicker());
 		result.setInvestmentRound(investment);
 
 		return result;
@@ -78,7 +78,7 @@ public class AuthenticatedForumCreateService implements AbstractCreateService<Au
 
 		InvestmentRound investment = this.repository.findInvestmentRoundById(request.getModel().getInteger("investmentRoundId"));
 
-		entity.setForumTitle("Forum of Investment Round " + investment.getTicker());
+		entity.setForumTitle(investment.getTicker());
 		entity.setInvestmentRound(investment);
 		this.repository.save(entity);
 

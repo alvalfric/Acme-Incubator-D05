@@ -63,7 +63,11 @@ public class EntrepeneurInvestmentRoundUpdateService implements AbstractUpdateSe
 
 		Collection<Activity> workProgramme = this.repository.findManyAllActivityByInvestmentRoundId(entity.getId());
 		model.setAttribute("workProgramme", workProgramme);
-		model.setAttribute("canBeDeleted", this.repository.findManyAllApplicationsByInvestmentRoundId(request.getModel().getInteger("id")).isEmpty());
+		model.setAttribute("canBeDeleted", this.repository.findManyAllApplicationsByInvestmentRoundId(request.getModel().getInteger("id")).isEmpty() && entity.isFinalMode());
+
+		Forum forum = this.repository.findOneForumByInvestmentRoundId(request.getModel().getInteger("id"));
+		InvestmentRound investmentSaved = this.repository.findOneById(entity.getId());
+		model.setAttribute("canCreateForum", forum == null && entity.getEntrepeneur().getUserAccount().getId() == request.getPrincipal().getAccountId() && investmentSaved.isFinalMode());
 
 		request.unbind(entity, model, "ticker", "creation", "round", "title", "description", "amount", "link", "finalMode");
 	}

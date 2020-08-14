@@ -6,4 +6,7 @@ authenticated.forum.form.label.forumMessage.tags = Tags:
 
 authenticated.forum.list.label.forumTitle = Forum title
 
+authenticated.forum.form.button.post = Post a message
+authenticated.forum.form.button.users = Manage users
+authenticated.forum.form.button.delete = Delete forum
 authenticated.forum.form.button.return = Return

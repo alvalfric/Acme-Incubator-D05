@@ -41,6 +41,6 @@ public interface InvestorApplicationRoundRepository extends AbstractRepository {
 	@Query("select substring(i.ticker,8,6) from InvestmentRound i where i.ticker like %?1%")
 	Set<String> findTickerIdsByTagAndYearFromInvestmentRound(String tagAndYear);
 
-	@Query("select substring(i.ticker,8,6) from InvestmentRound i where i.ticker like %?1%")
+	@Query("select substring(a.ticker,8,6) from Application a where a.ticker like %?1%")
 	Set<String> findTickerIdsByTagAndYearFromApplication(String tagAndYear);
 }

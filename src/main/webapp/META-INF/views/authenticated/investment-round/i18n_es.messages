@@ -18,3 +18,5 @@ authenticated.investment-round.list.label.creation = Creación
 
 authenticated.investment-round.form.button.accounting-record = Registros de Contabilidad
 authenticated.investment-round.form.button.return = Volver
+
+authenticated.investment-round.form.button.forum.create = Crear foro

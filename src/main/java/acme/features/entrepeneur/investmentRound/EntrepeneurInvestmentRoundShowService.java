@@ -43,7 +43,8 @@ public class EntrepeneurInvestmentRoundShowService implements AbstractShowServic
 		model.setAttribute("canBeDeleted", this.repository.findManyAllApplicationsByInvestmentRoundId(request.getModel().getInteger("id")).isEmpty());
 
 		Forum forum = this.repository.findOneForumByInvestmentRoundId(request.getModel().getInteger("id"));
-		model.setAttribute("canCreateForum", forum == null && entity.getEntrepeneur().getUserAccount().getId() == request.getPrincipal().getAccountId());
+		InvestmentRound investmentSaved = this.repository.findOneById(entity.getId());
+		model.setAttribute("canCreateForum", forum == null && entity.getEntrepeneur().getUserAccount().getId() == request.getPrincipal().getAccountId() && investmentSaved.isFinalMode());
 
 		request.unbind(entity, model, "ticker", "creation", "round", "title", "description", "amount", "link", "finalMode");
 	}

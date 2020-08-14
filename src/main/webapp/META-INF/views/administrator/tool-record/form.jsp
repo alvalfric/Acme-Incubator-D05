@@ -5,7 +5,7 @@
 
 <acme:form>
 	<acme:form-textbox code="administrator.tool-record.form.label.title" path="title" placeholder="Title"/>
-	<acme:form-select code="administrator.tool-record.form.label.activitySector" path="activitySector" placeholder="Activity Sector">
+	<acme:form-select code="administrator.tool-record.form.label.activitySector" path="activitySector">
 			<jstl:forEach var="sector" items="${activitySectors}">
 			<jstl:choose>
 			<jstl:when test="${activitySector == sector}">
