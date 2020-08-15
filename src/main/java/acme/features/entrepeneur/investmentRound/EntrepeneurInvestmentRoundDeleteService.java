@@ -88,12 +88,10 @@ public class EntrepeneurInvestmentRoundDeleteService implements AbstractDeleteSe
 		Forum forum = this.repository.findOneForumByInvestmentRoundId(entity.getId());
 
 		if (workProgramme != null) {
-			System.out.println("entra wokrprogramme");
 			this.repository.deleteAll(workProgramme);
 		}
 
 		if (accountingRecords != null) {
-			System.out.println("entra accountingrecords");
 			this.repository.deleteAll(accountingRecords);
 		}
 
