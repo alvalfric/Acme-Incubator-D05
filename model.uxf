@@ -379,7 +379,7 @@ Challenge
       <x>35</x>
       <y>511</y>
       <w>231</w>
-      <h>84</h>
+      <h>91</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 CustomizationParameter
@@ -388,6 +388,7 @@ CustomizationParameter
 + spamWordsSpanish: String {NotBlank}
 + spamThreshold: Double {NotNull, PositiveOrZero,
 DecimalMax(99), Range(min=0, max=100)}
++ activitySectors: String {NotBlank}
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -395,7 +396,7 @@ DecimalMax(99), Range(min=0, max=100)}
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>609</y>
+      <y>616</y>
       <w>266</w>
       <h>119</h>
     </coordinates>
@@ -456,7 +457,7 @@ TechnologyRecord
     <id>UMLClass</id>
     <coordinates>
       <x>77</x>
-      <y>742</y>
+      <y>749</y>
       <w>189</w>
       <h>126</h>
     </coordinates>
@@ -559,7 +560,7 @@ Bookkeeper
     <id>UMLClass</id>
     <coordinates>
       <x>1127</x>
-      <y>483</y>
+      <y>497</y>
       <w>273</w>
       <h>84</h>
     </coordinates>
@@ -576,7 +577,7 @@ Activity
     <id>UMLClass</id>
     <coordinates>
       <x>728</x>
-      <y>483</y>
+      <y>497</y>
       <w>273</w>
       <h>84</h>
     </coordinates>
@@ -609,7 +610,7 @@ Forum
       <x>1120</x>
       <y>308</y>
       <w>287</w>
-      <h>112</h>
+      <h>126</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 InvestmentRound
@@ -620,7 +621,8 @@ InvestmentRound
 + title: String {NotBlank}
 + description: String {NotBlank}
 + amount: Money {NotNull, Valid}
-+ link: String {URL}</panel_attributes>
++ link: String {URL}
++ finalMode: boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -629,7 +631,7 @@ InvestmentRound
       <x>1120</x>
       <y>161</y>
       <w>259</w>
-      <h>91</h>
+      <h>98</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Application
@@ -638,7 +640,8 @@ Application
 + creation: Date{Temporal(TIMESTATMP),PastOrPresent}
 + statement: String {NotBlank}
 + offer: Money {NotNull, Valid}
-+ status: String {NotBlank}</panel_attributes>
++ status: String {NotBlank}
++ rejectJustification: String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -718,15 +721,15 @@ m2=1
     <id>Relation</id>
     <coordinates>
       <x>1246</x>
-      <y>245</y>
+      <y>252</y>
       <w>77</w>
-      <h>77</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;.x
 m1=1
 m2=0..*
 applied to v</panel_attributes>
-    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -746,7 +749,7 @@ accounted to v</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1246</x>
-      <y>413</y>
+      <y>427</y>
       <w>77</w>
       <h>84</h>
     </coordinates>
@@ -762,13 +765,13 @@ belongs to ^</panel_attributes>
       <x>917</x>
       <y>413</y>
       <w>77</w>
-      <h>84</h>
+      <h>98</h>
     </coordinates>
     <panel_attributes>lt=&lt;.x
 m1=0..*
 m2=1
 belongs to ^</panel_attributes>
-    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -776,12 +779,26 @@ belongs to ^</panel_attributes>
       <x>770</x>
       <y>315</y>
       <w>77</w>
-      <h>182</h>
+      <h>196</h>
     </coordinates>
     <panel_attributes>lt=&lt;.x
 m1=1
 m2=0..*
 posted by ^</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;240.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;260.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>791</x>
+      <y>315</y>
+      <w>147</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.&gt;&gt;
+m1=0..*
+m2=0..*
+joins v</panel_attributes>
+    <additional_attributes>190.0;80.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
