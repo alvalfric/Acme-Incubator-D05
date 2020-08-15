@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import acme.entities.accountingRecords.AccountingRecord;
 import acme.entities.customizationParameters.CustomizationParameter;
 import acme.entities.forums.Forum;
+import acme.entities.forums.ForumUser;
 import acme.entities.investmentRounds.Activity;
 import acme.entities.investmentRounds.Application;
 import acme.entities.investmentRounds.InvestmentRound;
@@ -29,6 +30,9 @@ public interface EntrepeneurInvestmentRoundRepository extends AbstractRepository
 
 	@Query("select f from Forum f where f.investmentRound.id=?1")
 	Forum findOneForumByInvestmentRoundId(int id);
+
+	@Query("select fu from ForumUser fu where fu.forum.id = ?1")
+	Set<ForumUser> findManyAllForumUsersByForumId(int id);
 
 	@Query("select i from InvestmentRound i where i.entrepeneur.userAccount.id=?1")
 	Collection<InvestmentRound> findManyAllByEntrepeneur(int id);

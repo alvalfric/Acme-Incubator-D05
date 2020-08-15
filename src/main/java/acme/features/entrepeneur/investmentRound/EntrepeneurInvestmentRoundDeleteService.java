@@ -2,12 +2,14 @@
 package acme.features.entrepeneur.investmentRound;
 
 import java.util.Collection;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.accountingRecords.AccountingRecord;
 import acme.entities.forums.Forum;
+import acme.entities.forums.ForumUser;
 import acme.entities.investmentRounds.Activity;
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Entrepeneur;
@@ -83,18 +85,25 @@ public class EntrepeneurInvestmentRoundDeleteService implements AbstractDeleteSe
 
 		Collection<Activity> workProgramme = this.repository.findManyAllActivityByInvestmentRoundId(entity.getId());
 		Collection<AccountingRecord> accountingRecords = this.repository.findManyAllAccountingRecordsByInvestmentRound(entity);
-		Forum froum = this.repository.findOneForumByInvestmentRoundId(entity.getId());
+		Forum forum = this.repository.findOneForumByInvestmentRoundId(entity.getId());
 
 		if (workProgramme != null) {
+			System.out.println("entra wokrprogramme");
 			this.repository.deleteAll(workProgramme);
 		}
 
 		if (accountingRecords != null) {
+			System.out.println("entra accountingrecords");
 			this.repository.deleteAll(accountingRecords);
 		}
 
-		if (froum != null) {
-			this.repository.delete(froum);
+		if (forum != null) {
+			Set<ForumUser> forumUsers = this.repository.findManyAllForumUsersByForumId(forum.getId());
+			if (forumUsers != null) {
+				this.repository.deleteAll(forumUsers);
+			}
+
+			this.repository.delete(forum);
 		}
 
 		this.repository.delete(entity);

@@ -133,7 +133,7 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 			}
 		}
 
-		if (activitySectorInitials.length() < 2) {
+		if (activitySectorInitials.length() < 3) {
 			activitySectorInitials = activitySectorInitials + StringUtils.repeat("X", 3 - activitySectorInitials.length());
 		}
 
