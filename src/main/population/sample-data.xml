@@ -601,15 +601,6 @@
 	 	<property name="forum" ref="forum01"/>
 	 	<property name="user" ref="investor1Authenticated"/>
 	</bean>
-	
-	<!-- CreditCards -->
-	<bean name="creditCard01" class="acme.entities.creditCards.CreditCard">
-		<property name="holderName" value="Reddit CEO"/>
-		<property name="number" value="4111111111111111"/>
-		<property name="brand" value="Visa"/>
-		<property name="expirationDate" value="01/2024"/>
-		<property name="CVV" value="123"/>	
- 	</bean>
 
 	<!-- Patrons -->
 	<bean name="patron1UserAccount" class="acme.framework.entities.UserAccount">
@@ -633,8 +624,12 @@
  	
  	<bean name="patron1Patron" class="acme.entities.roles.Patron">
  		<property name="organizationName" value="Google"/>
-		<property name="creditCard" ref="creditCard01"/>
 		<property name="userAccount" ref="patron1UserAccount"/>
+		<property name="holderName" value="Reddit CEO"/>
+		<property name="number" value="4111111111111111"/>
+		<property name="brand" value="Visa"/>
+		<property name="expirationDate" value="01/2024"/>
+		<property name="CVV" value="123"/>
  	</bean>
  	
  	<bean name="patron1Authenticated" class="acme.framework.entities.Authenticated">
@@ -668,7 +663,7 @@
  	<bean name="patron2Authenticated" class="acme.framework.entities.Authenticated">
  		<property name="userAccount" ref="patron2UserAccount"/>
  	</bean>
-
+	 	
 	<!-- Banners -->
 	<bean id="banner01" class ="acme.entities.banners.Banner">
 		<property name="picture" value="https://media.wired.com/photos/5abece0a9ccf76090d775185/master/pass/hangoutsscreen_2.jpg"/>

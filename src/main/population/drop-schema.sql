@@ -47,6 +47,10 @@
        drop 
        foreign key FK_6cyha9f1wpj0dpbxrrjddrqed;
 
+    alter table `credit_card` 
+       drop 
+       foreign key `FK31e9eqi896koc93q7yjs5yoox`;
+
     alter table `entrepeneur` 
        drop 
        foreign key FK_pwrtga2lkxnda15j1bgh7lbaw;
@@ -78,10 +82,6 @@
     alter table `investor` 
        drop 
        foreign key FK_dcek5rr514s3rww0yy57vvnpq;
-
-    alter table `patron` 
-       drop 
-       foreign key `FKpj4cod0bcxwxg4nqv4f2xkikg`;
 
     alter table `patron` 
        drop 

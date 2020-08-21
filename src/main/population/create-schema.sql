@@ -129,6 +129,7 @@
         `expiration_date` varchar(255),
         `holder_name` varchar(255),
         `number` varchar(255),
+        `patron_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -254,8 +255,12 @@
        `id` integer not null,
         `version` integer not null,
         `user_account_id` integer,
+        `cvv` varchar(255),
+        `brand` varchar(255),
+        `expiration_date` varchar(255),
+        `holder_name` varchar(255),
+        `number` varchar(255),
         `organization_name` varchar(255),
-        `credit_card_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -323,6 +328,9 @@
 
     insert into `hibernate_sequence` values ( 1 );
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
+
+    alter table `credit_card` 
+       add constraint UK_mre2b1pfmmoe2f6n3c60tom5q unique (`patron_id`);
 
     alter table `forum` 
        add constraint UK_ofnp3l952r0ymjahya6fuy1xq unique (`investment_round_id`);
@@ -393,6 +401,11 @@ create index IDX3ianip0mmnj1316lpeas2yw71 on `overture` (`deadline`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `credit_card` 
+       add constraint `FK31e9eqi896koc93q7yjs5yoox` 
+       foreign key (`patron_id`) 
+       references `patron` (`id`);
+
     alter table `entrepeneur` 
        add constraint FK_pwrtga2lkxnda15j1bgh7lbaw 
        foreign key (`user_account_id`) 
@@ -432,11 +445,6 @@ create index IDX3ianip0mmnj1316lpeas2yw71 on `overture` (`deadline`);
        add constraint FK_dcek5rr514s3rww0yy57vvnpq 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
-
-    alter table `patron` 
-       add constraint `FKpj4cod0bcxwxg4nqv4f2xkikg` 
-       foreign key (`credit_card_id`) 
-       references `credit_card` (`id`);
 
     alter table `patron` 
        add constraint FK_8xx5nujhuio3advxc2freyu65 

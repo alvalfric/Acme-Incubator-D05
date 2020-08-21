@@ -2,11 +2,8 @@
 package acme.entities.roles;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
-import acme.entities.creditCards.CreditCard;
 import acme.framework.entities.UserRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,8 +18,13 @@ public class Patron extends UserRole {
 	@NotBlank
 	private String				organizationName;
 
-	@Valid
-	@OneToOne
-	private CreditCard			creditCard;
+	private String				holderName;
 
+	private String				number;
+
+	private String				brand;
+
+	private String				expirationDate;
+
+	private String				CVV;
 }

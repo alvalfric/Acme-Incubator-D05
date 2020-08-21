@@ -1,0 +1,18 @@
+authenticated.patron.form.label.organizationName = Organization Name
+authenticated.patron.form.label.creditCard = Credit Card:
+authenticated.patron.form.label.holderName = Holder Name
+authenticated.patron.form.label.number = Credit Card Number
+authenticated.patron.form.label.brand = Credit Card Brand
+authenticated.patron.form.label.expirationDate = Expiration Date
+authenticated.patron.form.label.CVV = CVV
+
+authenticated.patron.form.button.create = Create
+authenticated.patron.form.button.update = Update
+authenticated.patron.form.button.return = Return
+
+authenticated.patron.error.field.empty = Must not be blank while inserting a credit card
+authenticated.patron.error.number.number = Must be a number
+authenticated.patron.error.number.invalid = Invalid number
+authenticated.patron.error.expirationDate.format = Invalid format, must be month/year
+authenticated.patron.error.expirationDate.valid = Must be in present or future
+authenticated.patron.error.cvv.format = Must be three numbers
