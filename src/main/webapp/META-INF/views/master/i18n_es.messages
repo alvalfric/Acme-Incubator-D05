@@ -104,6 +104,12 @@ master.menu.bookkeeper = Contable
 master.menu.bookkeeper.investment-round.list.written = Listar Rondas de Inversión Con Registro Contable
 master.menu.bookkeeper.investment-round.list.not-written = Listar Rondas de Inversión Sin Registro Contable
 
+# master.menu.patron ##########################################################
+
+master.menu.patron = Patrocinador
+master.menu.patron.banner.list = Listar Banners
+master.menu.patron.banner.create = Crear Banner
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta

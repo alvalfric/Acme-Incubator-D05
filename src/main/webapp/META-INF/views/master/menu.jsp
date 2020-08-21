@@ -36,6 +36,7 @@
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-suboption code="master.menu.administrator.notice.list" action="/administrator/notice/list"/>
 			<acme:menu-suboption code="master.menu.administrator.customization-parameter.show" action="/administrator/customization-parameter/show"/>
+			<acme:menu-suboption code="master.menu.administrator.dashboard.show" action="/administrator/dashboard/show"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.inquirie.list" action="/administrator/inquirie/list"/>		
 			<acme:menu-suboption code="master.menu.administrator.overture.list" action="/administrator/overture/list"/>		
@@ -88,6 +89,10 @@
 		    <acme:menu-suboption code="master.menu.bookkeeper.investment-round.list.written" action="/bookkeeper/investment-round/list-written"/>
 		    <acme:menu-suboption code="master.menu.bookkeeper.investment-round.list.not-written" action="/bookkeeper/investment-round/list-not-written"/>
 		</acme:menu-option>	
+		
+		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
+		    <acme:menu-suboption code="master.menu.patron.banner.list" action="/patron/banner/list"/>
+		</acme:menu-option>
 	</acme:menu-left>
 
 	<acme:menu-right>

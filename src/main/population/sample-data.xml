@@ -79,13 +79,23 @@
 	<bean id="inquirie01" class ="acme.entities.inquiries.Inquirie">
 		<property name="title" value="Example Inquirie"/>
 		<property name="creation" value="2020/07/09 00:00"/>
-		<property name="deadline" value="2020/09/19 18:00"/>
+		<property name="deadline" value="2020/12/30 00:00"/>
 		<property name="body" value="Requesting assist."/>
 		<property name="minMoney" value="2000 €"/>
 		<property name="maxMoney" value="2000 €"/>
 		<property name="contactEmail" value="inquire@inquirie.com"/>
 	</bean>
 
+	<bean id="inquirie02" class ="acme.entities.inquiries.Inquirie">
+		<property name="title" value="Example Inquirie 2"/>
+		<property name="creation" value="2020/07/09 00:00"/>
+		<property name="deadline" value="2020/12/30 00:00"/>
+		<property name="body" value="Requesting assist 2."/>
+		<property name="minMoney" value="2000 €"/>
+		<property name="maxMoney" value="5000 €"/>
+		<property name="contactEmail" value="inquire@inquirie.com"/>
+	</bean>
+	
 	<!-- Overtures -->
 	<bean id="overture01" class ="acme.entities.overtures.Overture">
 		<property name="title" value="Example Overture"/>
@@ -94,6 +104,16 @@
 		<property name="body" value="Requesting assist."/>
 		<property name="minMoney" value="2000 €"/>
 		<property name="maxMoney" value="3000 €"/>
+		<property name="contactEmail" value="overture@overture.com"/>
+	</bean>
+	
+	<bean id="overture02" class ="acme.entities.overtures.Overture">
+		<property name="title" value="Example Overture 2"/>
+		<property name="creation" value="2020/07/09 00:00"/>
+		<property name="deadline" value="2020/12/30 00:00"/>
+		<property name="body" value="Requesting assist 2."/>
+		<property name="minMoney" value="2000 €"/>
+		<property name="maxMoney" value="4000 €"/>
 		<property name="contactEmail" value="overture@overture.com"/>
 	</bean>
 	
@@ -127,7 +147,7 @@
 		<property name="description" value="Food Shop Automatic System"/>
 		<property name="website" value="https://vaquero.com/"/>
 		<property name="email" value="av@vaquero.com"/>
-		<property name="sourceType" value="Closed-Source"/>
+		<property name="sourceType" value="Open-Source"/>
 		<property name="stars" value="-2"/>
 	</bean>
 	
@@ -580,5 +600,94 @@
 	 	<property name="body" value="Body message 2"/>
 	 	<property name="forum" ref="forum01"/>
 	 	<property name="user" ref="investor1Authenticated"/>
+	</bean>
+	
+	<!-- CreditCards -->
+	<bean name="creditCard01" class="acme.entities.creditCards.CreditCard">
+		<property name="holderName" value="Reddit CEO"/>
+		<property name="number" value="4111111111111111"/>
+		<property name="brand" value="Visa"/>
+		<property name="expirationDate" value="01/2024"/>
+		<property name="CVV" value="123"/>	
+ 	</bean>
+
+	<!-- Patrons -->
+	<bean name="patron1UserAccount" class="acme.framework.entities.UserAccount">
+ 		<property name="username" value="patron1"/>
+ 		<property name="password" value="patron1"/>
+ 		<property name="enabled" value="true"/>
+ 		<property name="identity">
+ 			<bean class="acme.datatypes.UserIdentity">
+ 				<property name="name" value="Patron"/>
+ 				<property name="surname" value="1"/>
+ 				<property name="email" value="patron1@acme.com"/>
+ 			</bean>
+ 		</property>
+ 		<property name="roles">
+ 			<list>
+ 				<ref bean="patron1Patron"/>
+ 				<ref bean="patron1Authenticated"/>
+ 			</list>
+ 		</property>
+ 	</bean>
+ 	
+ 	<bean name="patron1Patron" class="acme.entities.roles.Patron">
+ 		<property name="organizationName" value="Google"/>
+		<property name="creditCard" ref="creditCard01"/>
+		<property name="userAccount" ref="patron1UserAccount"/>
+ 	</bean>
+ 	
+ 	<bean name="patron1Authenticated" class="acme.framework.entities.Authenticated">
+ 		<property name="userAccount" ref="patron1UserAccount"/>
+ 	</bean>
+
+	<bean name="patron2UserAccount" class="acme.framework.entities.UserAccount">
+ 		<property name="username" value="patron2"/>
+ 		<property name="password" value="patron2"/>
+ 		<property name="enabled" value="true"/>
+ 		<property name="identity">
+ 			<bean class="acme.datatypes.UserIdentity">
+ 				<property name="name" value="Patron"/>
+ 				<property name="surname" value="2"/>
+ 				<property name="email" value="patron2@acme.com"/>
+ 			</bean>
+ 		</property>
+ 		<property name="roles">
+ 			<list>
+ 				<ref bean="patron2Patron"/>
+ 				<ref bean="patron2Authenticated"/>
+ 			</list>
+ 		</property>
+ 	</bean>
+ 	
+ 	<bean name="patron2Patron" class="acme.entities.roles.Patron">
+ 		<property name="organizationName" value="Tencent"/>
+		<property name="userAccount" ref="patron2UserAccount"/>
+ 	</bean>
+ 	
+ 	<bean name="patron2Authenticated" class="acme.framework.entities.Authenticated">
+ 		<property name="userAccount" ref="patron2UserAccount"/>
+ 	</bean>
+
+	<!-- Banners -->
+	<bean id="banner01" class ="acme.entities.banners.Banner">
+		<property name="picture" value="https://media.wired.com/photos/5abece0a9ccf76090d775185/master/pass/hangoutsscreen_2.jpg"/>
+		<property name="slogan" value="Reddit"/>
+		<property name="url" value="https://www.reddit.com/"/>
+		<property name="patron" ref="patron1Patron"/>
+	</bean>
+	
+	<bean id="banner02" class ="acme.entities.banners.Banner">
+		<property name="picture" value="https://lh3.googleusercontent.com/Pqp5U38hP4c_iJpMHgaCkPG9Qw8DWFVGmqIT4d0QzcQ-S-ihFuMgxxvdy1XgwbxZIbw"/>
+		<property name="slogan" value="Youtube Music"/>
+		<property name="url" value="https://music.youtube.com/"/>
+		<property name="patron" ref="patron1Patron"/>
+	</bean>
+	
+	<bean id="banner03" class ="acme.entities.banners.Banner">
+		<property name="picture" value="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltcfa4652c8d383f56/5e21837f63d1b6503160d39b/Home-page.jpg"/>
+		<property name="slogan" value="League of Legends"/>
+		<property name="url" value="https://euw.leagueoflegends.com/es-es/"/>
+		<property name="patron" ref="patron2Patron"/>
 	</bean>
 </beans>

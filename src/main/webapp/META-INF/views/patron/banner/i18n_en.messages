@@ -1,0 +1,10 @@
+patron.banner.form.label.picture = Pictur Url
+patron.banner.form.label.slogan = Slogan
+patron.banner.form.label.url = Target Url
+
+patron.banner.form.button.create = Create
+patron.banner.form.button.update = Update
+patron.banner.form.button.delete = Delete
+patron.banner.form.button.return = Return
+
+patron.banner.list.label.slogan = Slogan

@@ -1,0 +1,16 @@
+administrator.dashboard.label.totalNumberOfNotices = Total number of Notices
+administrator.dashboard.label.totalNumberOfTechnologyRecords = Total number of Technology Records
+administrator.dashboard.label.totalNumberOfToolRecords = Total number of Tool Records
+administrator.dashboard.label.minimumMoneyIntervalsOfActiveInquiries = Minimun money interval of Actives Inquiries
+administrator.dashboard.label.maximunMoneyIntervalsOfActiveInquiries = Maximun money interval of Actives Inquiries
+administrator.dashboard.label.averageMoneyIntervalsOfActiveInquiries = Average money interval of Actives Inquiries
+administrator.dashboard.label.standardDeviationMoneyIntervalsOfActiveInquiries = Standard Deviation of money interval of Actives Inquiries
+administrator.dashboard.label.minimumMoneyIntervalsOfActiveOvertures = Minimun money interval of Actives Overtures
+administrator.dashboard.label.maximunMoneyIntervalsOfActiveOvertures = Maximun money interval of Actives Overtures
+administrator.dashboard.label.averageMoneyIntervalsOfActiveOvertures = Average money interval of Actives Overtures
+administrator.dashboard.label.standardDeviationMoneyIntervalsOfActiveOvertures = Standard Deviation of money interval of Actives Overtures
+administrator.dashboard.chart.label.technologyTool = Chart of Technology and Tool Records by Sector
+administrator.dashboard.chart.label.chartInvestment = Chart of Investment Rounds per Sector
+administrator.dashboard.chart.label.chartApplication = Chart of Applications per Status
+
+administrator.dashboard.form.button.return = Return
