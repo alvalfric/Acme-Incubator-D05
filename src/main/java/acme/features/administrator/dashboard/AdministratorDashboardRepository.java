@@ -1,6 +1,8 @@
 
 package acme.features.administrator.dashboard;
 
+import java.util.Date;
+
 import org.springframework.data.jpa.repository.Query;
 
 import acme.framework.repositories.AbstractRepository;
@@ -76,4 +78,10 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 
 	@Query("select a.status, count(a)*1.0/(select count(aa) from Application aa) from Application a group by a.status")
 	String[][] ratioOfApplicationsRoundGroupedByStatus();
+
+	//select a.creation, count(a) from Application a where a.status = 'pending' and a.creation between '2020-07-20' and CURRENT_DATE group by a.status;
+
+	//D05
+	@Query("select cast(a.creation as date), count(a) from Application a where a.status = ?1 and cast(a.creation as date) between ?2 and CURRENT_DATE group by cast(a.creation as date)")
+	String[][] numberOfApplicationsPerDayByStatus(String status, Date date);
 }

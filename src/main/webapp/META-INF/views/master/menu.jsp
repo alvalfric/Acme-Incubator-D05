@@ -92,6 +92,7 @@
 		
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
 		    <acme:menu-suboption code="master.menu.patron.banner.list" action="/patron/banner/list"/>
+		   	<acme:menu-suboption code="master.menu.patron.banner.create" action="/patron/banner/create"/>
 		</acme:menu-option>
 	</acme:menu-left>
 

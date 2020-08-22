@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 
 import acme.entities.banners.Banner;
+import acme.entities.roles.Patron;
 import acme.framework.repositories.AbstractRepository;
 
 public interface PatronBannerRepository extends AbstractRepository {
@@ -18,4 +19,7 @@ public interface PatronBannerRepository extends AbstractRepository {
 
 	@Query("select b from Banner b where b.patron.userAccount.id = ?1")
 	Collection<Banner> findManyAllByPatron(int id);
+
+	@Query("select p from Patron p where p.userAccount.id = ?1")
+	Patron findOnePatronByUserAccountId(int id);
 }
