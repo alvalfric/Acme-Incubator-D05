@@ -31,6 +31,10 @@
        drop 
        foreign key FK_h52w0f3wjoi68b63wv9vwon57;
 
+    alter table `banner` 
+       drop 
+       foreign key `FKdocr1jjfgwx9ef5jbf675l360`;
+
     alter table `bookkeeper` 
        drop 
        foreign key FK_krvjp9eaqyapewl2igugbo9o8;
@@ -42,6 +46,10 @@
     alter table `consumer` 
        drop 
        foreign key FK_6cyha9f1wpj0dpbxrrjddrqed;
+
+    alter table `credit_card` 
+       drop 
+       foreign key `FK31e9eqi896koc93q7yjs5yoox`;
 
     alter table `entrepeneur` 
        drop 
@@ -75,6 +83,10 @@
        drop 
        foreign key FK_dcek5rr514s3rww0yy57vvnpq;
 
+    alter table `patron` 
+       drop 
+       foreign key FK_8xx5nujhuio3advxc2freyu65;
+
     alter table `provider` 
        drop 
        foreign key FK_b1gwnjqm6ggy9yuiqm0o4rlmd;
@@ -93,6 +105,8 @@
 
     drop table if exists `authenticated`;
 
+    drop table if exists `banner`;
+
     drop table if exists `bookkeeper`;
 
     drop table if exists `bookkeeper_request`;
@@ -100,6 +114,8 @@
     drop table if exists `challenge`;
 
     drop table if exists `consumer`;
+
+    drop table if exists `credit_card`;
 
     drop table if exists `customization_parameter`;
 
@@ -120,6 +136,8 @@
     drop table if exists `notice`;
 
     drop table if exists `overture`;
+
+    drop table if exists `patron`;
 
     drop table if exists `provider`;
 

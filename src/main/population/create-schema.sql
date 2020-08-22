@@ -69,6 +69,16 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `banner` (
+       `id` integer not null,
+        `version` integer not null,
+        `picture` varchar(255),
+        `slogan` varchar(255),
+        `url` varchar(255),
+        `patron_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `bookkeeper` (
        `id` integer not null,
         `version` integer not null,
@@ -108,6 +118,18 @@
         `user_account_id` integer,
         `company` varchar(255),
         `sector` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `credit_card` (
+       `id` integer not null,
+        `version` integer not null,
+        `cvv` varchar(255),
+        `brand` varchar(255),
+        `expiration_date` varchar(255),
+        `holder_name` varchar(255),
+        `number` varchar(255),
+        `patron_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -229,6 +251,19 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `patron` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        `cvv` varchar(255),
+        `brand` varchar(255),
+        `expiration_date` varchar(255),
+        `holder_name` varchar(255),
+        `number` varchar(255),
+        `organization_name` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `provider` (
        `id` integer not null,
         `version` integer not null,
@@ -294,6 +329,9 @@
     insert into `hibernate_sequence` values ( 1 );
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
 
+    alter table `credit_card` 
+       add constraint UK_mre2b1pfmmoe2f6n3c60tom5q unique (`patron_id`);
+
     alter table `forum` 
        add constraint UK_ofnp3l952r0ymjahya6fuy1xq unique (`investment_round_id`);
 create index IDXdvftjmbbmrad2oe19yi4uuhyi on `inquirie` (`deadline`);
@@ -343,6 +381,11 @@ create index IDX3ianip0mmnj1316lpeas2yw71 on `overture` (`deadline`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `banner` 
+       add constraint `FKdocr1jjfgwx9ef5jbf675l360` 
+       foreign key (`patron_id`) 
+       references `patron` (`id`);
+
     alter table `bookkeeper` 
        add constraint FK_krvjp9eaqyapewl2igugbo9o8 
        foreign key (`user_account_id`) 
@@ -357,6 +400,11 @@ create index IDX3ianip0mmnj1316lpeas2yw71 on `overture` (`deadline`);
        add constraint FK_6cyha9f1wpj0dpbxrrjddrqed 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `credit_card` 
+       add constraint `FK31e9eqi896koc93q7yjs5yoox` 
+       foreign key (`patron_id`) 
+       references `patron` (`id`);
 
     alter table `entrepeneur` 
        add constraint FK_pwrtga2lkxnda15j1bgh7lbaw 
@@ -395,6 +443,11 @@ create index IDX3ianip0mmnj1316lpeas2yw71 on `overture` (`deadline`);
 
     alter table `investor` 
        add constraint FK_dcek5rr514s3rww0yy57vvnpq 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
+    alter table `patron` 
+       add constraint FK_8xx5nujhuio3advxc2freyu65 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 

@@ -1,0 +1,10 @@
+patron.banner.form.label.picture = Url Imagen
+patron.banner.form.label.slogan = Eslogan
+patron.banner.form.label.url = Url de Destino
+
+patron.banner.form.button.create = Crear
+patron.banner.form.button.update = Actualizar
+patron.banner.form.button.delete = Borrar
+patron.banner.form.button.return = Volver
+
+patron.banner.list.label.slogan = Eslogan

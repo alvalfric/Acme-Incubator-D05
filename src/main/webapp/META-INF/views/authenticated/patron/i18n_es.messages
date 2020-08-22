@@ -1,0 +1,18 @@
+authenticated.patron.form.label.organizationName = Nombre de la Organización
+authenticated.patron.form.label.creditCard = Tarjeta de Crédito:
+authenticated.patron.form.label.holderName = Nombre del Titular
+authenticated.patron.form.label.number = Número Tarjeta de Crédito
+authenticated.patron.form.label.brand = Marca Tarjeta de Crédito
+authenticated.patron.form.label.expirationDate = Fecha de Expiración
+authenticated.patron.form.label.CVV = CVV
+
+authenticated.patron.form.button.create = Crear
+authenticated.patron.form.button.update = Actualizar
+authenticated.patron.form.button.return = Volver
+
+authenticated.patron.error.field.empty = No puede estar en blanco al insertar una tarjeta de crédito
+authenticated.patron.error.number.number = Debe ser un número
+authenticated.patron.error.number.invalid = Número inválido
+authenticated.patron.error.expirationDate.format = Formato invalido, debe ser mes/año
+authenticated.patron.error.expirationDate.valid = Debe estar en presente o en futuro
+authenticated.patron.error.cvv.format = Debe ser tres números
