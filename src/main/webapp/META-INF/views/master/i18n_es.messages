@@ -125,6 +125,8 @@ master.menu.user-account.investor = Datos de inversor
 master.menu.user-account.become-bookkeeper-request = Solicitud Contable
 master.menu.user-account.bookkeeper-request = Solicitud de contable
 master.menu.user-account.bookkeeper = Datos de contable
+master.menu.user-account.patron = Datos de patrocinador
+master.menu.user-account.become-patron = Hazte patrocinador
 
 ﻿# master.footer ###############################################################
 

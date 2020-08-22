@@ -192,7 +192,12 @@ public class EntrepeneurInvestmentRoundUpdateService implements AbstractUpdateSe
 
 		for (String word : spamWords) {
 			if (strFormatted.contains(word)) {
-				spamWordsCounter += 1;
+				int i = 0;
+				while ((i = str.indexOf(word, i)) != -1) {
+					spamWordsCounter++;
+					i++;
+
+				}
 			}
 		}
 

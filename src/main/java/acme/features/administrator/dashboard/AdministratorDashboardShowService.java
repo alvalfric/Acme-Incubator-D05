@@ -1,9 +1,13 @@
 
 package acme.features.administrator.dashboard;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -40,7 +44,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		request.unbind(entity, model, "totalNumberOfNotices", "totalNumberOfTechnologyRecords", "totalNumberOfToolRecords", "minimumMoneyIntervalsOfActiveInquiries", "maximunMoneyIntervalsOfActiveInquiries", "averageMoneyIntervalsOfActiveInquiries",
 			"standardDeviationMoneyIntervalsOfActiveInquiries", "minimumMoneyIntervalsOfActiveOvertures", "maximunMoneyIntervalsOfActiveOvertures", "averageMoneyIntervalsOfActiveOvertures", "standardDeviationMoneyIntervalsOfActiveOvertures",
 			"ratioOfOpenSourceTechnologiesVSClosedSourceTechnologies", "ratioOfOpenSourceToolsVSClosedSourceTools", "chartTechnologyTool", "averageNumberOfInvestmentRoundPerEntrepeneur", "averageNumberOfApplicationsPerEntrepeneur",
-			"averageNumberOfApplicationsPerInvestor", "chartInvestmentApplications");
+			"averageNumberOfApplicationsPerInvestor", "chartInvestmentApplications", "chartTimeSeriesApplication");
 	}
 
 	@Override
@@ -105,6 +109,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setAverageNumberOfApplicationsPerEntrepeneur(this.repository.averageNumberOfApplicationsPerEntrepeneur());
 		result.setAverageNumberOfApplicationsPerInvestor(this.repository.averageNumberOfApplicationsPerInvestor());
 		result.setChartInvestmentApplications(this.generateChartInvestmentApplication());
+
+		//D05
+		result.setChartTimeSeriesApplication(this.generateChartTimeSeriesApplication());
 		return result;
 	}
 
@@ -203,6 +210,67 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		chart.add(new ArrayList<>(labels_application));
 		chart.add(data_application);
+
+		return chart;
+	}
+
+	private List<List<String>> generateChartTimeSeriesApplication() {
+		List<List<String>> chart = new ArrayList<>();
+
+		List<String> labels = new ArrayList<>();
+		List<String> data_accepted = new ArrayList<>();
+		List<String> data_rejected = new ArrayList<>();
+		List<String> data_pending = new ArrayList<>();
+
+		LocalDate localDate = LocalDate.now().minusDays(15 - 1);
+		Date queryDate = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+		this.repository.numberOfApplicationsPerDayByStatus("accepted", queryDate);
+
+		for (int i = 0; i < 15; i++) {
+			String dateFormatted = new SimpleDateFormat("yyyy-MM-dd").format(Date.from(LocalDate.now().minusDays(i).atStartOfDay(ZoneId.systemDefault()).toInstant()));
+			labels.add(dateFormatted);
+			data_accepted.add("0");
+			data_rejected.add("0");
+			data_pending.add("0");
+		}
+
+		for (int i = 0; i < labels.size(); i++) {
+			List<String> labelsList = new ArrayList<>(labels);
+			for (String[] cr : this.repository.numberOfApplicationsPerDayByStatus("accepted", queryDate)) {
+				if (String.valueOf(cr[0]).substring(0, 10).equals(labelsList.get(i).substring(0, 10))) {
+					data_accepted.set(i, cr[1]);
+
+				}
+			}
+		}
+
+		for (int i = 0; i < labels.size(); i++) {
+			List<String> labelsList = new ArrayList<>(labels);
+			for (String[] cr : this.repository.numberOfApplicationsPerDayByStatus("rejected", queryDate)) {
+				if (String.valueOf(cr[0]).substring(0, 10).equals(labelsList.get(i).substring(0, 10))) {
+					data_rejected.set(i, cr[1]);
+
+				}
+			}
+		}
+
+		for (int i = 0; i < labels.size(); i++) {
+			List<String> labelsList = new ArrayList<>(labels);
+			System.out.println(labelsList);
+			for (String[] cr : this.repository.numberOfApplicationsPerDayByStatus("pending", queryDate)) {
+				System.out.println(cr[0]);
+				if (String.valueOf(cr[0]).substring(0, 10).equals(labelsList.get(i).substring(0, 10))) {
+					System.out.println("entra");
+					data_pending.set(i, cr[1]);
+
+				}
+			}
+		}
+
+		chart.add(new ArrayList<>(labels));
+		chart.add(data_accepted);
+		chart.add(data_rejected);
+		chart.add(data_pending);
 
 		return chart;
 	}

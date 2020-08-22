@@ -11,6 +11,7 @@ administrator.dashboard.label.averageMoneyIntervalsOfActiveOvertures = Intervalo
 administrator.dashboard.label.standardDeviationMoneyIntervalsOfActiveOvertures = Desviación Estandar de dinero de Propuestas Activas
 administrator.dashboard.chart.label.technologyTool = Gráfico de Registros Tecnológicos y de Herramientas por Sector
 administrator.dashboard.chart.label.chartInvestment = Gráfico de Rondas de Inversión por Sector
-administrator.dashboard.chart.label.chartApplication = Gráfico de Aplicaciones por Estado
+administrator.dashboard.chart.label.chartApplication = Gráfico de Ratio de Aplicaciones por Estado
+administrator.dashboard.chart.label.chartTimeSeriesApplication = Gráfico de Número de Aplicaciones por Estado
 
 administrator.dashboard.form.button.return = Volver

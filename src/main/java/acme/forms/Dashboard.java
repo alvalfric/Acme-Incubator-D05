@@ -39,4 +39,8 @@ public class Dashboard implements Serializable {
 	double						averageNumberOfApplicationsPerInvestor;
 
 	List<List<String>>			chartInvestmentApplications;
+
+	//D05
+	List<List<String>>			chartTimeSeriesApplication;
+
 }

@@ -154,5 +154,61 @@
 		}
 	});
 </script>
+
+<b><acme:message code="administrator.dashboard.chart.label.chartTimeSeriesApplication"/></b>
+<canvas id="chartTimeSeriesApplication" width="250" height="80"></canvas>
+<script>
+new Chart(document.getElementById("chartTimeSeriesApplication"), {
+	  type: 'line',
+	  data: {
+	    labels: [
+			<jstl:forEach var="label" items="${chartTimeSeriesApplication.get(0)}" begin="0">
+				"<jstl:out value="${label}" escapeXml="false"/>",
+			</jstl:forEach>
+		],
+	    datasets: [{ 
+	        data: [
+				<jstl:forEach var="data" items="${chartTimeSeriesApplication.get(1)}" begin="0">
+				"<jstl:out value="${data}" escapeXml="false"/>",
+				</jstl:forEach>
+	        	],
+	        label: "ACCEPTED",
+	        backgroundColor: 'rgba(99, 252, 132)',
+	        borderColor: 'rgba(99, 252, 132)',
+	        fill: false
+	      }, { 
+	        data: [
+				<jstl:forEach var="data" items="${chartTimeSeriesApplication.get(3)}" begin="0">
+				"<jstl:out value="${data}" escapeXml="false"/>",
+				</jstl:forEach>
+	        	],
+	        label: "PENDING",
+	        backgroundColor: 'rgba(224, 224, 224)',
+	        borderColor: 'rgba(224, 224, 224)',
+	        fill: false
+	      }, { 
+	        data: [
+				<jstl:forEach var="data" items="${chartTimeSeriesApplication.get(2)}" begin="0">
+				"<jstl:out value="${data}" escapeXml="false"/>",
+				</jstl:forEach>
+	        	],
+	        label: "REJECTED",
+	        backgroundColor: 'rgba(255, 99, 132)',
+	        borderColor: 'rgba(255, 99, 132)',
+	        fill: false
+	      }
+	    ]
+	  },
+	  options: {
+	        scales: {
+	            yAxes: [{
+	                ticks: {
+	                    stepSize: 1
+	                }
+	            }]
+	        }
+	    }
+	});
+	</script>
 	<acme:form-return code="administrator.dashboard.form.button.return"/>
 </acme:form>

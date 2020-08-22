@@ -126,6 +126,8 @@ master.menu.user-account.investor = Investor data
 master.menu.user-account.become-bookkeeper-request = Bookkeeper request
 master.menu.user-account.bookkeeper-request = Bookkeeper request data
 master.menu.user-account.bookkeeper = Bookkeeper data
+master.menu.user-account.patron = Patron data
+master.menu.user-account.become-patron = Become a patron
 
 # master.footer ###############################################################
 
