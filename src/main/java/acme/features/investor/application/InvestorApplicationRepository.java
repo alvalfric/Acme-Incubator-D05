@@ -12,7 +12,7 @@ import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Investor;
 import acme.framework.repositories.AbstractRepository;
 
-public interface InvestorApplicationRoundRepository extends AbstractRepository {
+public interface InvestorApplicationRepository extends AbstractRepository {
 
 	@Query("select a from Application a where a.id=?1")
 	Application findOneById(int id);

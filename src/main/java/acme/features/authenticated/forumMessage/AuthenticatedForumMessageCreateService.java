@@ -1,12 +1,15 @@
 
 package acme.features.authenticated.forumMessage;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.customizationParameters.CustomizationParameter;
 import acme.entities.forums.Forum;
 import acme.entities.forums.ForumMessage;
 import acme.framework.components.Errors;
@@ -80,6 +83,17 @@ public class AuthenticatedForumMessageCreateService implements AbstractCreateSer
 		assert entity != null;
 		assert errors != null;
 
+		boolean titleIsSpam = this.spamChecker(entity.getTitle());
+		boolean bodyIsSpam = this.spamChecker(entity.getBody());
+
+		if (!errors.hasErrors("title")) {
+			errors.state(request, !titleIsSpam, "title", "authenticated.forum-message.error.spam");
+		}
+
+		if (!errors.hasErrors("body")) {
+			errors.state(request, !bodyIsSpam, "body", "authenticated.forum-message.error.spam");
+		}
+
 		if (!errors.hasErrors("confirmation")) {
 			errors.state(request, request.getModel().getBoolean("confirmation"), "confirmation", "authenticated.forum-message.error.confirmation");
 		}
@@ -100,4 +114,35 @@ public class AuthenticatedForumMessageCreateService implements AbstractCreateSer
 		this.repository.save(entity);
 	}
 
+	private boolean spamChecker(final String str) {
+		String strFormatted = str.toLowerCase().trim().replaceAll("\\s+", " ");
+
+		CustomizationParameter cp = this.repository.findCustomizationParameters();
+		Double spamThreshold = cp.getSpamThreshold();
+		Set<String> spamWords = new HashSet<>();
+		spamWords.addAll(Arrays.asList(cp.getSpamWordsEnglish().toString().split(", ")));
+		spamWords.addAll(Arrays.asList(cp.getSpamWordsSpanish().toString().split(", ")));
+
+		int spamWordsCounter = 0;
+
+		boolean isSpam = false;
+
+		for (String word : spamWords) {
+			if (strFormatted.contains(word)) {
+				int i = 0;
+				while ((i = str.indexOf(word, i)) != -1) {
+					spamWordsCounter++;
+					i++;
+
+				}
+			}
+		}
+
+		if (spamWordsCounter > 0) {
+			double spamPercentage = Double.valueOf(spamWordsCounter) / strFormatted.split(" ").length * 100;
+			isSpam = spamPercentage >= spamThreshold;
+		}
+
+		return isSpam;
+	}
 }

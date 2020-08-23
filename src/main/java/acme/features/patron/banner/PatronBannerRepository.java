@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 
 import acme.entities.banners.Banner;
+import acme.entities.customizationParameters.CustomizationParameter;
 import acme.entities.roles.Patron;
 import acme.framework.repositories.AbstractRepository;
 
@@ -22,4 +23,7 @@ public interface PatronBannerRepository extends AbstractRepository {
 
 	@Query("select p from Patron p where p.userAccount.id = ?1")
 	Patron findOnePatronByUserAccountId(int id);
+
+	@Query("select cp from CustomizationParameter cp")
+	CustomizationParameter findCustomizationParameters();
 }

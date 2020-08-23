@@ -22,7 +22,7 @@ import acme.framework.services.AbstractCreateService;
 public class InvestorApplicationCreateService implements AbstractCreateService<Investor, Application> {
 
 	@Autowired
-	private InvestorApplicationRoundRepository repository;
+	private InvestorApplicationRepository repository;
 
 
 	@Override

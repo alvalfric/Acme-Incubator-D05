@@ -4,7 +4,9 @@ package acme.entities.investmentRounds;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -22,6 +24,9 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(indexes = {
+	@Index(columnList = "ticker"), @Index(columnList = "finalMode"), @Index(columnList = "round")
+})
 public class InvestmentRound extends DomainEntity {
 
 	private static final long	serialVersionUID	= 1L;

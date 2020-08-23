@@ -16,7 +16,7 @@ import acme.framework.services.AbstractListService;
 public class InvestorApplicationListService implements AbstractListService<Investor, Application> {
 
 	@Autowired
-	private InvestorApplicationRoundRepository repository;
+	private InvestorApplicationRepository repository;
 
 
 	@Override

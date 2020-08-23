@@ -10,7 +10,7 @@ import acme.entities.investmentRounds.Application;
 import acme.framework.entities.Authenticated;
 import acme.framework.repositories.AbstractRepository;
 
-public interface EntrepeneurApplicationRoundRepository extends AbstractRepository {
+public interface EntrepeneurApplicationRepository extends AbstractRepository {
 
 	@Query("select a from Application a where a.id=?1")
 	Application findOneById(int id);

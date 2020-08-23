@@ -16,7 +16,7 @@ import acme.framework.services.AbstractListService;
 public class EntrepeneurApplicationListTickerService implements AbstractListService<Entrepeneur, Application> {
 
 	@Autowired
-	private EntrepeneurApplicationRoundRepository repository;
+	private EntrepeneurApplicationRepository repository;
 
 
 	@Override

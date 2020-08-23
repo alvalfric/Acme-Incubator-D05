@@ -15,7 +15,7 @@ import acme.framework.services.AbstractShowService;
 public class EntrepeneurApplicationShowService implements AbstractShowService<Entrepeneur, Application> {
 
 	@Autowired
-	private EntrepeneurApplicationRoundRepository repository;
+	private EntrepeneurApplicationRepository repository;
 
 
 	@Override

@@ -18,7 +18,7 @@ import acme.framework.services.AbstractUpdateService;
 public class EntrepeneurApplicationAcceptService implements AbstractUpdateService<Entrepeneur, Application> {
 
 	@Autowired
-	private EntrepeneurApplicationRoundRepository repository;
+	private EntrepeneurApplicationRepository repository;
 
 
 	@Override

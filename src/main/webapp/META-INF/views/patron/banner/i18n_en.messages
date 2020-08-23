@@ -8,3 +8,5 @@ patron.banner.form.button.delete = Delete
 patron.banner.form.button.return = Return
 
 patron.banner.list.label.slogan = Slogan
+
+patron.banner.error.spam = Must not contain spam words

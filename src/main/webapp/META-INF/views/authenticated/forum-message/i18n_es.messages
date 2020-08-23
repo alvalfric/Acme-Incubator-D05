@@ -8,3 +8,4 @@ authenticated.forum-message.form.button.create = Publicar mensaje
 authenticated.forum-message.form.button.return = Volver
 
 authenticated.forum-message.error.confirmation = Debe confirmar antes de publicar
+authenticated.forum-message.error.spam = No debe contener palabras spam
