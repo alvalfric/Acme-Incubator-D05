@@ -256,13 +256,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		for (int i = 0; i < labels.size(); i++) {
 			List<String> labelsList = new ArrayList<>(labels);
-			System.out.println(labelsList);
 			for (String[] cr : this.repository.numberOfApplicationsPerDayByStatus("pending", queryDate)) {
-				System.out.println(cr[0]);
 				if (String.valueOf(cr[0]).substring(0, 10).equals(labelsList.get(i).substring(0, 10))) {
-					System.out.println("entra");
 					data_pending.set(i, cr[1]);
-
 				}
 			}
 		}
