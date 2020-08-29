@@ -8,7 +8,12 @@ entrepeneur.application.list.label.ticker = Identificador
 entrepeneur.application.list.label.creation = Fecha de creación
 entrepeneur.application.list.label.offer = Oferta
 entrepeneur.application.list.label.status = Estado
+entrepeneur.application.form.label.rejectJustification = Justificación
 
 entrepeneur.application.form.button.listTicker = Listar por Identificador
 entrepeneur.application.form.button.listCreation = Listar por Fecha de creación
 entrepeneur.application.form.button.return = Volver
+entrepeneur.application.form.button.accept = Aceptar
+entrepeneur.application.form.button.reject = Rechazar
+
+entrepeneur.application.error.rejectJustification = Las solicitudes rechazadas deben tener una justificación

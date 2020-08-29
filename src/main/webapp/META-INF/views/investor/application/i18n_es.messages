@@ -7,6 +7,7 @@ investor.application.form.label.offer = Oferta
 investor.application.list.label.ticker = Identificador
 investor.application.list.label.creation = Fecha de creación
 investor.application.list.label.offer = Oferta
+investor.application.list.label.status = Estado
 
 investor.application.form.button.create = Crear
 investor.application.form.button.return = Volver

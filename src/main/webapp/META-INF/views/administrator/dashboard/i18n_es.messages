@@ -13,5 +13,8 @@ administrator.dashboard.chart.label.technologyTool = Gráfico de Registros Tecno
 administrator.dashboard.chart.label.chartInvestment = Gráfico de Rondas de Inversión por Sector
 administrator.dashboard.chart.label.chartApplication = Gráfico de Ratio de Aplicaciones por Estado
 administrator.dashboard.chart.label.chartTimeSeriesApplication = Gráfico de Número de Aplicaciones por Estado
+administrator.dashboard.label.averageNumberOfInvestmentRoundPerEntrepeneur = Número medio de Rondas de Inversión por Empresario
+administrator.dashboard.label.averageNumberOfApplicationsPerEntrepeneur = Número medio de Aplicaciones por Empresario
+administrator.dashboard.label.averageNumberOfApplicationsPerInvestor = Número medio de Aplicaciones por Inversor
 
 administrator.dashboard.form.button.return = Volver

@@ -8,7 +8,12 @@ entrepeneur.application.list.label.ticker = Ticker
 entrepeneur.application.list.label.creation = Creation date
 entrepeneur.application.list.label.offer = Statement
 entrepeneur.application.list.label.status = Status
+entrepeneur.application.form.label.rejectJustification = Justification
 
 entrepeneur.application.form.button.listTicker = List By Ticker
 entrepeneur.application.form.button.listCreation = List By Creation
 entrepeneur.application.form.button.return = Return
+entrepeneur.application.form.button.accept = Accept
+entrepeneur.application.form.button.reject = Reject
+
+entrepeneur.application.error.rejectJustification = Rejected applications must have a justification

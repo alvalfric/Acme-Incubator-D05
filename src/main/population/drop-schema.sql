@@ -47,10 +47,6 @@
        drop 
        foreign key FK_6cyha9f1wpj0dpbxrrjddrqed;
 
-    alter table `credit_card` 
-       drop 
-       foreign key `FK31e9eqi896koc93q7yjs5yoox`;
-
     alter table `entrepeneur` 
        drop 
        foreign key FK_pwrtga2lkxnda15j1bgh7lbaw;
@@ -114,8 +110,6 @@
     drop table if exists `challenge`;
 
     drop table if exists `consumer`;
-
-    drop table if exists `credit_card`;
 
     drop table if exists `customization_parameter`;
 

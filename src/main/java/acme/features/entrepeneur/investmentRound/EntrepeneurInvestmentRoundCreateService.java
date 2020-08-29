@@ -124,16 +124,7 @@ public class EntrepeneurInvestmentRoundCreateService implements AbstractCreateSe
 		String ticker;
 
 		Entrepeneur entrepeneur = this.repository.findOneEntrepeneurByAccountId(request.getPrincipal().getAccountId());
-		String[] activitySectorSplit = entrepeneur.getActivitySector().split(" ");
-		String activitySectorInitials = "";
-
-		for (int i = 0; i < activitySectorSplit.length; i++) {
-			if (i < 2) {
-				activitySectorInitials = activitySectorInitials + activitySectorSplit[i].charAt(0);
-			} else {
-				break;
-			}
-		}
+		String activitySectorInitials = entrepeneur.getActivitySector().replaceAll("\\s+", "").substring(0, 3).toUpperCase();
 
 		if (activitySectorInitials.length() < 3) {
 			activitySectorInitials = activitySectorInitials + StringUtils.repeat("X", 3 - activitySectorInitials.length());

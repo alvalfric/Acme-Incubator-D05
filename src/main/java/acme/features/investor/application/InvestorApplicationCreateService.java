@@ -122,16 +122,7 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		String ticker;
 
 		Investor investor = this.repository.findInvestorByUserAccountId(request.getPrincipal().getAccountId());
-		String[] activitySectorSplit = investor.getActivitySector().split(" ");
-		String activitySectorInitials = "";
-
-		for (int i = 0; i < activitySectorSplit.length; i++) {
-			if (i < 2) {
-				activitySectorInitials = activitySectorInitials + activitySectorSplit[i].charAt(0);
-			} else {
-				break;
-			}
-		}
+		String activitySectorInitials = investor.getActivitySector().replaceAll("\\s+", "").substring(0, 3).toUpperCase();
 
 		if (activitySectorInitials.length() < 3) {
 			activitySectorInitials = activitySectorInitials + StringUtils.repeat("X", 3 - activitySectorInitials.length());
