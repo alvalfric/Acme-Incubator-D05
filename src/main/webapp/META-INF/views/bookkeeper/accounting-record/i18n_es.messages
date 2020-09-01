@@ -6,6 +6,9 @@ bookkeeper.accounting-record.form.label.body = Cuerpo
 bookkeeper.accounting-record.list.label.title = Título
 bookkeeper.accounting-record.list.label.status = Estado
 bookkeeper.accounting-record.list.label.creation = Fecha de creación
+bookkeeper.accounting-record.form.label.status.published = Publicado
+bookkeeper.accounting-record.form.label.status.draft = Borrador
 
 bookkeeper.accounting-record.form.button.create = Crear
+bookkeeper.accounting-record.form.button.update = Actualizar
 bookkeeper.accounting-record.form.button.return = Volver

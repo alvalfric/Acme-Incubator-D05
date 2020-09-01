@@ -86,6 +86,7 @@
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.bookkeeper" access="hasRole('Bookkeeper')">
+			<acme:menu-suboption code="master.menu.bookkeeper.accounting-record.list-mine" action="/bookkeeper/accounting-record/list-mine"/>
 		    <acme:menu-suboption code="master.menu.bookkeeper.investment-round.list.written" action="/bookkeeper/investment-round/list-written"/>
 		    <acme:menu-suboption code="master.menu.bookkeeper.investment-round.list.not-written" action="/bookkeeper/investment-round/list-not-written"/>
 		</acme:menu-option>	

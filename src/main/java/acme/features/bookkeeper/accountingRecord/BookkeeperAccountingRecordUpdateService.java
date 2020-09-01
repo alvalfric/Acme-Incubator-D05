@@ -34,6 +34,11 @@ public class BookkeeperAccountingRecordUpdateService implements AbstractUpdateSe
 		assert entity != null;
 		assert errors != null;
 
+		AccountingRecord accountingRecord = this.repository.findOneById(request.getModel().getInteger("id"));
+		Bookkeeper bookkeeper = this.repository.findBookkeeperByUserAccountId(request.getPrincipal().getAccountId());
+
+		request.getModel().setAttribute("canUpdate", accountingRecord.getBookkeeper().equals(bookkeeper) && accountingRecord.getStatus().equals("draft"));
+
 		request.bind(entity, errors, "creation");
 	}
 
@@ -42,6 +47,11 @@ public class BookkeeperAccountingRecordUpdateService implements AbstractUpdateSe
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+
+		AccountingRecord accountingRecord = this.repository.findOneById(request.getModel().getInteger("id"));
+		Bookkeeper bookkeeper = this.repository.findBookkeeperByUserAccountId(request.getPrincipal().getAccountId());
+
+		model.setAttribute("canUpdate", accountingRecord.getBookkeeper().equals(bookkeeper) && accountingRecord.getStatus().equals("draft"));
 
 		request.unbind(entity, model, "title", "status", "body");
 	}

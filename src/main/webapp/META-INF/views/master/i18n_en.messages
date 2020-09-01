@@ -104,6 +104,7 @@ master.menu.investor.application.list = List Applications
 master.menu.bookkeeper = Bookkeeper
 master.menu.bookkeeper.investment-round.list.written = List Investment Rounds With Account Record
 master.menu.bookkeeper.investment-round.list.not-written = List Investment Rounds Without Account Record
+master.menu.bookkeeper.accounting-record.list-mine = List My Accounting Records
 
 # master.menu.patron ##########################################################
 

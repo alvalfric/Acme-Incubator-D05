@@ -8,6 +8,7 @@ investor.application.list.label.ticker = Ticker
 investor.application.list.label.creation = Creation
 investor.application.list.label.offer = Offer
 investor.application.list.label.status = Status
+investor.application.form.label.rejectJustification = Justification
 
 investor.application.form.button.create = Create
 investor.application.form.button.return = Return

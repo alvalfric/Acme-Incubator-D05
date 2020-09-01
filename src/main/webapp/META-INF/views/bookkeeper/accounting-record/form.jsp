@@ -9,7 +9,7 @@
 	<jstl:if test="${command != 'create'}">
 	<acme:form-textbox code="bookkeeper.accounting-record.form.label.creation" path="creation" readonly="true"/>
 	</jstl:if>
-	<jstl:if test="${canUpdate}">
+	<jstl:if test="${canUpdate || command == 'create'}">
 	<acme:form-select code="bookkeeper.accounting-record.form.label.status" path="status">
 	<jstl:choose>
 		<jstl:when test="${status == 'published'}">

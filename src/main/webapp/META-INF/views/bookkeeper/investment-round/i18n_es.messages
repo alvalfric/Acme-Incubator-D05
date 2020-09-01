@@ -19,4 +19,5 @@ bookkeeper.investment-round.list.label.creation = Creación
 bookkeeper.investment-round.form.button.accounting-record = Registros de Contabilidad
 bookkeeper.investment-round.form.button.return = Volver
 
-bookkeeper.investment-round.form.button.return = Crear Registro de Contabilidad
+bookkeeper.investment-round.form.button.return = Volver
+bookkeeper.investment-round.form.button.create = Crear Registro de Contabilidad

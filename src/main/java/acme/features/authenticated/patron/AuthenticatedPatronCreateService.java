@@ -126,7 +126,7 @@ public class AuthenticatedPatronCreateService implements AbstractCreateService<A
 		if (!errors.hasErrors("CVV")) {
 			if (entity.getCVV().isEmpty() && entity.getCVV() != null) {
 				errors.state(request, creditCardFieldsEmpty, "CVV", "authenticated.patron.error.field.empty");
-			} else if (entity.getCVV().toString().length() != 3) {
+			} else if (entity.getCVV().toString().length() != 3 && entity.getCVV().toString().length() != 4) {
 				errors.state(request, false, "CVV", "authenticated.patron.error.cvv.format");
 			}
 		}

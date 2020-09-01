@@ -1,6 +1,8 @@
 
 package acme.features.bookkeeper.accountingRecord;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,10 +10,11 @@ import acme.entities.accountingRecords.AccountingRecord;
 import acme.entities.roles.Bookkeeper;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.services.AbstractShowService;
+import acme.framework.entities.Principal;
+import acme.framework.services.AbstractListService;
 
 @Service
-public class BookkeeperAccountingRecordShowService implements AbstractShowService<Bookkeeper, AccountingRecord> {
+public class BookkeeperAccountingRecordListMineService implements AbstractListService<Bookkeeper, AccountingRecord> {
 
 	@Autowired
 	private BookkeeperAccountingRecordRepository repository;
@@ -30,24 +33,19 @@ public class BookkeeperAccountingRecordShowService implements AbstractShowServic
 		assert entity != null;
 		assert model != null;
 
-		AccountingRecord accountingRecord = this.repository.findOneById(request.getModel().getInteger("id"));
-		Bookkeeper bookkeeper = this.repository.findBookkeeperByUserAccountId(request.getPrincipal().getAccountId());
-
-		model.setAttribute("canUpdate", accountingRecord.getBookkeeper().equals(bookkeeper) && accountingRecord.getStatus().equals("draft"));
-
-		request.unbind(entity, model, "title", "status", "creation", "body");
+		request.unbind(entity, model, "title", "creation", "status");
 	}
 
 	@Override
-	public AccountingRecord findOne(final Request<AccountingRecord> request) {
+	public Collection<AccountingRecord> findMany(final Request<AccountingRecord> request) {
 		assert request != null;
 
-		AccountingRecord result;
-		int id;
+		Collection<AccountingRecord> result;
+		Principal principal = request.getPrincipal();
 
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneById(id);
+		result = this.repository.findManyAllByBookkeeperUserAccountId(request.getPrincipal().getAccountId());
 
 		return result;
 	}
+
 }

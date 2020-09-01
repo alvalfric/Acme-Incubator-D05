@@ -3,6 +3,7 @@ package acme.entities.challenges;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
@@ -12,6 +13,8 @@ import javax.persistence.Transient;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -28,6 +31,8 @@ public class Challenge extends DomainEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@NotBlank
+	@Column(length = 256)
+	@Length(max = 256)
 	private String				title;
 
 	@NotNull
@@ -36,24 +41,38 @@ public class Challenge extends DomainEntity {
 	private Date				deadline;
 
 	@NotBlank
+	@Column(length = 4096)
+	@Length(max = 4096)
 	private String				description;
 
 	@NotBlank
+	@Column(length = 256)
+	@Length(max = 256)
 	private String				rookieGoal;
 
 	@NotBlank
+	@Column(length = 256)
+	@Length(max = 256)
 	private String				averageGoal;
 
 	@NotBlank
+	@Column(length = 256)
+	@Length(max = 256)
 	private String				expertGoal;
 
 	@NotBlank
+	@Column(length = 256)
+	@Length(max = 256)
 	private String				rookieReward;
 
 	@NotBlank
+	@Column(length = 256)
+	@Length(max = 256)
 	private String				averageReward;
 
 	@NotBlank
+	@Column(length = 256)
+	@Length(max = 256)
 	private String				expertReward;
 
 

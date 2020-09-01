@@ -97,13 +97,14 @@ master.menu.entrepeneur.application.list = Listar Solicitudes de Rondas de Inver
 
 master.menu.investor = Inversor
 master.menu.investor.investment-round.list = Listar Rondas de Inversión
-master.menu.investor.application.list = Listar solicitudes
+master.menu.investor.application.list = Listar Solicitudes
 
 # master.menu.bookkeeper ########################################################
 
 master.menu.bookkeeper = Contable
 master.menu.bookkeeper.investment-round.list.written = Listar Rondas de Inversión Con Registro Contable
 master.menu.bookkeeper.investment-round.list.not-written = Listar Rondas de Inversión Sin Registro Contable
+master.menu.bookkeeper.accounting-record.list-mine = Listar Mis Registros de Contabilidad
 
 # master.menu.patron ##########################################################
 

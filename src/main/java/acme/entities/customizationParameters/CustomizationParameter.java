@@ -1,11 +1,13 @@
 
 package acme.entities.customizationParameters;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 
 import acme.framework.entities.DomainEntity;
@@ -20,9 +22,13 @@ public class CustomizationParameter extends DomainEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@NotBlank
+	@Column(length = 4096)
+	@Length(max = 4096)
 	private String				spamWordsEnglish;
 
 	@NotBlank
+	@Column(length = 4096)
+	@Length(max = 4096)
 	private String				spamWordsSpanish;
 
 	@NotNull
@@ -31,5 +37,7 @@ public class CustomizationParameter extends DomainEntity {
 	private Double				spamThreshold;
 
 	@NotBlank
+	@Column(length = 4096)
+	@Length(max = 4096)
 	private String				activitySectors;
 }

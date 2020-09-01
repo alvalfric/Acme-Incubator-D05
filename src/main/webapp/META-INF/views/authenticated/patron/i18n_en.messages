@@ -15,4 +15,4 @@ authenticated.patron.error.number.number = Must be a number
 authenticated.patron.error.number.invalid = Invalid number
 authenticated.patron.error.expirationDate.format = Invalid format, must be month/year
 authenticated.patron.error.expirationDate.valid = Must be in present or future
-authenticated.patron.error.cvv.format = Must be three numbers
+authenticated.patron.error.cvv.format = Must be three or four numbers

@@ -14,6 +14,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.entities.DomainEntity;
@@ -32,9 +33,13 @@ public class Notice extends DomainEntity {
 
 	@NotBlank
 	@URL
+	@Column(length = 2048)
+	@Length(max = 2048)
 	private String				headerPicture;
 
 	@NotBlank
+	@Column(length = 256)
+	@Length(max = 256)
 	private String				title;
 
 	@NotNull
@@ -48,12 +53,17 @@ public class Notice extends DomainEntity {
 	private Date				deadline;
 
 	@NotBlank
-	@Column(name = "body", length = 512)
+	@Column(length = 2048)
+	@Length(max = 2048)
 	private String				body;
 
 	@URL
+	@Column(length = 2048)
+	@Length(max = 2048)
 	private String				relatedLink1;
 
 	@URL
+	@Column(length = 2048)
+	@Length(max = 2048)
 	private String				relatedLink2;
 }

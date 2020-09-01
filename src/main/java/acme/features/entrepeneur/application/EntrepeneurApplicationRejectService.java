@@ -35,6 +35,8 @@ public class EntrepeneurApplicationRejectService implements AbstractUpdateServic
 		assert entity != null;
 		assert errors != null;
 
+		request.getModel().setAttribute("investmentRound", entity.getInvestmentRound());
+
 		request.bind(entity, errors, "rejectJustification");
 	}
 
