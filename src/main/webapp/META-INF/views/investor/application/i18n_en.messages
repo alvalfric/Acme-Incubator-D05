@@ -3,6 +3,7 @@ investor.application.form.label.ticker = Ticker
 investor.application.form.label.creation = Creation date
 investor.application.form.label.statement = Statement
 investor.application.form.label.offer = Offer
+investor.application.form.label.status = Status
 
 investor.application.list.label.ticker = Ticker
 investor.application.list.label.creation = Creation

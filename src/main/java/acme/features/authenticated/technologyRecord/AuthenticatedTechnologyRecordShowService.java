@@ -30,7 +30,9 @@ public class AuthenticatedTechnologyRecordShowService implements AbstractShowSer
 		assert entity != null;
 		assert model != null;
 
-		model.setAttribute("rating", entity.getRating());
+		if (entity.getStars() != null) {
+			model.setAttribute("rating", entity.getRating());
+		}
 
 		request.unbind(entity, model, "title", "activitySector", "inventorName", "description", "website", "email", "sourceType", "stars");
 	}

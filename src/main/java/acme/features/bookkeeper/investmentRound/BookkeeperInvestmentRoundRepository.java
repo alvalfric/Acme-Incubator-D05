@@ -21,7 +21,7 @@ public interface BookkeeperInvestmentRoundRepository extends AbstractRepository 
 	@Query("select a.investmentRound from AccountingRecord a where a.bookkeeper.userAccount.id=?1")
 	Collection<InvestmentRound> findManyAllWritten(int id);
 
-	@Query("select i from InvestmentRound i")
+	@Query("select i from InvestmentRound i where i.finalMode = true")
 	Collection<InvestmentRound> findManyAll();
 
 	@Query("select a from Activity a where a.investmentRound.id=?1")

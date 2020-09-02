@@ -3,6 +3,7 @@ investor.application.form.label.ticker = Identificador
 investor.application.form.label.creation = Fecha de creación
 investor.application.form.label.statement = Declaración
 investor.application.form.label.offer = Oferta
+investor.application.form.label.status = Estado
 
 investor.application.list.label.ticker = Identificador
 investor.application.list.label.creation = Fecha de creación

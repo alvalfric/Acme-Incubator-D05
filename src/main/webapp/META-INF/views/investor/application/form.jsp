@@ -9,6 +9,7 @@
 	<br><br>
 	<acme:form-textbox code="investor.application.form.label.ticker" path="ticker" readonly="true"/>
 	<acme:form-textbox code="investor.application.form.label.creation" path="creation" readonly="true"/>
+	<acme:form-textbox code="investor.application.form.label.status" path="status" readonly="true"/>
 	<acme:form-textarea code="investor.application.form.label.statement" path="statement"/>
 	<acme:form-textbox code="investor.application.form.label.offer" path="offer" />
 	<jstl:if test="${status != 'pending' && !status.isEmpty() && command != 'create'}">

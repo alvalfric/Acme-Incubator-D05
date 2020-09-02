@@ -23,12 +23,12 @@ tr:nth-child(even) {
 	<acme:form-textbox code="entrepeneur.investment-round.form.label.ticker" path="ticker" readonly="true"/>
 	<acme:form-textbox code="entrepeneur.investment-round.form.label.creation" path="creation" readonly="true"/>	
 	<acme:form-select code="entrepeneur.investment-round.form.label.round" path="round" readonly="${isFinalMode}">
-		<acme:form-option code="entrepeneur.investment-round.form.label.seed" value="SEED"/>
-		<acme:form-option code="entrepeneur.investment-round.form.label.angel" value="ANGEL"/>
-		<acme:form-option code="entrepeneur.investment-round.form.label.seriesA" value="SERIES-A"/>
-		<acme:form-option code="entrepeneur.investment-round.form.label.seriesB" value="SERIES-B"/>
-		<acme:form-option code="entrepeneur.investment-round.form.label.seriesC" value="SERIES-C"/>
-		<acme:form-option code="entrepeneur.investment-round.form.label.bridge" value="BRIDGE"/>
+		<acme:form-option code="entrepeneur.investment-round.form.label.seed" value="SEED" selected="${round == 'SEED'}"/>
+		<acme:form-option code="entrepeneur.investment-round.form.label.angel" value="ANGEL" selected="${round == 'ANGEL'}"/>
+		<acme:form-option code="entrepeneur.investment-round.form.label.seriesA" value="SERIES-A" selected="${round == 'SERIES-A'}"/>
+		<acme:form-option code="entrepeneur.investment-round.form.label.seriesB" value="SERIES-B" selected="${round == 'SERIES-B'}"/>
+		<acme:form-option code="entrepeneur.investment-round.form.label.seriesC" value="SERIES-C" selected="${round == 'SERIES-C'}"/>
+		<acme:form-option code="entrepeneur.investment-round.form.label.bridge" value="BRIDGE" selected="${round == 'BRIDGE'}"/>
 	</acme:form-select>
 	<acme:form-textbox code="entrepeneur.investment-round.form.label.title" path="title" readonly="${isFinalMode}"/>
 	<acme:form-textarea code="entrepeneur.investment-round.form.label.description" path="description" readonly="${isFinalMode}"/>

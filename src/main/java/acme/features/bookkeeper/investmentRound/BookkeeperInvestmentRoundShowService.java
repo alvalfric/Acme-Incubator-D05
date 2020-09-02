@@ -25,7 +25,9 @@ public class BookkeeperInvestmentRoundShowService implements AbstractShowService
 	public boolean authorise(final Request<InvestmentRound> request) {
 		assert request != null;
 
-		return true;
+		InvestmentRound investment = this.repository.findOneById(request.getModel().getInteger("id"));
+
+		return investment.isFinalMode();
 	}
 
 	@Override

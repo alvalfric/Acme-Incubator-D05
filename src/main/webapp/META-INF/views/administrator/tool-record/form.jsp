@@ -22,8 +22,16 @@
 	<acme:form-url code="administrator.tool-record.form.label.website" path="website" placeholder="https://example.com/"/>
 	<acme:form-textbox code="administrator.tool-record.form.label.email" path="email" placeholder="user@mail.com"/>
 	<acme:form-select code="administrator.tool-record.form.label.sourceType" path="sourceType">
-		<acme:form-option code="administrator.tool-record.form.label.openSource" value="Open-Source"/>
-		<acme:form-option code="administrator.tool-record.form.label.closedSource" value="Closed-Source"/>
+	<jstl:choose>
+		<jstl:when test="${sourceType == 'Closed-Source'}">
+			<acme:form-option code="administrator.tool-record.form.label.openSource" value="Open-Source"/>
+			<acme:form-option code="administrator.tool-record.form.label.closedSource" value="Closed-Source" selected="true"/>
+		</jstl:when>
+		<jstl:otherwise>
+			<acme:form-option code="administrator.tool-record.form.label.openSource" value="Open-Source" selected="true"/>
+			<acme:form-option code="administrator.tool-record.form.label.closedSource" value="Closed-Source"/>
+		</jstl:otherwise>
+	</jstl:choose>
 	</acme:form-select>
 	<acme:form-textbox code="administrator.tool-record.form.label.stars" path="stars" placeholder="5"/>
 

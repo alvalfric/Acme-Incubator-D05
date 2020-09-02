@@ -84,10 +84,15 @@ public class AuthenticatedForumMessageCreateService implements AbstractCreateSer
 		assert errors != null;
 
 		boolean titleIsSpam = this.spamChecker(entity.getTitle());
+		boolean tagsIsSpam = this.spamChecker(entity.getTags());
 		boolean bodyIsSpam = this.spamChecker(entity.getBody());
 
 		if (!errors.hasErrors("title")) {
 			errors.state(request, !titleIsSpam, "title", "authenticated.forum-message.error.spam");
+		}
+
+		if (!errors.hasErrors("tags")) {
+			errors.state(request, !tagsIsSpam, "tags", "authenticated.forum-message.error.spam");
 		}
 
 		if (!errors.hasErrors("body")) {
