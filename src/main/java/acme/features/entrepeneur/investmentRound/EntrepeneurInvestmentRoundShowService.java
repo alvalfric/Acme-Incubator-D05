@@ -46,6 +46,8 @@ public class EntrepeneurInvestmentRoundShowService implements AbstractShowServic
 		InvestmentRound investmentSaved = this.repository.findOneById(entity.getId());
 		model.setAttribute("canCreateForum", forum == null && entity.getEntrepeneur().getUserAccount().getId() == request.getPrincipal().getAccountId() && investmentSaved.isFinalMode());
 
+		model.setAttribute("isFinalMode", entity.isFinalMode());
+
 		request.unbind(entity, model, "ticker", "creation", "round", "title", "description", "amount", "link", "finalMode");
 	}
 

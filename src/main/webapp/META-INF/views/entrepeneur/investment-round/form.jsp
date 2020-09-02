@@ -22,7 +22,7 @@ tr:nth-child(even) {
 <acme:form>
 	<acme:form-textbox code="entrepeneur.investment-round.form.label.ticker" path="ticker" readonly="true"/>
 	<acme:form-textbox code="entrepeneur.investment-round.form.label.creation" path="creation" readonly="true"/>	
-	<acme:form-select code="entrepeneur.investment-round.form.label.round" path="round">
+	<acme:form-select code="entrepeneur.investment-round.form.label.round" path="round" readonly="${isFinalMode}">
 		<acme:form-option code="entrepeneur.investment-round.form.label.seed" value="SEED"/>
 		<acme:form-option code="entrepeneur.investment-round.form.label.angel" value="ANGEL"/>
 		<acme:form-option code="entrepeneur.investment-round.form.label.seriesA" value="SERIES-A"/>
@@ -30,10 +30,10 @@ tr:nth-child(even) {
 		<acme:form-option code="entrepeneur.investment-round.form.label.seriesC" value="SERIES-C"/>
 		<acme:form-option code="entrepeneur.investment-round.form.label.bridge" value="BRIDGE"/>
 	</acme:form-select>
-	<acme:form-textbox code="entrepeneur.investment-round.form.label.title" path="title" />
-	<acme:form-textarea code="entrepeneur.investment-round.form.label.description" path="description"/>
+	<acme:form-textbox code="entrepeneur.investment-round.form.label.title" path="title" readonly="${isFinalMode}"/>
+	<acme:form-textarea code="entrepeneur.investment-round.form.label.description" path="description" readonly="${isFinalMode}"/>
 	<acme:form-textbox code="entrepeneur.investment-round.form.label.amount" path="amount" readonly="true"/>
-	<acme:form-textbox code="entrepeneur.investment-round.form.label.link" path="link" />
+	<acme:form-textbox code="entrepeneur.investment-round.form.label.link" path="link" readonly="${isFinalMode}"/>
 	<jstl:if test="${command != 'create'}">
 		<acme:form-checkbox code="entrepeneur.investment-round.form.label.finalMode" path="finalMode" />
 	</jstl:if>
@@ -91,7 +91,7 @@ tr:nth-child(even) {
 	<acme:form-submit test="${command == 'delete' && canBeDeleted}"
 		code="entrepeneur.investment-round.button.delete" 
 		action="/entrepeneur/investment-round/delete"/>
-	<acme:form-submit test="${canCreateForum}"
+	<acme:form-submit test="${canCreateForum && isFinalMode}"
 		code="entrepeneur.investment-round.form.button.forum.create"
 		action="/authenticated/forum/create?investmentRoundId=${id}"/>
 	<acme:form-submit method="get" test="${command == 'show'}" 

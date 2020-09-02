@@ -30,6 +30,8 @@ public class AuthenticatedToolRecordShowService implements AbstractShowService<A
 		assert entity != null;
 		assert model != null;
 
+		model.setAttribute("rating", entity.getRating());
+
 		request.unbind(entity, model, "title", "activitySector", "inventorName", "description", "website", "email", "sourceType", "stars");
 	}
 
