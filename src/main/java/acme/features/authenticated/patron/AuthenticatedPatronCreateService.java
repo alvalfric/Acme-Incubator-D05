@@ -86,7 +86,7 @@ public class AuthenticatedPatronCreateService implements AbstractCreateService<A
 		if (!errors.hasErrors("number")) {
 			String regexCreditCardNumber = "^(?:4[0-9]{12}(?:[0-9]{3})?|(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\\d{3})\\d{11})$";
 			if (entity.getNumber().isEmpty()) {
-				errors.state(request, creditCardFieldsEmpty, "number", "authenticated.banner.error.field.empty");
+				errors.state(request, creditCardFieldsEmpty, "number", "authenticated.patron.error.field.empty");
 			} else if (entity.getNumber().matches("^[0-9]+$")) {
 				errors.state(request, this.checkLuhnCreditCardNumber(entity.getNumber()) && entity.getNumber().matches(regexCreditCardNumber), "number", "authenticated.patron.error.number.invalid");
 			} else {
@@ -103,7 +103,7 @@ public class AuthenticatedPatronCreateService implements AbstractCreateService<A
 		if (!errors.hasErrors("expirationDate")) {
 
 			if (entity.getExpirationDate().isEmpty() && entity.getExpirationDate() != null) {
-				errors.state(request, creditCardFieldsEmpty, "expirationDate", "patron.banner.error.field.empty");
+				errors.state(request, creditCardFieldsEmpty, "expirationDate", "authenticated.patron.error.field.empty");
 			} else if (!entity.getExpirationDate().matches("^(0[1-9]|1[0-2])\\/20([0-9]{2})$")) {
 
 				errors.state(request, false, "expirationDate", "authenticated.patron.error.expirationDate.format");

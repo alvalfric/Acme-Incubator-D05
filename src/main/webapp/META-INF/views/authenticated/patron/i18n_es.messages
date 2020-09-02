@@ -11,7 +11,7 @@ authenticated.patron.form.button.update = Actualizar
 authenticated.patron.form.button.return = Volver
 
 authenticated.patron.error.field.empty = No puede estar en blanco al insertar una tarjeta de crédito
-authenticated.patron.error.number.number = Debe ser un número
+authenticated.patron.error.number.number = Debe ser un número positivo
 authenticated.patron.error.number.invalid = Número inválido
 authenticated.patron.error.expirationDate.format = Formato invalido, debe ser mes/año
 authenticated.patron.error.expirationDate.valid = Debe estar en presente o en futuro
